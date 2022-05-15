@@ -16,6 +16,8 @@
 		A332D9D72831A72B0020FC30 /* MainTabControllerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A332D9D62831A72B0020FC30 /* MainTabControllerViewModel.swift */; };
 		A332D9DE2831A99A0020FC30 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A332D9DD2831A99A0020FC30 /* MainViewController.swift */; };
 		A332D9E02831A9C30020FC30 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A332D9DF2831A9C30020FC30 /* MainViewController.swift */; };
+		A332D9E52831AC630020FC30 /* ToDoListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A332D9E42831AC630020FC30 /* ToDoListViewController.swift */; };
+		A332D9E72831AC830020FC30 /* ToDoListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A332D9E62831AC820020FC30 /* ToDoListViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +32,8 @@
 		A332D9D62831A72B0020FC30 /* MainTabControllerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabControllerViewModel.swift; sourceTree = "<group>"; };
 		A332D9DD2831A99A0020FC30 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		A332D9DF2831A9C30020FC30 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		A332D9E42831AC630020FC30 /* ToDoListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoListViewController.swift; sourceTree = "<group>"; };
+		A332D9E62831AC820020FC30 /* ToDoListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoListViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,6 +140,7 @@
 			children = (
 				A332D9D92831A8180020FC30 /* Main */,
 				A332D9DA2831A8240020FC30 /* To do list */,
+				A332D9E12831AC0D0020FC30 /* Settings */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -152,6 +157,8 @@
 		A332D9DA2831A8240020FC30 /* To do list */ = {
 			isa = PBXGroup;
 			children = (
+				A332D9E32831AC450020FC30 /* ViewModel */,
+				A332D9E22831AC400020FC30 /* View */,
 			);
 			path = "To do list";
 			sourceTree = "<group>";
@@ -168,6 +175,29 @@
 			isa = PBXGroup;
 			children = (
 				A332D9DF2831A9C30020FC30 /* MainViewController.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		A332D9E12831AC0D0020FC30 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		A332D9E22831AC400020FC30 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				A332D9E42831AC630020FC30 /* ToDoListViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		A332D9E32831AC450020FC30 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				A332D9E62831AC820020FC30 /* ToDoListViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -242,6 +272,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A332D9E72831AC830020FC30 /* ToDoListViewModel.swift in Sources */,
+				A332D9E52831AC630020FC30 /* ToDoListViewController.swift in Sources */,
 				A332D9E02831A9C30020FC30 /* MainViewController.swift in Sources */,
 				A332D9B728318F1B0020FC30 /* AppDelegate.swift in Sources */,
 				A332D9B928318F1B0020FC30 /* SceneDelegate.swift in Sources */,
