@@ -20,6 +20,7 @@
 		A332D9EE2831AEA70020FC30 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A332D9ED2831AEA70020FC30 /* SettingsViewController.swift */; };
 		A3524C292832ED21007077C7 /* ColorsExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3524C282832ED21007077C7 /* ColorsExtension.swift */; };
 		A35D59E62832FACC007FFC49 /* MasterPieceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A35D59E52832FACC007FFC49 /* MasterPieceTableViewCell.swift */; };
+		A35D59EA28330333007FFC49 /* ItemsContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A35D59E928330333007FFC49 /* ItemsContainerView.swift */; };
 		A3E85FE92831C989009BED96 /* TheKitchedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E85FE82831C989009BED96 /* TheKitchedViewModel.swift */; };
 		A3E85FEB2831C9A2009BED96 /* TheKitchenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E85FEA2831C9A1009BED96 /* TheKitchenViewController.swift */; };
 /* End PBXBuildFile section */
@@ -40,6 +41,7 @@
 		A332D9ED2831AEA70020FC30 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		A3524C282832ED21007077C7 /* ColorsExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorsExtension.swift; sourceTree = "<group>"; };
 		A35D59E52832FACC007FFC49 /* MasterPieceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterPieceTableViewCell.swift; sourceTree = "<group>"; };
+		A35D59E928330333007FFC49 /* ItemsContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsContainerView.swift; sourceTree = "<group>"; };
 		A3E85FE82831C989009BED96 /* TheKitchedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheKitchedViewModel.swift; sourceTree = "<group>"; };
 		A3E85FEA2831C9A1009BED96 /* TheKitchenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheKitchenViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -177,6 +179,8 @@
 		A332D9DB2831A91C0020FC30 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				A35D59E8283302FB007FFC49 /* Containers */,
+				A35D59E7283302EB007FFC49 /* Images */,
 				A3524C2A2832F9E8007077C7 /* Cells */,
 			);
 			path = View;
@@ -244,6 +248,21 @@
 				A35D59E52832FACC007FFC49 /* MasterPieceTableViewCell.swift */,
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		A35D59E7283302EB007FFC49 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
+		A35D59E8283302FB007FFC49 /* Containers */ = {
+			isa = PBXGroup;
+			children = (
+				A35D59E928330333007FFC49 /* ItemsContainerView.swift */,
+			);
+			path = Containers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -327,6 +346,7 @@
 				A332D9D72831A72B0020FC30 /* MainTabControllerViewModel.swift in Sources */,
 				A332D9D42831A5660020FC30 /* MainTabController.swift in Sources */,
 				A332D9C128318F1B0020FC30 /* iCookPad.xcdatamodeld in Sources */,
+				A35D59EA28330333007FFC49 /* ItemsContainerView.swift in Sources */,
 				A3E85FEB2831C9A2009BED96 /* TheKitchenViewController.swift in Sources */,
 				A3524C292832ED21007077C7 /* ColorsExtension.swift in Sources */,
 			);
