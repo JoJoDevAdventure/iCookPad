@@ -16,12 +16,9 @@ enum TabBarModel: CaseIterable {
     var viewController: UIViewController {
         switch self {
         case .mainView:
-            let viewModel = ToDoListViewModel()
-            let vc = ToDoListViewController(viewModel: viewModel)
+            let viewModel = TheKitchedViewModel()
+            let vc = TheKitchenViewController(viewModel: viewModel)
             return vc
-//            let viewModel = MainViewModel()
-//            let vc = MainViewController(viewModel: viewModel)
-//            return vc
         case .todoList:
             let viewModel = ToDoListViewModel()
             let vc = ToDoListViewController(viewModel: viewModel)

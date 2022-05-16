@@ -18,6 +18,7 @@
 		A332D9E72831AC830020FC30 /* ToDoListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A332D9E62831AC820020FC30 /* ToDoListViewModel.swift */; };
 		A332D9EB2831AE890020FC30 /* SettingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A332D9EA2831AE890020FC30 /* SettingViewModel.swift */; };
 		A332D9EE2831AEA70020FC30 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A332D9ED2831AEA70020FC30 /* SettingsViewController.swift */; };
+		A3524C292832ED21007077C7 /* ColorsExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3524C282832ED21007077C7 /* ColorsExtension.swift */; };
 		A3E85FE92831C989009BED96 /* TheKitchedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E85FE82831C989009BED96 /* TheKitchedViewModel.swift */; };
 		A3E85FEB2831C9A2009BED96 /* TheKitchenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E85FEA2831C9A1009BED96 /* TheKitchenViewController.swift */; };
 /* End PBXBuildFile section */
@@ -36,6 +37,7 @@
 		A332D9E62831AC820020FC30 /* ToDoListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoListViewModel.swift; sourceTree = "<group>"; };
 		A332D9EA2831AE890020FC30 /* SettingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewModel.swift; sourceTree = "<group>"; };
 		A332D9ED2831AEA70020FC30 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		A3524C282832ED21007077C7 /* ColorsExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorsExtension.swift; sourceTree = "<group>"; };
 		A3E85FE82831C989009BED96 /* TheKitchedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheKitchedViewModel.swift; sourceTree = "<group>"; };
 		A3E85FEA2831C9A1009BED96 /* TheKitchenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheKitchenViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -73,6 +75,7 @@
 				A332D9CD2831A2940020FC30 /* Ressources */,
 				A332D9CE2831A2B60020FC30 /* Extensions */,
 				A332D9D02831A4030020FC30 /* Managers */,
+				A3524C272832EBD1007077C7 /* Networking */,
 				A332D9CF2831A3180020FC30 /* Controllers */,
 				A332D9C228318F1D0020FC30 /* Assets.xcassets */,
 				A332D9C428318F1D0020FC30 /* LaunchScreen.storyboard */,
@@ -94,6 +97,7 @@
 		A332D9CE2831A2B60020FC30 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				A3524C282832ED21007077C7 /* ColorsExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -143,6 +147,7 @@
 			isa = PBXGroup;
 			children = (
 				A332D9D92831A8180020FC30 /* Main */,
+				A3E85FEA2831C9A1009BED96 /* TheKitchenViewController.swift */,
 				A332D9DA2831A8240020FC30 /* To do list */,
 				A332D9E12831AC0D0020FC30 /* Settings */,
 			);
@@ -170,7 +175,6 @@
 		A332D9DB2831A91C0020FC30 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				A3E85FEA2831C9A1009BED96 /* TheKitchenViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -222,6 +226,13 @@
 				A332D9EA2831AE890020FC30 /* SettingViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		A3524C272832EBD1007077C7 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Networking;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -305,6 +316,7 @@
 				A332D9D42831A5660020FC30 /* MainTabController.swift in Sources */,
 				A332D9C128318F1B0020FC30 /* iCookPad.xcdatamodeld in Sources */,
 				A3E85FEB2831C9A2009BED96 /* TheKitchenViewController.swift in Sources */,
+				A3524C292832ED21007077C7 /* ColorsExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
