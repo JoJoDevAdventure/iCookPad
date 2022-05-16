@@ -13,9 +13,10 @@ class TheKitchenViewController: UIViewController {
     
     private let tableView: UITableView = {
         let tableView = UITableView()
+        tableView.backgroundColor = UIColor.BackgroundColors.background
+        tableView.register(MasterPieceTableViewCell.self, forCellReuseIdentifier: MasterPieceTableViewCell.identifier)
         return tableView
     }()
-    
     
     // MARK: - View Model
     let viewModel: TheKitchedViewModel
@@ -34,6 +35,7 @@ class TheKitchenViewController: UIViewController {
         super.viewDidLoad()
         setupNavBar()
         setupSubviews()
+        setupTableView()
     }
     
     // MARK: - Set up
@@ -45,11 +47,16 @@ class TheKitchenViewController: UIViewController {
         navigationController?.navigationBar.tintColor = .white
         navigationController?.navigationBar.backgroundColor = UIColor.BackgroundColors.background
         navigationController?.navigationBar.largeTitleTextAttributes = [.foregroundColor: UIColor.LabelColors.mainTitleColor, .font: UIFont.systemFont(ofSize: 68, weight: UIFont.Weight.bold) ]
-        navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.LabelColors.mainTitleColor, .font: UIFont.systemFont(ofSize: 38, weight: UIFont.Weight.semibold)]
+        navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.LabelColors.mainTitleColor, .font: UIFont.systemFont(ofSize: 36, weight: UIFont.Weight.semibold)]
     }
     
     private func setupSubviews() {
         view.addSubview(tableView)
+    }
+    
+    private func setupTableView() {
+        tableView.delegate = self
+        tableView.dataSource = self
     }
     
     override func viewDidLayoutSubviews() {
@@ -64,3 +71,34 @@ class TheKitchenViewController: UIViewController {
 
 }
 // MARK: - Extensions
+extension TheKitchenViewController: UITableViewDelegate, UITableViewDataSource {
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 3
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        switch indexPath.section {
+        case 0 :
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: MasterPieceTableViewCell.identifier) as? MasterPieceTableViewCell else { return UITableViewCell() }
+            cell.backgroundColor = .black
+            return cell
+        default :
+            return UITableViewCell()
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        switch indexPath.section {
+        case 0 :
+            return view.bounds.height/2
+        default :
+            return 0
+        }
+    }
+    
+}
