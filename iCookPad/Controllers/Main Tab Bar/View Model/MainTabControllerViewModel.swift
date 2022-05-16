@@ -16,35 +16,42 @@ enum TabBarModel: CaseIterable {
     var viewController: UIViewController {
         switch self {
         case .mainView:
-            let viewModel = MainViewModel()
-            let vc = MainViewController(viewModel: viewModel)
+            let viewModel = ToDoListViewModel()
+            let vc = ToDoListViewController(viewModel: viewModel)
             return vc
+//            let viewModel = MainViewModel()
+//            let vc = MainViewController(viewModel: viewModel)
+//            return vc
         case .todoList:
-            
+            let viewModel = ToDoListViewModel()
+            let vc = ToDoListViewController(viewModel: viewModel)
+            return vc
         case .settings:
-            <#code#>
+            let viewModel = SettingViewModel()
+            let vc = SettingsViewController(viewModel: viewModel)
+            return vc
         }
     }
     
     var title: String {
         switch self {
         case .mainView:
-            <#code#>
+            return "The Kitchen"
         case .todoList:
-            <#code#>
+            return "To Do"
         case .settings:
-            <#code#>
+            return "Settings"
         }
     }
     
     var iconName: String {
         switch self {
         case .mainView:
-            <#code#>
+            return "dial.min"
         case .todoList:
-            <#code#>
+            return "decrease.indent"
         case .settings:
-            <#code#>
+            return "gearshape"
         }
     }
     

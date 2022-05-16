@@ -14,12 +14,12 @@
 		A332D9C628318F1D0020FC30 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A332D9C428318F1D0020FC30 /* LaunchScreen.storyboard */; };
 		A332D9D42831A5660020FC30 /* MainTabController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A332D9D32831A5660020FC30 /* MainTabController.swift */; };
 		A332D9D72831A72B0020FC30 /* MainTabControllerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A332D9D62831A72B0020FC30 /* MainTabControllerViewModel.swift */; };
-		A332D9DE2831A99A0020FC30 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A332D9DD2831A99A0020FC30 /* MainViewController.swift */; };
-		A332D9E02831A9C30020FC30 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A332D9DF2831A9C30020FC30 /* MainViewController.swift */; };
 		A332D9E52831AC630020FC30 /* ToDoListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A332D9E42831AC630020FC30 /* ToDoListViewController.swift */; };
 		A332D9E72831AC830020FC30 /* ToDoListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A332D9E62831AC820020FC30 /* ToDoListViewModel.swift */; };
 		A332D9EB2831AE890020FC30 /* SettingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A332D9EA2831AE890020FC30 /* SettingViewModel.swift */; };
 		A332D9EE2831AEA70020FC30 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A332D9ED2831AEA70020FC30 /* SettingsViewController.swift */; };
+		A3E85FE92831C989009BED96 /* TheKitchedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E85FE82831C989009BED96 /* TheKitchedViewModel.swift */; };
+		A3E85FEB2831C9A2009BED96 /* TheKitchenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E85FEA2831C9A1009BED96 /* TheKitchenViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,12 +32,12 @@
 		A332D9C728318F1D0020FC30 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A332D9D32831A5660020FC30 /* MainTabController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabController.swift; sourceTree = "<group>"; };
 		A332D9D62831A72B0020FC30 /* MainTabControllerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabControllerViewModel.swift; sourceTree = "<group>"; };
-		A332D9DD2831A99A0020FC30 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
-		A332D9DF2831A9C30020FC30 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		A332D9E42831AC630020FC30 /* ToDoListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoListViewController.swift; sourceTree = "<group>"; };
 		A332D9E62831AC820020FC30 /* ToDoListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoListViewModel.swift; sourceTree = "<group>"; };
 		A332D9EA2831AE890020FC30 /* SettingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewModel.swift; sourceTree = "<group>"; };
 		A332D9ED2831AEA70020FC30 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		A3E85FE82831C989009BED96 /* TheKitchedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheKitchedViewModel.swift; sourceTree = "<group>"; };
+		A3E85FEA2831C9A1009BED96 /* TheKitchenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheKitchenViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -170,7 +170,7 @@
 		A332D9DB2831A91C0020FC30 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				A332D9DD2831A99A0020FC30 /* MainViewController.swift */,
+				A3E85FEA2831C9A1009BED96 /* TheKitchenViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -178,7 +178,7 @@
 		A332D9DC2831A92B0020FC30 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				A332D9DF2831A9C30020FC30 /* MainViewController.swift */,
+				A3E85FE82831C989009BED96 /* TheKitchedViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -297,14 +297,14 @@
 				A332D9E72831AC830020FC30 /* ToDoListViewModel.swift in Sources */,
 				A332D9E52831AC630020FC30 /* ToDoListViewController.swift in Sources */,
 				A332D9EE2831AEA70020FC30 /* SettingsViewController.swift in Sources */,
-				A332D9E02831A9C30020FC30 /* MainViewController.swift in Sources */,
 				A332D9B728318F1B0020FC30 /* AppDelegate.swift in Sources */,
 				A332D9B928318F1B0020FC30 /* SceneDelegate.swift in Sources */,
+				A3E85FE92831C989009BED96 /* TheKitchedViewModel.swift in Sources */,
 				A332D9EB2831AE890020FC30 /* SettingViewModel.swift in Sources */,
 				A332D9D72831A72B0020FC30 /* MainTabControllerViewModel.swift in Sources */,
-				A332D9DE2831A99A0020FC30 /* MainViewController.swift in Sources */,
 				A332D9D42831A5660020FC30 /* MainTabController.swift in Sources */,
 				A332D9C128318F1B0020FC30 /* iCookPad.xcdatamodeld in Sources */,
+				A3E85FEB2831C9A2009BED96 /* TheKitchenViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -1,20 +1,21 @@
 //
-//  MainViewController.swift
+//  TheKitchenViewController.swift
 //  iCookPad
 //
-//  Created by Youssef Bhl on 15/05/2022.
+//  Created by Youssef Bhl on 16/05/2022.
 //
 
 import UIKit
 
-class MainViewController: UIViewController {
-
+class TheKitchenViewController: UIViewController {
+    
     // MARK: - Properties
     
-    // MARK: - View Model
-    let viewModel: MainViewModel
     
-    init(viewModel: MainViewModel) {
+    // MARK: - View Model
+    let viewModel: TheKitchedViewModel
+    
+    init(viewModel: TheKitchedViewModel) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
@@ -30,9 +31,12 @@ class MainViewController: UIViewController {
     
     // MARK: - Set up
     
-    // MARK: - Network Manager calls
     
     // MARK: - Functions
     
+    
+    // MARK: - Network Manager calls
+
+
 }
 // MARK: - Extensions

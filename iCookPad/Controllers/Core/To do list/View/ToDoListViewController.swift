@@ -16,7 +16,8 @@ class ToDoListViewController: UIViewController {
     let viewModel: ToDoListViewModel
     
     init(viewModel: ToDoListViewModel) {
-        
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
     }
 
     required init?(coder: NSCoder) {
