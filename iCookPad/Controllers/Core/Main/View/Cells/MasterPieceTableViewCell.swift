@@ -42,6 +42,33 @@ class MasterPieceTableViewCell: UITableViewCell {
         return label
     }()
     
+    let recipdeDesc: SecondaryLabel = {
+        let label = SecondaryLabel()
+        label.text = "xxxxxx xx xxxx xxxxxxxxx xxx xx xx xx xxxxxxxx xxxxx xxx xx xxxx xxxxxxxxx xxx xx xx xx xxxxxxxx xx xxxxxx xx xxxx xxxxxxxxx xxx xx xx xx xxxxxxxx xx"
+        label.numberOfLines = 0
+        label.textAlignment = .center
+        label.configure(fontSize: 20)
+        return label
+    }()
+    
+    let ingredientsPropretyView: PropretyContainerView = {
+        let view = PropretyContainerView()
+        view.configure(proprety: "Ingredients : ", Value: "5")
+        return view
+    }()
+    
+    let caloriesPropretyView: PropretyContainerView = {
+        let view = PropretyContainerView()
+        view.configure(proprety: "Calories : ", Value: "1400 KCal")
+        return view
+    }()
+    
+    let coastPropretyView: PropretyContainerView = {
+        let view = PropretyContainerView()
+        view.configure(proprety: "Coast : ", Value: "45 $")
+        return view
+    }()
+    
     // MARK: - Life cycle
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -63,6 +90,11 @@ class MasterPieceTableViewCell: UITableViewCell {
         addSubview(titleLabel)
         containerView.addSubview(previewImage)
         containerView.addSubview(recipeTitle)
+        containerView.addSubview(recipdeDesc)
+        containerView.addSubview(ingredientsPropretyView)
+        containerView.addSubview(caloriesPropretyView)
+        containerView.addSubview(coastPropretyView)
+        
     }
     
     private func setupConstraints() {
@@ -88,6 +120,28 @@ class MasterPieceTableViewCell: UITableViewCell {
             recipeTitle.topAnchor.constraint(equalTo: previewImage.topAnchor),
             recipeTitle.rightAnchor.constraint(equalTo: containerView.rightAnchor, constant: -10),
             
+            //container desc
+            recipdeDesc.leftAnchor.constraint(equalTo: recipeTitle.leftAnchor),
+            recipdeDesc.rightAnchor.constraint(equalTo: recipeTitle.rightAnchor),
+            recipdeDesc.topAnchor.constraint(equalTo: recipeTitle.bottomAnchor, constant: 10),
+            
+            //calories proprety
+            caloriesPropretyView.heightAnchor.constraint(equalToConstant: 80),
+            caloriesPropretyView.widthAnchor.constraint(equalToConstant: 165),
+            caloriesPropretyView.topAnchor.constraint(equalTo: previewImage.bottomAnchor, constant: 25),
+            caloriesPropretyView.centerXAnchor.constraint(equalTo: containerView.centerXAnchor),
+            
+            //ingredient proprety
+            ingredientsPropretyView.heightAnchor.constraint(equalToConstant: 80),
+            ingredientsPropretyView.widthAnchor.constraint(equalToConstant: 165),
+            ingredientsPropretyView.topAnchor.constraint(equalTo: caloriesPropretyView.topAnchor),
+            ingredientsPropretyView.rightAnchor.constraint(equalTo: caloriesPropretyView.leftAnchor,constant: -30),
+            
+            //coast proprety
+            coastPropretyView.heightAnchor.constraint(equalToConstant: 80),
+            coastPropretyView.widthAnchor.constraint(equalToConstant: 165),
+            coastPropretyView.topAnchor.constraint(equalTo: caloriesPropretyView.topAnchor),
+            coastPropretyView.leftAnchor.constraint(equalTo: caloriesPropretyView.rightAnchor, constant: 30),
         ]
         NSLayoutConstraint.activate(constraints)
     }
