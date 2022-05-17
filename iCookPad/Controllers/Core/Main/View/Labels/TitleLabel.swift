@@ -9,10 +9,10 @@ import UIKit
 
 class TitleLabel: UILabel {
 
-    func configure() {
-        font = .systemFont(ofSize: 32, weight: .semibold)
-        textColor = UIColor.LabelColors.mainTitleColor
+    func configure(fontSize: CGFloat) {
         translatesAutoresizingMaskIntoConstraints = false
+        font = .systemFont(ofSize: fontSize, weight: .semibold)
+        textColor = UIColor.LabelColors.mainTitleColor
     }
 
 }

@@ -14,6 +14,8 @@ class TheKitchenViewController: UIViewController {
     private let tableView: UITableView = {
         let tableView = UITableView()
         tableView.backgroundColor = UIColor.BackgroundColors.background
+        tableView.sectionIndexColor = .clear
+        tableView.separatorColor = .clear
         tableView.register(MasterPieceTableViewCell.self, forCellReuseIdentifier: MasterPieceTableViewCell.identifier)
         return tableView
     }()
@@ -46,8 +48,8 @@ class TheKitchenViewController: UIViewController {
         navigationController?.navigationItem.largeTitleDisplayMode = .always
         navigationController?.navigationBar.tintColor = .white
         navigationController?.navigationBar.backgroundColor = UIColor.BackgroundColors.background
-        navigationController?.navigationBar.largeTitleTextAttributes = [.foregroundColor: UIColor.LabelColors.mainTitleColor, .font: UIFont.systemFont(ofSize: 68, weight: UIFont.Weight.bold) ]
-        navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.LabelColors.mainTitleColor, .font: UIFont.systemFont(ofSize: 36, weight: UIFont.Weight.semibold)]
+        navigationController?.navigationBar.largeTitleTextAttributes = [.foregroundColor: UIColor.LabelColors.mainTitleColor, .font: UIFont.systemFont(ofSize: 60, weight: UIFont.Weight.bold) ]
+        navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.LabelColors.mainTitleColor, .font: UIFont.systemFont(ofSize: 28, weight: UIFont.Weight.semibold)]
     }
     
     private func setupSubviews() {
