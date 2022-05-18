@@ -87,6 +87,7 @@ extension TheKitchenViewController: UITableViewDelegate, UITableViewDataSource {
         switch indexPath.section {
         case 0 :
             guard let cell = tableView.dequeueReusableCell(withIdentifier: MasterPieceTableViewCell.identifier) as? MasterPieceTableViewCell else { return UITableViewCell() }
+            
             return cell
         default :
             return UITableViewCell()

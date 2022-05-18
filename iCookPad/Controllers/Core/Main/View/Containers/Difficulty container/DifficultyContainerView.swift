@@ -124,5 +124,60 @@ class DifficultyContainerView: UIView {
         ]
         NSLayoutConstraint.activate(constraints)
     }
+    
+    func setupDifficulty(difficulty: Int) {
+        switch difficulty {
+        case 1 :
+            difficulty1Cell.configure(levelOfDifficulty: 1)
+            difficulty2Cell.configure(levelOfDifficulty: 0)
+            difficulty3Cell.configure(levelOfDifficulty: 0)
+            difficulty4Cell.configure(levelOfDifficulty: 0)
+            difficulty5Cell.configure(levelOfDifficulty: 0)
+            difficulty6Cell.configure(levelOfDifficulty: 0)
+        case 2 :
+            difficulty1Cell.configure(levelOfDifficulty: 1)
+            difficulty2Cell.configure(levelOfDifficulty: 2)
+            difficulty3Cell.configure(levelOfDifficulty: 0)
+            difficulty4Cell.configure(levelOfDifficulty: 0)
+            difficulty5Cell.configure(levelOfDifficulty: 0)
+            difficulty6Cell.configure(levelOfDifficulty: 0)
+        case 3 :
+            difficulty1Cell.configure(levelOfDifficulty: 1)
+            difficulty2Cell.configure(levelOfDifficulty: 2)
+            difficulty3Cell.configure(levelOfDifficulty: 3)
+            difficulty4Cell.configure(levelOfDifficulty: 0)
+            difficulty5Cell.configure(levelOfDifficulty: 0)
+            difficulty6Cell.configure(levelOfDifficulty: 0)
+        case 4 :
+            difficulty1Cell.configure(levelOfDifficulty: 1)
+            difficulty2Cell.configure(levelOfDifficulty: 2)
+            difficulty3Cell.configure(levelOfDifficulty: 3)
+            difficulty4Cell.configure(levelOfDifficulty: 4)
+            difficulty5Cell.configure(levelOfDifficulty: 0)
+            difficulty6Cell.configure(levelOfDifficulty: 0)
+        case 5 :
+            difficulty1Cell.configure(levelOfDifficulty: 1)
+            difficulty2Cell.configure(levelOfDifficulty: 2)
+            difficulty3Cell.configure(levelOfDifficulty: 3)
+            difficulty4Cell.configure(levelOfDifficulty: 4)
+            difficulty5Cell.configure(levelOfDifficulty: 5)
+            difficulty6Cell.configure(levelOfDifficulty: 0)
+        case 6 :
+            difficulty1Cell.configure(levelOfDifficulty: 1)
+            difficulty2Cell.configure(levelOfDifficulty: 2)
+            difficulty3Cell.configure(levelOfDifficulty: 3)
+            difficulty4Cell.configure(levelOfDifficulty: 4)
+            difficulty5Cell.configure(levelOfDifficulty: 5)
+            difficulty6Cell.configure(levelOfDifficulty: 6)
+            
+        default :
+            difficulty1Cell.configure(levelOfDifficulty: 0)
+            difficulty2Cell.configure(levelOfDifficulty: 0)
+            difficulty3Cell.configure(levelOfDifficulty: 0)
+            difficulty4Cell.configure(levelOfDifficulty: 0)
+            difficulty5Cell.configure(levelOfDifficulty: 0)
+            difficulty6Cell.configure(levelOfDifficulty: 0)
+        }
+    }
 
 }

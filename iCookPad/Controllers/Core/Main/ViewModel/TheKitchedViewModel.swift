@@ -9,4 +9,8 @@ import Foundation
 
 class TheKitchedViewModel {
     
+    init() {
+        
+    }
+    
 }
