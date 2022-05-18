@@ -26,7 +26,7 @@
 		A35D59F1283340A7007FFC49 /* SecondaryLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A35D59F0283340A7007FFC49 /* SecondaryLabel.swift */; };
 		A35D59F328334348007FFC49 /* PropretyContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A35D59F228334348007FFC49 /* PropretyContainerView.swift */; };
 		A3E49F332833CE280009816C /* DifficultyContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E49F322833CE270009816C /* DifficultyContainerView.swift */; };
-		A3E49F362833CEAC0009816C /* difficultyCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E49F352833CEAC0009816C /* difficultyCellView.swift */; };
+		A3E49F362833CEAC0009816C /* DifficultyCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E49F352833CEAC0009816C /* DifficultyCellView.swift */; };
 		A3E85FE92831C989009BED96 /* TheKitchedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E85FE82831C989009BED96 /* TheKitchedViewModel.swift */; };
 		A3E85FEB2831C9A2009BED96 /* TheKitchenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E85FEA2831C9A1009BED96 /* TheKitchenViewController.swift */; };
 /* End PBXBuildFile section */
@@ -53,7 +53,7 @@
 		A35D59F0283340A7007FFC49 /* SecondaryLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondaryLabel.swift; sourceTree = "<group>"; };
 		A35D59F228334348007FFC49 /* PropretyContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropretyContainerView.swift; sourceTree = "<group>"; };
 		A3E49F322833CE270009816C /* DifficultyContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DifficultyContainerView.swift; sourceTree = "<group>"; };
-		A3E49F352833CEAC0009816C /* difficultyCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = difficultyCellView.swift; sourceTree = "<group>"; };
+		A3E49F352833CEAC0009816C /* DifficultyCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DifficultyCellView.swift; sourceTree = "<group>"; };
 		A3E85FE82831C989009BED96 /* TheKitchedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheKitchedViewModel.swift; sourceTree = "<group>"; };
 		A3E85FEA2831C9A1009BED96 /* TheKitchenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheKitchenViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -294,7 +294,7 @@
 			isa = PBXGroup;
 			children = (
 				A3E49F322833CE270009816C /* DifficultyContainerView.swift */,
-				A3E49F352833CEAC0009816C /* difficultyCellView.swift */,
+				A3E49F352833CEAC0009816C /* DifficultyCellView.swift */,
 			);
 			path = "Difficulty container";
 			sourceTree = "<group>";
@@ -386,7 +386,7 @@
 				A35D59EA28330333007FFC49 /* ItemsContainerView.swift in Sources */,
 				A3E85FEB2831C9A2009BED96 /* TheKitchenViewController.swift in Sources */,
 				A3524C292832ED21007077C7 /* ColorsExtension.swift in Sources */,
-				A3E49F362833CEAC0009816C /* difficultyCellView.swift in Sources */,
+				A3E49F362833CEAC0009816C /* DifficultyCellView.swift in Sources */,
 				A35D59F328334348007FFC49 /* PropretyContainerView.swift in Sources */,
 				A3E49F332833CE280009816C /* DifficultyContainerView.swift in Sources */,
 			);

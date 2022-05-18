@@ -7,7 +7,7 @@
 
 import UIKit
 
-class difficultyCellView: UIView {
+class DifficultyCellView: UIView {
     
     func configure(levelOfDifficulty: Int) {
         layer.cornerRadius = 7

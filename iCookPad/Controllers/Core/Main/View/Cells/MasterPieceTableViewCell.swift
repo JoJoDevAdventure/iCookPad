@@ -75,6 +75,12 @@ class MasterPieceTableViewCell: UITableViewCell {
         return view
     }()
     
+    let difficultyPropretyView: DifficultyContainerView = {
+        let view = DifficultyContainerView()
+        view.configure()
+        return view
+    }()
+    
     // MARK: - Life cycle
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -101,6 +107,7 @@ class MasterPieceTableViewCell: UITableViewCell {
         containerView.addSubview(caloriesPropretyView)
         containerView.addSubview(coastPropretyView)
         containerView.addSubview(timePropretyView)
+        containerView.addSubview(difficultyPropretyView)
         
     }
     
@@ -154,8 +161,13 @@ class MasterPieceTableViewCell: UITableViewCell {
             timePropretyView.heightAnchor.constraint(equalToConstant: 70),
             timePropretyView.widthAnchor.constraint(equalToConstant: 220),
             timePropretyView.topAnchor.constraint(equalTo: caloriesPropretyView.bottomAnchor, constant: 27),
-            timePropretyView.leftAnchor.constraint(equalTo: ingredientsPropretyView.leftAnchor)
+            timePropretyView.leftAnchor.constraint(equalTo: ingredientsPropretyView.leftAnchor),
             
+            //difficulty proprety
+            difficultyPropretyView.heightAnchor.constraint(equalToConstant: 70),
+            difficultyPropretyView.topAnchor.constraint(equalTo: timePropretyView.topAnchor),
+            difficultyPropretyView.widthAnchor.constraint(equalToConstant: 320),
+            difficultyPropretyView.rightAnchor.constraint(equalTo: coastPropretyView.rightAnchor),
             
         ]
         NSLayoutConstraint.activate(constraints)
