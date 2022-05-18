@@ -19,4 +19,12 @@ extension UIColor {
         static let secondLabelColor = UIColor.init(red: 29/255, green: 31/255, blue: 38/255, alpha: 1)
     }
     
+    struct DifficultyColors {
+        static let difficulty1 = UIColor.init(red: 62/255, green: 167/255, blue: 78/255, alpha: 1)
+        static let difficulty2 = UIColor.init(red: 135/255, green: 167/255, blue: 62/255, alpha: 1)
+        static let difficulty3 = UIColor.init(red: 163/255, green: 167/255, blue: 62/255, alpha: 1)
+        static let difficulty4 = UIColor.init(red: 167/255, green: 119/255, blue: 62/255, alpha: 1)
+        static let difficulty5 = UIColor.init(red: 167/255, green: 86/255, blue: 62/255, alpha: 1)
+        static let difficulty6 = UIColor.init(red: 167/255, green: 62/255, blue: 62/255, alpha: 1)
+    }
 }

@@ -96,7 +96,7 @@ extension TheKitchenViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         switch indexPath.section {
         case 0 :
-            return view.bounds.height/2
+            return view.bounds.height/2 + 50
         default :
             return 0
         }

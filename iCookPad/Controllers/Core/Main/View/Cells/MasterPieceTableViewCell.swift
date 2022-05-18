@@ -69,6 +69,12 @@ class MasterPieceTableViewCell: UITableViewCell {
         return view
     }()
     
+    let timePropretyView: PropretyContainerView = {
+        let view = PropretyContainerView()
+        view.configure(proprety: "Preparation Time : ", Value: "45 - 55 min")
+        return view
+    }()
+    
     // MARK: - Life cycle
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -94,19 +100,20 @@ class MasterPieceTableViewCell: UITableViewCell {
         containerView.addSubview(ingredientsPropretyView)
         containerView.addSubview(caloriesPropretyView)
         containerView.addSubview(coastPropretyView)
+        containerView.addSubview(timePropretyView)
         
     }
     
     private func setupConstraints() {
         let constraints = [
             //title
-            titleLabel.topAnchor.constraint(equalTo: topAnchor, constant: 25),
+            titleLabel.topAnchor.constraint(equalTo: topAnchor, constant: 20),
             titleLabel.leftAnchor.constraint(equalTo: leftAnchor, constant: 25),
             
             //container view
             containerView.centerXAnchor.constraint(equalTo: centerXAnchor),
             containerView.centerYAnchor.constraint(equalTo: centerYAnchor, constant: 25),
-            containerView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.75),
+            containerView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.84),
             containerView.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.85),
             
             //preview image
@@ -126,22 +133,30 @@ class MasterPieceTableViewCell: UITableViewCell {
             recipdeDesc.topAnchor.constraint(equalTo: recipeTitle.bottomAnchor, constant: 10),
             
             //calories proprety
-            caloriesPropretyView.heightAnchor.constraint(equalToConstant: 80),
+            caloriesPropretyView.heightAnchor.constraint(equalToConstant: 70),
             caloriesPropretyView.widthAnchor.constraint(equalToConstant: 165),
-            caloriesPropretyView.topAnchor.constraint(equalTo: previewImage.bottomAnchor, constant: 25),
+            caloriesPropretyView.topAnchor.constraint(equalTo: previewImage.bottomAnchor, constant: 27),
             caloriesPropretyView.centerXAnchor.constraint(equalTo: containerView.centerXAnchor),
             
             //ingredient proprety
-            ingredientsPropretyView.heightAnchor.constraint(equalToConstant: 80),
+            ingredientsPropretyView.heightAnchor.constraint(equalToConstant: 70),
             ingredientsPropretyView.widthAnchor.constraint(equalToConstant: 165),
             ingredientsPropretyView.topAnchor.constraint(equalTo: caloriesPropretyView.topAnchor),
-            ingredientsPropretyView.rightAnchor.constraint(equalTo: caloriesPropretyView.leftAnchor,constant: -30),
+            ingredientsPropretyView.rightAnchor.constraint(equalTo: caloriesPropretyView.leftAnchor,constant: -40),
             
             //coast proprety
-            coastPropretyView.heightAnchor.constraint(equalToConstant: 80),
+            coastPropretyView.heightAnchor.constraint(equalToConstant: 70),
             coastPropretyView.widthAnchor.constraint(equalToConstant: 165),
             coastPropretyView.topAnchor.constraint(equalTo: caloriesPropretyView.topAnchor),
-            coastPropretyView.leftAnchor.constraint(equalTo: caloriesPropretyView.rightAnchor, constant: 30),
+            coastPropretyView.leftAnchor.constraint(equalTo: caloriesPropretyView.rightAnchor, constant: 40),
+            
+            //preparation Time proprety
+            timePropretyView.heightAnchor.constraint(equalToConstant: 70),
+            timePropretyView.widthAnchor.constraint(equalToConstant: 220),
+            timePropretyView.topAnchor.constraint(equalTo: caloriesPropretyView.bottomAnchor, constant: 27),
+            timePropretyView.leftAnchor.constraint(equalTo: ingredientsPropretyView.leftAnchor)
+            
+            
         ]
         NSLayoutConstraint.activate(constraints)
     }
