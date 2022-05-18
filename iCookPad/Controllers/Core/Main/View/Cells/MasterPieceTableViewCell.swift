@@ -142,7 +142,7 @@ class MasterPieceTableViewCell: UITableViewCell {
             //calories proprety
             caloriesPropretyView.heightAnchor.constraint(equalToConstant: 70),
             caloriesPropretyView.widthAnchor.constraint(equalToConstant: 165),
-            caloriesPropretyView.topAnchor.constraint(equalTo: previewImage.bottomAnchor, constant: 27),
+            caloriesPropretyView.topAnchor.constraint(equalTo: previewImage.bottomAnchor, constant: 32),
             caloriesPropretyView.centerXAnchor.constraint(equalTo: containerView.centerXAnchor),
             
             //ingredient proprety
