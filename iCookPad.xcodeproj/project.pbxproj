@@ -19,8 +19,9 @@
 		A332D9EB2831AE890020FC30 /* SettingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A332D9EA2831AE890020FC30 /* SettingViewModel.swift */; };
 		A332D9EE2831AEA70020FC30 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A332D9ED2831AEA70020FC30 /* SettingsViewController.swift */; };
 		A34724F92835540A004EBEC1 /* CheifChoiceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A34724F82835540A004EBEC1 /* CheifChoiceView.swift */; };
-		A34724FB28355B9D004EBEC1 /* APIsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A34724FA28355B9D004EBEC1 /* APIsManager.swift */; };
+		A34724FB28355B9D004EBEC1 /* APIsCaller.swift in Sources */ = {isa = PBXBuildFile; fileRef = A34724FA28355B9D004EBEC1 /* APIsCaller.swift */; };
 		A34724FE28355C70004EBEC1 /* RecipeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A34724FD28355C70004EBEC1 /* RecipeModel.swift */; };
+		A347250328356418004EBEC1 /* API PrivateInformations.swift in Sources */ = {isa = PBXBuildFile; fileRef = A347250228356418004EBEC1 /* API PrivateInformations.swift */; };
 		A3524C292832ED21007077C7 /* ColorsExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3524C282832ED21007077C7 /* ColorsExtension.swift */; };
 		A35D59E62832FACC007FFC49 /* MasterPieceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A35D59E52832FACC007FFC49 /* MasterPieceTableViewCell.swift */; };
 		A35D59EA28330333007FFC49 /* ItemsContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A35D59E928330333007FFC49 /* ItemsContainerView.swift */; };
@@ -49,9 +50,10 @@
 		A332D9EA2831AE890020FC30 /* SettingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewModel.swift; sourceTree = "<group>"; };
 		A332D9ED2831AEA70020FC30 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		A34724F82835540A004EBEC1 /* CheifChoiceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheifChoiceView.swift; sourceTree = "<group>"; };
-		A34724FA28355B9D004EBEC1 /* APIsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIsManager.swift; sourceTree = "<group>"; };
+		A34724FA28355B9D004EBEC1 /* APIsCaller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIsCaller.swift; sourceTree = "<group>"; };
 		A34724FD28355C70004EBEC1 /* RecipeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeModel.swift; sourceTree = "<group>"; };
 		A347250128355DC2004EBEC1 /* JSON Response example.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = "JSON Response example.md"; sourceTree = "<group>"; };
+		A347250228356418004EBEC1 /* API PrivateInformations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "API PrivateInformations.swift"; sourceTree = "<group>"; };
 		A3524C282832ED21007077C7 /* ColorsExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorsExtension.swift; sourceTree = "<group>"; };
 		A35D59E52832FACC007FFC49 /* MasterPieceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterPieceTableViewCell.swift; sourceTree = "<group>"; };
 		A35D59E928330333007FFC49 /* ItemsContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsContainerView.swift; sourceTree = "<group>"; };
@@ -138,7 +140,6 @@
 		A332D9D02831A4030020FC30 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
-				A34724FA28355B9D004EBEC1 /* APIsManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -270,6 +271,8 @@
 		A3524C272832EBD1007077C7 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
+				A34724FA28355B9D004EBEC1 /* APIsCaller.swift */,
+				A347250228356418004EBEC1 /* API PrivateInformations.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -392,7 +395,7 @@
 				A35D59EF28330E40007FFC49 /* PreviewImageView.swift in Sources */,
 				A332D9E52831AC630020FC30 /* ToDoListViewController.swift in Sources */,
 				A35D59E62832FACC007FFC49 /* MasterPieceTableViewCell.swift in Sources */,
-				A34724FB28355B9D004EBEC1 /* APIsManager.swift in Sources */,
+				A34724FB28355B9D004EBEC1 /* APIsCaller.swift in Sources */,
 				A35D59ED2833099D007FFC49 /* TitleLabel.swift in Sources */,
 				A34724F92835540A004EBEC1 /* CheifChoiceView.swift in Sources */,
 				A332D9EE2831AEA70020FC30 /* SettingsViewController.swift in Sources */,
@@ -402,6 +405,7 @@
 				A332D9EB2831AE890020FC30 /* SettingViewModel.swift in Sources */,
 				A332D9D72831A72B0020FC30 /* MainTabControllerViewModel.swift in Sources */,
 				A34724FE28355C70004EBEC1 /* RecipeModel.swift in Sources */,
+				A347250328356418004EBEC1 /* API PrivateInformations.swift in Sources */,
 				A332D9D42831A5660020FC30 /* MainTabController.swift in Sources */,
 				A332D9C128318F1B0020FC30 /* iCookPad.xcdatamodeld in Sources */,
 				A35D59F1283340A7007FFC49 /* SecondaryLabel.swift in Sources */,
