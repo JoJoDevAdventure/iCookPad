@@ -7,10 +7,29 @@
 
 import Foundation
 
+protocol TheKitchedViewModelOutPut: AnyObject {
+    func gotRandRecipe(recipe: Recipe)
+    func showErrorMessage(error: Error)
+}
+
 class TheKitchedViewModel {
     
-    init() {
-        
+    weak var output: TheKitchedViewModelOutPut?
+    let TheKitchenService: TheKitchenAPICaller
+    
+    init(TheKitchenService: TheKitchenAPICaller) {
+        self.TheKitchenService = TheKitchenService
+    }
+    
+    func getChiefChoiceRecipe() {
+        TheKitchenService.getOneRandomRecipe {[weak self] results in
+            switch results {
+            case .success(let recipe) :
+                self?.output?.gotRandRecipe(recipe: recipe)
+            case .failure(let error) :
+                self?.output?.showErrorMessage(error: error)
+            }
+        }
     }
     
 }

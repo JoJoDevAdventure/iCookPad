@@ -22,6 +22,8 @@
 		A34724FB28355B9D004EBEC1 /* APIsCaller.swift in Sources */ = {isa = PBXBuildFile; fileRef = A34724FA28355B9D004EBEC1 /* APIsCaller.swift */; };
 		A34724FE28355C70004EBEC1 /* RecipeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A34724FD28355C70004EBEC1 /* RecipeModel.swift */; };
 		A347250328356418004EBEC1 /* API PrivateInformations.swift in Sources */ = {isa = PBXBuildFile; fileRef = A347250228356418004EBEC1 /* API PrivateInformations.swift */; };
+		A34725062835D5D4004EBEC1 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = A34725052835D5D4004EBEC1 /* SDWebImage */; };
+		A34725082835D5D4004EBEC1 /* SDWebImageMapKit in Frameworks */ = {isa = PBXBuildFile; productRef = A34725072835D5D4004EBEC1 /* SDWebImageMapKit */; };
 		A3524C292832ED21007077C7 /* ColorsExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3524C282832ED21007077C7 /* ColorsExtension.swift */; };
 		A35D59E62832FACC007FFC49 /* MasterPieceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A35D59E52832FACC007FFC49 /* MasterPieceTableViewCell.swift */; };
 		A35D59EA28330333007FFC49 /* ItemsContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A35D59E928330333007FFC49 /* ItemsContainerView.swift */; };
@@ -72,6 +74,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A34725082835D5D4004EBEC1 /* SDWebImageMapKit in Frameworks */,
+				A34725062835D5D4004EBEC1 /* SDWebImage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -337,6 +341,10 @@
 			dependencies = (
 			);
 			name = iCookPad;
+			packageProductDependencies = (
+				A34725052835D5D4004EBEC1 /* SDWebImage */,
+				A34725072835D5D4004EBEC1 /* SDWebImageMapKit */,
+			);
 			productName = iCookPad;
 			productReference = A332D9B328318F1B0020FC30 /* iCookPad.app */;
 			productType = "com.apple.product-type.application";
@@ -365,6 +373,9 @@
 				Base,
 			);
 			mainGroup = A332D9AA28318F1B0020FC30;
+			packageReferences = (
+				A34725042835D5D4004EBEC1 /* XCRemoteSwiftPackageReference "SDWebImage" */,
+			);
 			productRefGroup = A332D9B428318F1B0020FC30 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -624,6 +635,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		A34725042835D5D4004EBEC1 /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImage.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		A34725052835D5D4004EBEC1 /* SDWebImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A34725042835D5D4004EBEC1 /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImage;
+		};
+		A34725072835D5D4004EBEC1 /* SDWebImageMapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A34725042835D5D4004EBEC1 /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImageMapKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		A332D9BF28318F1B0020FC30 /* iCookPad.xcdatamodeld */ = {

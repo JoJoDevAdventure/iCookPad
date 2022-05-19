@@ -68,6 +68,9 @@ class MasterPieceTableViewCell: UITableViewCell {
     
     // MARK: - Functions
     
+    func configureWith(recipe: Recipe) {
+        chefChoiceView.configure()
+    }
     
     // MARK: - Network Manager calls
     

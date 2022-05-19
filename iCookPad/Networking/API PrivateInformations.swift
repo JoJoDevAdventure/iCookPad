@@ -14,4 +14,4 @@ struct APIInformations {
     let apiKey = "5f0d16a8c0514dd39a913e5bf9802c65"
 }
 // example of successful api call
-// https://api.spoonacular.com/recipes/716429/information?apiKey=5f0d16a8c0514dd39a913e5bf9802c65&random,number=1&tags=vegetarian,dessert
+// https://api.spoonacular.com/recipes/random?apiKey=5f0d16a8c0514dd39a913e5bf9802c65&number=1&tags=vegetarian,dessert

@@ -146,7 +146,10 @@ class CheifChoiceView: UIView {
     }
 
     
-    func setupWith(difficulty: Int) {
+    func setupWith(difficulty: Int, recipe: Recipe) {
         difficultyPropretyView.setupDifficulty(difficulty: difficulty)
+        recipeTitle.text = recipe.title
+        recipdeDesc.text = recipe.summary
+        ingredientsPropretyView.configure(proprety: "Ingredients :", Value: <#T##String#>)
     }
 }
