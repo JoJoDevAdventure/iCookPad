@@ -16,7 +16,8 @@ enum TabBarModel: CaseIterable {
     var viewController: UIViewController {
         switch self {
         case .mainView:
-            let viewModel = TheKitchedViewModel()
+            let service : TheKitchenAPICaller = APIsCaller()
+            let viewModel = TheKitchedViewModel(TheKitchenService: service)
             let vc = TheKitchenViewController(viewModel: viewModel)
             return vc
         case .todoList:

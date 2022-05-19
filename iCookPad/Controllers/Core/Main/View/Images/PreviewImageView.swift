@@ -10,14 +10,17 @@ import UIKit
 class PreviewImageView: UIImageView {
 
     func configure() {
+        
         layer.cornerRadius = 30
+        clipsToBounds = true
         layer.shadowColor = UIColor.black.cgColor
-        layer.shadowOffset = CGSize(width: 4,
-                                          height: 4)
-        layer.shadowRadius = 6
-        layer.shadowOpacity = 0.3
+        layer.shadowOffset = CGSize(width: 3,
+                                          height: 3)
+        layer.shadowRadius = 4
+        layer.shadowOpacity = 0.8
         translatesAutoresizingMaskIntoConstraints = false
         backgroundColor = .lightGray
+        
     }
 
 }

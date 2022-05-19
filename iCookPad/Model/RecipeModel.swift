@@ -21,6 +21,7 @@ struct Recipe: Decodable {
     var pricePerServing: Double
     var vegan: Bool
     var extendedIngredients: [ExtendedIngredients]
+    var weightWatcherSmartPoints: Int
     var summary: String
     var difficulty: Int?
 }

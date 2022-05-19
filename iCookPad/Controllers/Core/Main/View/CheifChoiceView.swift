@@ -6,12 +6,14 @@
 //
 
 import UIKit
+import SDWebImage
 
 class CheifChoiceView: UIView {
 
     private let containerView: ItemsContainerView = {
         let view = ItemsContainerView()
         view.configure()
+        view.isUserInteractionEnabled = true
         return view
     }()
     
@@ -23,43 +25,43 @@ class CheifChoiceView: UIView {
     
     let recipeTitle: TitleLabel = {
         let label = TitleLabel()
-        label.text  = "XXXXXXXX XXXX XXXXXXX XXX XXXXXXXXXXXX XXX XXXXXXXXX"
+        label.text  = ""
         label.numberOfLines = 3
         label.textAlignment = .center
         label.configure(fontSize: 24)
         return label
     }()
     
-    let recipdeDesc: SecondaryLabel = {
-        let label = SecondaryLabel()
-        label.text = "xxxxxx xx xxxx xxxxxxxxx xxx xx xx xx xxxxxxxx xxxxx xxx xx xxxx xxxxxxxxx xxx xx xx xx xxxxxxxx xx xxxxxx xx xxxx xxxxxxxxx xxx xx xx xx xxxxxxxx xx"
-        label.numberOfLines = 0
-        label.textAlignment = .center
-        label.configure(fontSize: 20)
+    let recipdeDesc: UITextView = {
+        let label = UITextView()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.font = .systemFont(ofSize: 20, weight: .regular)
+        label.textColor = UIColor.LabelColors.secondLabelColor
+        label.isScrollEnabled = true
         return label
     }()
     
     let ingredientsPropretyView: PropretyContainerView = {
         let view = PropretyContainerView()
-        view.configure(proprety: "Ingredients : ", Value: "5")
+        view.configure(proprety: "", Value: "")
         return view
     }()
     
     let caloriesPropretyView: PropretyContainerView = {
         let view = PropretyContainerView()
-        view.configure(proprety: "Calories : ", Value: "1400 KCal")
+        view.configure(proprety: "", Value: "")
         return view
     }()
     
     let coastPropretyView: PropretyContainerView = {
         let view = PropretyContainerView()
-        view.configure(proprety: "Coast : ", Value: "45 $")
+        view.configure(proprety: "", Value: "")
         return view
     }()
     
     let timePropretyView: PropretyContainerView = {
         let view = PropretyContainerView()
-        view.configure(proprety: "Preparation Time : ", Value: "45 - 55 min")
+        view.configure(proprety: "", Value: "")
         return view
     }()
     
@@ -71,6 +73,7 @@ class CheifChoiceView: UIView {
     
     func configure() {
         translatesAutoresizingMaskIntoConstraints = false
+        isUserInteractionEnabled = true
         addSubViews()
         setupConstraints()
     }
@@ -79,7 +82,7 @@ class CheifChoiceView: UIView {
         addSubview(containerView)
         containerView.addSubview(previewImage)
         containerView.addSubview(recipeTitle)
-        containerView.addSubview(recipdeDesc)
+        addSubview(recipdeDesc)
         containerView.addSubview(ingredientsPropretyView)
         containerView.addSubview(caloriesPropretyView)
         containerView.addSubview(coastPropretyView)
@@ -110,6 +113,7 @@ class CheifChoiceView: UIView {
             recipdeDesc.leftAnchor.constraint(equalTo: recipeTitle.leftAnchor),
             recipdeDesc.rightAnchor.constraint(equalTo: recipeTitle.rightAnchor),
             recipdeDesc.topAnchor.constraint(equalTo: recipeTitle.bottomAnchor, constant: 10),
+            recipdeDesc.bottomAnchor.constraint(equalTo: previewImage.bottomAnchor),
             
             //calories proprety
             caloriesPropretyView.heightAnchor.constraint(equalToConstant: 70),
@@ -145,11 +149,16 @@ class CheifChoiceView: UIView {
         NSLayoutConstraint.activate(constraints)
     }
 
-    
     func setupWith(difficulty: Int, recipe: Recipe) {
         difficultyPropretyView.setupDifficulty(difficulty: difficulty)
         recipeTitle.text = recipe.title
-        recipdeDesc.text = recipe.summary
-        ingredientsPropretyView.configure(proprety: "Ingredients :", Value: <#T##String#>)
+        recipdeDesc.text = recipe.summary.html2String
+        ingredientsPropretyView.configure(proprety: "Ingredients : ", Value: "5")
+        caloriesPropretyView.configure(proprety: "Calories : ", Value: "\(recipe.weightWatcherSmartPoints * 35) KCal")
+        coastPropretyView.configure(proprety: "Coast : ", Value: "\(recipe.pricePerServing) $")
+        timePropretyView.configure(proprety: "Preparation Time : ", Value: "\(recipe.readyInMinutes - 5) - \(recipe.readyInMinutes + 5) min")
+        previewImage.sd_setImage(with: URL(string: recipe.image))
+        previewImage.configure()
     }
+    
 }

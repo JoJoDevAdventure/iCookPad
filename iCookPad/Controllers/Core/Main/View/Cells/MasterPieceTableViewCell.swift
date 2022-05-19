@@ -24,7 +24,6 @@ class MasterPieceTableViewCell: UITableViewCell {
     private let chefChoiceView: CheifChoiceView = {
         let view = CheifChoiceView()
         view.configure()
-        view.setupWith(difficulty: 4)
         return view
     }()
     
@@ -34,6 +33,7 @@ class MasterPieceTableViewCell: UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         backgroundColor = UIColor.BackgroundColors.background
         selectionStyle = .none
+        isUserInteractionEnabled = true
         setupSubViews()
         setupConstraints()
     }
@@ -69,7 +69,7 @@ class MasterPieceTableViewCell: UITableViewCell {
     // MARK: - Functions
     
     func configureWith(recipe: Recipe) {
-        chefChoiceView.configure()
+        chefChoiceView.setupWith(difficulty: 4, recipe: recipe)
     }
     
     // MARK: - Network Manager calls

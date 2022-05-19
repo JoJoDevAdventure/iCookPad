@@ -24,6 +24,7 @@
 		A347250328356418004EBEC1 /* API PrivateInformations.swift in Sources */ = {isa = PBXBuildFile; fileRef = A347250228356418004EBEC1 /* API PrivateInformations.swift */; };
 		A34725062835D5D4004EBEC1 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = A34725052835D5D4004EBEC1 /* SDWebImage */; };
 		A34725082835D5D4004EBEC1 /* SDWebImageMapKit in Frameworks */ = {isa = PBXBuildFile; productRef = A34725072835D5D4004EBEC1 /* SDWebImageMapKit */; };
+		A347250A2835E1D9004EBEC1 /* Converters.swift in Sources */ = {isa = PBXBuildFile; fileRef = A34725092835E1D9004EBEC1 /* Converters.swift */; };
 		A3524C292832ED21007077C7 /* ColorsExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3524C282832ED21007077C7 /* ColorsExtension.swift */; };
 		A35D59E62832FACC007FFC49 /* MasterPieceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A35D59E52832FACC007FFC49 /* MasterPieceTableViewCell.swift */; };
 		A35D59EA28330333007FFC49 /* ItemsContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A35D59E928330333007FFC49 /* ItemsContainerView.swift */; };
@@ -56,6 +57,7 @@
 		A34724FD28355C70004EBEC1 /* RecipeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeModel.swift; sourceTree = "<group>"; };
 		A347250128355DC2004EBEC1 /* JSON Response example.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = "JSON Response example.md"; sourceTree = "<group>"; };
 		A347250228356418004EBEC1 /* API PrivateInformations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "API PrivateInformations.swift"; sourceTree = "<group>"; };
+		A34725092835E1D9004EBEC1 /* Converters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Converters.swift; sourceTree = "<group>"; };
 		A3524C282832ED21007077C7 /* ColorsExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorsExtension.swift; sourceTree = "<group>"; };
 		A35D59E52832FACC007FFC49 /* MasterPieceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterPieceTableViewCell.swift; sourceTree = "<group>"; };
 		A35D59E928330333007FFC49 /* ItemsContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsContainerView.swift; sourceTree = "<group>"; };
@@ -128,6 +130,7 @@
 			isa = PBXGroup;
 			children = (
 				A3524C282832ED21007077C7 /* ColorsExtension.swift */,
+				A34725092835E1D9004EBEC1 /* Converters.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -420,6 +423,7 @@
 				A332D9D42831A5660020FC30 /* MainTabController.swift in Sources */,
 				A332D9C128318F1B0020FC30 /* iCookPad.xcdatamodeld in Sources */,
 				A35D59F1283340A7007FFC49 /* SecondaryLabel.swift in Sources */,
+				A347250A2835E1D9004EBEC1 /* Converters.swift in Sources */,
 				A35D59EA28330333007FFC49 /* ItemsContainerView.swift in Sources */,
 				A3E85FEB2831C9A2009BED96 /* TheKitchenViewController.swift in Sources */,
 				A3524C292832ED21007077C7 /* ColorsExtension.swift in Sources */,

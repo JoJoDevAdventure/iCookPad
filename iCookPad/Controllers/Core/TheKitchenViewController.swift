@@ -11,12 +11,15 @@ class TheKitchenViewController: UIViewController {
     
     // MARK: - Properties
     
+    private var chiefChoiceRecipe: Recipe?
+    
     private let tableView: UITableView = {
         let tableView = UITableView()
         tableView.backgroundColor = UIColor.BackgroundColors.background
         tableView.sectionIndexColor = .clear
         tableView.separatorColor = .clear
         tableView.register(MasterPieceTableViewCell.self, forCellReuseIdentifier: MasterPieceTableViewCell.identifier)
+        tableView.isUserInteractionEnabled = true
         return tableView
     }()
     
@@ -26,6 +29,7 @@ class TheKitchenViewController: UIViewController {
     init(viewModel: TheKitchedViewModel) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
+        viewModel.output = self
     }
     
     required init?(coder: NSCoder) {
@@ -38,6 +42,7 @@ class TheKitchenViewController: UIViewController {
         setupNavBar()
         setupSubviews()
         setupTableView()
+        fetchChiefChoiceRecipe()
     }
     
     // MARK: - Set up
@@ -70,6 +75,9 @@ class TheKitchenViewController: UIViewController {
     
     // MARK: - Network Manager calls
 
+    private func fetchChiefChoiceRecipe() {
+        viewModel.getChiefChoiceRecipe()
+    }
 
 }
 // MARK: - Extensions
@@ -87,7 +95,8 @@ extension TheKitchenViewController: UITableViewDelegate, UITableViewDataSource {
         switch indexPath.section {
         case 0 :
             guard let cell = tableView.dequeueReusableCell(withIdentifier: MasterPieceTableViewCell.identifier) as? MasterPieceTableViewCell else { return UITableViewCell() }
-            
+            guard let recipe = self.chiefChoiceRecipe else { return cell}
+            cell.configureWith(recipe: recipe)
             return cell
         default :
             return UITableViewCell()
@@ -103,4 +112,16 @@ extension TheKitchenViewController: UITableViewDelegate, UITableViewDataSource {
         }
     }
     
+}
+
+extension TheKitchenViewController: TheKitchedViewModelOutPut {
+    func gotRandRecipe(recipe: Recipe) {
+        self.chiefChoiceRecipe = recipe
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
+    }
+    func showErrorMessage(error: Error) {
+        print("error")
+    }
 }
