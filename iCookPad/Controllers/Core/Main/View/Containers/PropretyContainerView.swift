@@ -10,6 +10,7 @@ import UIKit
 
 class PropretyContainerView : UIView {
     
+    // description
     private let propretyLabel: UILabel = {
         let label = UILabel()
         label.textColor = UIColor.LabelColors.secondLabelColor
@@ -19,6 +20,7 @@ class PropretyContainerView : UIView {
         return label
     }()
     
+    // value
     private let valueLabel: UILabel = {
         let label = UILabel()
         label.textColor = .gray

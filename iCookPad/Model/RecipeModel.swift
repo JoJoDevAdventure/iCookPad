@@ -7,10 +7,12 @@
 
 import Foundation
 
+//api response model
 struct ApiResponse : Decodable {
     var recipes : [Recipe]
 }
 
+// recipe model
 struct Recipe: Decodable {
     var id: Int
     var title: String
@@ -26,6 +28,7 @@ struct Recipe: Decodable {
     var difficulty: Int?
 }
 
+//steps model
 struct ExtendedIngredients: Decodable {
     var aisle: String?
     var amount: Double?
@@ -38,10 +41,12 @@ struct ExtendedIngredients: Decodable {
     var originalName: String
 }
 
+//measures model
 struct Measures: Decodable {
     var metric: MeasuresType
 }
 
+//measures type
 struct MeasuresType: Decodable {
     var amount: Double
     var unitLong: String

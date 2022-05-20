@@ -18,36 +18,42 @@ class DifficultyContainerView: UIView {
         return label
     }()
     
+    //1
     private let difficulty1Cell: DifficultyCellView = {
         let view = DifficultyCellView()
         view.configure(levelOfDifficulty: 1)
         return view
     }()
     
+    //2
     private let difficulty2Cell: DifficultyCellView = {
         let view = DifficultyCellView()
         view.configure(levelOfDifficulty: 2)
         return view
     }()
     
+    //3
     private let difficulty3Cell: DifficultyCellView = {
         let view = DifficultyCellView()
         view.configure(levelOfDifficulty: 3)
         return view
     }()
     
+    //4
     private let difficulty4Cell: DifficultyCellView = {
         let view = DifficultyCellView()
         view.configure(levelOfDifficulty: 4)
         return view
     }()
     
+    //5
     private let difficulty5Cell: DifficultyCellView = {
         let view = DifficultyCellView()
         view.configure(levelOfDifficulty: 5)
         return view
     }()
     
+    //6
     private let difficulty6Cell: DifficultyCellView = {
         let view = DifficultyCellView()
         view.configure(levelOfDifficulty: 6)
@@ -125,6 +131,7 @@ class DifficultyContainerView: UIView {
         NSLayoutConstraint.activate(constraints)
     }
     
+    //difficulty colors
     func setupDifficulty(difficulty: Int) {
         switch difficulty {
         case 1 :

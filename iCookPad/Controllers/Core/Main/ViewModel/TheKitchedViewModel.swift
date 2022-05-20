@@ -21,6 +21,7 @@ class TheKitchedViewModel {
         self.TheKitchenService = TheKitchenService
     }
     
+    // get chief choice recipe and set it to TheChiken controller
     func getChiefChoiceRecipe() {
         TheKitchenService.getOneRandomRecipe {[weak self] results in
             switch results {

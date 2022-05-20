@@ -7,6 +7,7 @@
 
 import Foundation
 
+//convers recipe sumary from html to text for UIlabel / UItextView
 extension Data {
     var html2AttributedString: NSAttributedString? {
         do {
