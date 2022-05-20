@@ -7,6 +7,7 @@
 
 import Foundation
 
+//calculating difficulty
 struct DifficultyProperty {
     func calculateDifficulty(recipe: Recipe) -> Int {
         let steps = Double(recipe.extendedIngredients.count)

@@ -10,6 +10,7 @@ import SDWebImage
 
 class CheifChoiceView: UIView {
 
+    //rounded container view
     private let containerView: ItemsContainerView = {
         let view = ItemsContainerView()
         view.configure()
@@ -17,12 +18,14 @@ class CheifChoiceView: UIView {
         return view
     }()
     
+    //image preview
     let previewImage: PreviewImageView = {
         let image = PreviewImageView()
         image.configure()
         return image
     }()
     
+    // name of recipe
     let recipeTitle: TitleLabel = {
         let label = TitleLabel()
         label.text  = ""
@@ -32,6 +35,7 @@ class CheifChoiceView: UIView {
         return label
     }()
     
+    // description of recipe
     let recipdeDesc: UITextView = {
         let label = UITextView()
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -41,30 +45,35 @@ class CheifChoiceView: UIView {
         return label
     }()
     
+    //number of steps / ingredients
     let ingredientsPropretyView: PropretyContainerView = {
         let view = PropretyContainerView()
         view.configure(proprety: "", Value: "")
         return view
     }()
     
+    //number of calories
     let caloriesPropretyView: PropretyContainerView = {
         let view = PropretyContainerView()
         view.configure(proprety: "", Value: "")
         return view
     }()
     
+    //coast property view
     let coastPropretyView: PropretyContainerView = {
         let view = PropretyContainerView()
         view.configure(proprety: "", Value: "")
         return view
     }()
     
+    //time of preparation
     let timePropretyView: PropretyContainerView = {
         let view = PropretyContainerView()
         view.configure(proprety: "", Value: "")
         return view
     }()
     
+    //difficulty
     let difficultyPropretyView: DifficultyContainerView = {
         let view = DifficultyContainerView()
         view.configure()
@@ -77,6 +86,8 @@ class CheifChoiceView: UIView {
         addSubViews()
         setupConstraints()
     }
+    
+    //MARK: - Setup
     
     private func addSubViews() {
         addSubview(containerView)
@@ -148,7 +159,8 @@ class CheifChoiceView: UIView {
         ]
         NSLayoutConstraint.activate(constraints)
     }
-
+    
+    //setup chief choice view with api informations
     func setupWith(recipe: Recipe) {
         recipeTitle.text = recipe.title
         recipdeDesc.text = recipe.summary.html2String
