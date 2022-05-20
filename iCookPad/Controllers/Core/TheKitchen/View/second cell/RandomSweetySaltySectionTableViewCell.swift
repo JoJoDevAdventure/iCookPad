@@ -58,7 +58,7 @@ class RandomSweetySaltySectionTableViewCell: UITableViewCell {
         return tableView
     }()
     
-    private let topSaltySeperator: UIView = {
+    private let topSaltySeparator: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.heightAnchor.constraint(equalToConstant: 10).isActive = true
@@ -67,7 +67,7 @@ class RandomSweetySaltySectionTableViewCell: UITableViewCell {
         return view
     }()
     
-    private let topSweetSeperator: UIView = {
+    private let topSweetySeparator: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.heightAnchor.constraint(equalToConstant: 10).isActive = true
@@ -76,7 +76,7 @@ class RandomSweetySaltySectionTableViewCell: UITableViewCell {
         return view
     }()
     
-    private let bottomSaltySeperator: UIView = {
+    private let bottomSaltySeparator: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.heightAnchor.constraint(equalToConstant: 10).isActive = true
@@ -85,7 +85,7 @@ class RandomSweetySaltySectionTableViewCell: UITableViewCell {
         return view
     }()
     
-    private let bottomSweetSeperator: UIView = {
+    private let bottomSweetySeparator: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.heightAnchor.constraint(equalToConstant: 10).isActive = true
@@ -123,10 +123,10 @@ class RandomSweetySaltySectionTableViewCell: UITableViewCell {
     
     private func setupSubviews() {
         addSubview(titleSection)
-        addSubview(topSaltySeperator)
-        addSubview(topSweetSeperator)
-        addSubview(bottomSaltySeperator)
-        addSubview(bottomSweetSeperator)
+        addSubview(topSaltySeparator)
+        addSubview(topSweetySeparator)
+        addSubview(bottomSaltySeparator)
+        addSubview(bottomSweetySeparator)
         addSubview(saltyTitleSection)
         addSubview(saltyRecipesTableView)
         addSubview(sweetyTitleSection)
@@ -145,21 +145,35 @@ class RandomSweetySaltySectionTableViewCell: UITableViewCell {
             sweetyTitleSection.centerXAnchor.constraint(equalTo: sweetyRecipesTableView.centerXAnchor),
             sweetyTitleSection.topAnchor.constraint(equalTo: saltyTitleSection.topAnchor),
             
-            topSaltySeperator.centerXAnchor.constraint(equalTo: saltyRecipesTableView.centerXAnchor),
-            topSaltySeperator.widthAnchor.constraint(equalTo: saltyRecipesTableView.widthAnchor),
-            topSaltySeperator.bottomAnchor.constraint(equalTo: saltyRecipesTableView.topAnchor, constant: 5),
-            
+            /// Salty
+            //top separator
+            topSaltySeparator.centerXAnchor.constraint(equalTo: saltyRecipesTableView.centerXAnchor),
+            topSaltySeparator.widthAnchor.constraint(equalTo: saltyRecipesTableView.widthAnchor),
+            topSaltySeparator.bottomAnchor.constraint(equalTo: saltyRecipesTableView.topAnchor, constant: 5),
+            //tableview
             saltyRecipesTableView.topAnchor.constraint(equalTo: saltyTitleSection.bottomAnchor, constant: 30),
             saltyRecipesTableView.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.5, constant: -50),
             saltyRecipesTableView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.69),
             saltyRecipesTableView.leftAnchor.constraint(equalTo: leftAnchor, constant: 40),
+            //bottom separator
+            bottomSaltySeparator.centerXAnchor.constraint(equalTo: saltyRecipesTableView.centerXAnchor),
+            bottomSaltySeparator.widthAnchor.constraint(equalTo: saltyRecipesTableView.widthAnchor),
+            bottomSaltySeparator.topAnchor.constraint(equalTo: saltyRecipesTableView.bottomAnchor, constant: -5),
             
-            
-            
+            /// Sweet
+            //top separator
+            topSweetySeparator.centerXAnchor.constraint(equalTo: sweetyRecipesTableView.centerXAnchor),
+            topSweetySeparator.widthAnchor.constraint(equalTo: sweetyRecipesTableView.widthAnchor),
+            topSweetySeparator.bottomAnchor.constraint(equalTo: sweetyRecipesTableView.topAnchor, constant: 5),
+            //tableview
             sweetyRecipesTableView.topAnchor.constraint(equalTo: saltyRecipesTableView.topAnchor),
             sweetyRecipesTableView.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.5, constant: -50),
             sweetyRecipesTableView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.69),
             sweetyRecipesTableView.rightAnchor.constraint(equalTo: rightAnchor, constant: -40),
+            //bottom separator
+            bottomSweetySeparator.centerXAnchor.constraint(equalTo: sweetyRecipesTableView.centerXAnchor),
+            bottomSweetySeparator.widthAnchor.constraint(equalTo: sweetyRecipesTableView.widthAnchor),
+            bottomSweetySeparator.topAnchor.constraint(equalTo: sweetyRecipesTableView.bottomAnchor, constant: -5),
             
         ]
         NSLayoutConstraint.activate(constraints)
