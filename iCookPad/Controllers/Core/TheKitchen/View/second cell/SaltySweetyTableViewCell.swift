@@ -8,16 +8,51 @@
 import UIKit
 
 class SaltySweetyTableViewCell: UITableViewCell {
+    
+    // MARK: - Properties
+    static let identifier = "SaltySweetyTableViewCell"
+    
+    private let container: ItemsContainerView = {
+        let view = ItemsContainerView()
+        view.configure()
+        return view
+    }()
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
+    // MARK: - Life cycle
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+        backgroundColor = UIColor.BackgroundColors.background
+        selectionStyle = .none
+        setupSubViews()
+        setupConstraints()
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
     }
-
+    
+    // MARK: - Set up
+    
+    private func setupSubViews() {
+        addSubview(container)
+    }
+    
+    private func setupConstraints() {
+        let constraints = [
+            container.topAnchor.constraint(equalTo: topAnchor, constant: 15),
+            container.leftAnchor.constraint(equalTo: leftAnchor, constant: 15),
+            container.rightAnchor.constraint(equalTo: rightAnchor, constant: -15),
+            container.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -15),
+        ]
+        NSLayoutConstraint.activate(constraints)
+    }
+    
+    // MARK: - Functions
+    
+    
+    // MARK: - Network Manager calls
+    
+    
+    // MARK: - Extensions
+    
 }

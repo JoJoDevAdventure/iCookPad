@@ -31,6 +31,11 @@ class RandomSweetySaltySectionTableViewCell: UITableViewCell {
         let tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.backgroundColor = .gray
+        tableView.register(SaltySweetyTableViewCell.self, forCellReuseIdentifier: SaltySweetyTableViewCell.identifier)
+        tableView.separatorColor = .clear
+        tableView.sectionIndexColor = .clear
+        tableView.backgroundColor = UIColor.BackgroundColors.background
+        tableView.showsVerticalScrollIndicator = false
         return tableView
     }()
     
@@ -45,7 +50,48 @@ class RandomSweetySaltySectionTableViewCell: UITableViewCell {
         let tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.backgroundColor = .gray
+        tableView.register(SaltySweetyTableViewCell.self, forCellReuseIdentifier: SaltySweetyTableViewCell.identifier)
+        tableView.separatorColor = .clear
+        tableView.sectionIndexColor = .clear
+        tableView.backgroundColor = UIColor.BackgroundColors.background
+        tableView.showsVerticalScrollIndicator = false
         return tableView
+    }()
+    
+    private let topSaltySeperator: UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.heightAnchor.constraint(equalToConstant: 10).isActive = true
+        view.layer.cornerRadius = 5
+        view.backgroundColor = UIColor.LabelColors.mainTitleColor
+        return view
+    }()
+    
+    private let topSweetSeperator: UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.heightAnchor.constraint(equalToConstant: 10).isActive = true
+        view.layer.cornerRadius = 5
+        view.backgroundColor = UIColor.LabelColors.mainTitleColor
+        return view
+    }()
+    
+    private let bottomSaltySeperator: UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.heightAnchor.constraint(equalToConstant: 10).isActive = true
+        view.layer.cornerRadius = 5
+        view.backgroundColor = UIColor.LabelColors.mainTitleColor
+        return view
+    }()
+    
+    private let bottomSweetSeperator: UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.heightAnchor.constraint(equalToConstant: 10).isActive = true
+        view.layer.cornerRadius = 5
+        view.backgroundColor = UIColor.LabelColors.mainTitleColor
+        return view
     }()
     
     // MARK: - View Model
@@ -55,9 +101,11 @@ class RandomSweetySaltySectionTableViewCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         selectionStyle = .none
+        contentView.isUserInteractionEnabled = true
         backgroundColor = UIColor.BackgroundColors.background
         setupSubviews()
         setupConstraints()
+        setupTableView()
     }
     
     required init?(coder: NSCoder) {
@@ -66,8 +114,19 @@ class RandomSweetySaltySectionTableViewCell: UITableViewCell {
     
     // MARK: - Set up
     
+    private func setupTableView() {
+        sweetyRecipesTableView.delegate = self
+        saltyRecipesTableView.delegate = self
+        sweetyRecipesTableView.dataSource = self
+        saltyRecipesTableView.dataSource = self
+    }
+    
     private func setupSubviews() {
         addSubview(titleSection)
+        addSubview(topSaltySeperator)
+        addSubview(topSweetSeperator)
+        addSubview(bottomSaltySeperator)
+        addSubview(bottomSweetSeperator)
         addSubview(saltyTitleSection)
         addSubview(saltyRecipesTableView)
         addSubview(sweetyTitleSection)
@@ -76,6 +135,7 @@ class RandomSweetySaltySectionTableViewCell: UITableViewCell {
     
     private func setupConstraints() {
         let constraints = [
+            
             titleSection.topAnchor.constraint(equalTo: topAnchor, constant: 30),
             titleSection.leftAnchor.constraint(equalTo: leftAnchor, constant: 20),
             
@@ -85,15 +145,21 @@ class RandomSweetySaltySectionTableViewCell: UITableViewCell {
             sweetyTitleSection.centerXAnchor.constraint(equalTo: sweetyRecipesTableView.centerXAnchor),
             sweetyTitleSection.topAnchor.constraint(equalTo: saltyTitleSection.topAnchor),
             
+            topSaltySeperator.centerXAnchor.constraint(equalTo: saltyRecipesTableView.centerXAnchor),
+            topSaltySeperator.widthAnchor.constraint(equalTo: saltyRecipesTableView.widthAnchor),
+            topSaltySeperator.bottomAnchor.constraint(equalTo: saltyRecipesTableView.topAnchor, constant: 5),
+            
             saltyRecipesTableView.topAnchor.constraint(equalTo: saltyTitleSection.bottomAnchor, constant: 30),
-            saltyRecipesTableView.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.5, constant: -60),
+            saltyRecipesTableView.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.5, constant: -50),
             saltyRecipesTableView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.69),
-            saltyRecipesTableView.leftAnchor.constraint(equalTo: leftAnchor, constant: 50),
+            saltyRecipesTableView.leftAnchor.constraint(equalTo: leftAnchor, constant: 40),
+            
+            
             
             sweetyRecipesTableView.topAnchor.constraint(equalTo: saltyRecipesTableView.topAnchor),
-            sweetyRecipesTableView.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.5, constant: -60),
+            sweetyRecipesTableView.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.5, constant: -50),
             sweetyRecipesTableView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.69),
-            sweetyRecipesTableView.rightAnchor.constraint(equalTo: rightAnchor, constant: -50),
+            sweetyRecipesTableView.rightAnchor.constraint(equalTo: rightAnchor, constant: -40),
             
         ]
         NSLayoutConstraint.activate(constraints)
@@ -101,5 +167,22 @@ class RandomSweetySaltySectionTableViewCell: UITableViewCell {
     
     // MARK: - Functions
     
+
+}
+// MARK: - Functions
+extension RandomSweetySaltySectionTableViewCell: UITableViewDelegate, UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 5
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: SaltySweetyTableViewCell.identifier) as? SaltySweetyTableViewCell else { return UITableViewCell() }
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return (saltyRecipesTableView.bounds.height / 2) - 10
+    }
     
 }
