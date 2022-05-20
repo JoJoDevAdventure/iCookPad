@@ -17,16 +17,16 @@ struct DifficultyProperty {
          property in calcul : number of steps, coast, prep time
          return should be 1 / 2 / 3 / 4 / 5 / 6
          1 : low steps (2) / coast (7$) / preptime(5min) = 5
-         6 : mac steps (16) / coast (400$) / preptime (120 min) = 50
+         6 : mac steps (12) / coast (200$) / preptime (120 min) = 50
          mesure = step coast per minute
          (coast * step) / min
          
-         1//       < 13.3
-         2// 13.3 -> 21.6
-         3// 21.6 -> 29.9
-         4// 29.9 -> 38.2
-         5// 38.2 -> 46.5
-         6// 46.5 >
+         1// < 2.5
+         2// 2.5 -> 5.625
+         3// 5.625 -> 11.25
+         4// 11.25 -> 16.875
+         5// 16.875 -> 20
+         6// > 20
          */
         let setupCoastPerMinute = (steps * coast) / prepTime
         return 0
