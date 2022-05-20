@@ -149,16 +149,17 @@ class CheifChoiceView: UIView {
         NSLayoutConstraint.activate(constraints)
     }
 
-    func setupWith(difficulty: Int, recipe: Recipe) {
-        difficultyPropretyView.setupDifficulty(difficulty: difficulty)
+    func setupWith(recipe: Recipe) {
         recipeTitle.text = recipe.title
         recipdeDesc.text = recipe.summary.html2String
-        ingredientsPropretyView.configure(proprety: "Ingredients : ", Value: "5")
+        ingredientsPropretyView.configure(proprety: "Prep. steps : ", Value: "\(recipe.extendedIngredients.count)")
         caloriesPropretyView.configure(proprety: "Calories : ", Value: "\(recipe.weightWatcherSmartPoints * 35) KCal")
         coastPropretyView.configure(proprety: "Coast : ", Value: "\(recipe.pricePerServing) $")
         timePropretyView.configure(proprety: "Preparation Time : ", Value: "\(recipe.readyInMinutes - 5) - \(recipe.readyInMinutes + 5) min")
         previewImage.sd_setImage(with: URL(string: recipe.image))
         previewImage.configure()
+        let difficulty = DifficultyProperty().calculateDifficulty(recipe: recipe)
+        difficultyPropretyView.setupDifficulty(difficulty: difficulty)
     }
     
 }

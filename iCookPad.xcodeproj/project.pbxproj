@@ -32,6 +32,7 @@
 		A35D59EF28330E40007FFC49 /* PreviewImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A35D59EE28330E40007FFC49 /* PreviewImageView.swift */; };
 		A35D59F1283340A7007FFC49 /* SecondaryLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A35D59F0283340A7007FFC49 /* SecondaryLabel.swift */; };
 		A35D59F328334348007FFC49 /* PropretyContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A35D59F228334348007FFC49 /* PropretyContainerView.swift */; };
+		A38144452837DAF500F09342 /* Recipe Difficulty Algorithme.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38144442837DAF500F09342 /* Recipe Difficulty Algorithme.swift */; };
 		A3E49F332833CE280009816C /* DifficultyContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E49F322833CE270009816C /* DifficultyContainerView.swift */; };
 		A3E49F362833CEAC0009816C /* DifficultyCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E49F352833CEAC0009816C /* DifficultyCellView.swift */; };
 		A3E85FE92831C989009BED96 /* TheKitchedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E85FE82831C989009BED96 /* TheKitchedViewModel.swift */; };
@@ -65,6 +66,7 @@
 		A35D59EE28330E40007FFC49 /* PreviewImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewImageView.swift; sourceTree = "<group>"; };
 		A35D59F0283340A7007FFC49 /* SecondaryLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondaryLabel.swift; sourceTree = "<group>"; };
 		A35D59F228334348007FFC49 /* PropretyContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropretyContainerView.swift; sourceTree = "<group>"; };
+		A38144442837DAF500F09342 /* Recipe Difficulty Algorithme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Recipe Difficulty Algorithme.swift"; sourceTree = "<group>"; };
 		A3E49F322833CE270009816C /* DifficultyContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DifficultyContainerView.swift; sourceTree = "<group>"; };
 		A3E49F352833CEAC0009816C /* DifficultyCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DifficultyCellView.swift; sourceTree = "<group>"; };
 		A3E85FE82831C989009BED96 /* TheKitchedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheKitchedViewModel.swift; sourceTree = "<group>"; };
@@ -131,6 +133,7 @@
 			children = (
 				A3524C282832ED21007077C7 /* ColorsExtension.swift */,
 				A34725092835E1D9004EBEC1 /* Converters.swift */,
+				A38144442837DAF500F09342 /* Recipe Difficulty Algorithme.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -411,6 +414,7 @@
 				A35D59E62832FACC007FFC49 /* MasterPieceTableViewCell.swift in Sources */,
 				A34724FB28355B9D004EBEC1 /* APIsCaller.swift in Sources */,
 				A35D59ED2833099D007FFC49 /* TitleLabel.swift in Sources */,
+				A38144452837DAF500F09342 /* Recipe Difficulty Algorithme.swift in Sources */,
 				A34724F92835540A004EBEC1 /* CheifChoiceView.swift in Sources */,
 				A332D9EE2831AEA70020FC30 /* SettingsViewController.swift in Sources */,
 				A332D9B728318F1B0020FC30 /* AppDelegate.swift in Sources */,
