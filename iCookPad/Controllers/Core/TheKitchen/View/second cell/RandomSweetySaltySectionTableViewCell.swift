@@ -11,6 +11,9 @@ class RandomSweetySaltySectionTableViewCell: UITableViewCell {
     
     // MARK: - Properties
     
+    var sweetRecipes: [Recipe] = []
+    var saltyRecipeS: [Recipe] = []
+    
     static let identifier = "RandomSweetySaltySectionTableViewCell"
     
     private let titleSection: TitleLabel = {
