@@ -31,11 +31,11 @@ struct DifficultyProperty {
          */
         let setupCoastPerMinute = (steps * coast) / prepTime
         switch setupCoastPerMinute {
-        case 0 ... 2.5 : return 1
-        case 2.5 ... 5.625 : return 2
-        case 5.625 ... 11.25 : return 3
-        case 11.25 ... 16.875 : return 4
-        case 16.875 ... 20 : return 5
+        case 0 ... 3.5 : return 1
+        case 3.5 ... 7 : return 2
+        case 7 ... 12.75 : return 3
+        case 12.75 ... 18 : return 4
+        case 18 ... 22 : return 5
         default :
             return 6
         }

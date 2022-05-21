@@ -42,6 +42,7 @@ class CheifChoiceView: UIView {
         label.font = .systemFont(ofSize: 20, weight: .regular)
         label.textColor = UIColor.LabelColors.secondLabelColor
         label.isScrollEnabled = true
+        label.isEditable = false
         return label
     }()
     
@@ -77,6 +78,7 @@ class CheifChoiceView: UIView {
     let difficultyPropretyView: DifficultyContainerView = {
         let view = DifficultyContainerView()
         view.configure()
+        view.setupDifficulty(difficulty: 0)
         return view
     }()
     
@@ -166,7 +168,8 @@ class CheifChoiceView: UIView {
         recipdeDesc.text = recipe.summary.html2String
         ingredientsPropretyView.configure(proprety: "Prep. steps : ", Value: "\(recipe.extendedIngredients.count)")
         caloriesPropretyView.configure(proprety: "Calories : ", Value: "\(recipe.weightWatcherSmartPoints * 35) KCal")
-        coastPropretyView.configure(proprety: "Coast : ", Value: "\(recipe.pricePerServing) $")
+        let price = String(format: "Value: %.2f", recipe.pricePerServing/100)
+        coastPropretyView.configure(proprety: "Coast : ", Value: "\(price) $")
         timePropretyView.configure(proprety: "Preparation Time : ", Value: "\(recipe.readyInMinutes - 5) - \(recipe.readyInMinutes + 5) min")
         previewImage.sd_setImage(with: URL(string: recipe.image))
         previewImage.configure()

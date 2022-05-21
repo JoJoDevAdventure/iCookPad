@@ -13,13 +13,13 @@ class PreviewImageView: UIImageView {
         
         layer.cornerRadius = 30
         clipsToBounds = true
+        backgroundColor = .lightGray
         layer.shadowColor = UIColor.black.cgColor
         layer.shadowOffset = CGSize(width: 3,
                                           height: 3)
-        layer.shadowRadius = 4
-        layer.shadowOpacity = 0.8
+        layer.shadowRadius = 2
+        layer.shadowOpacity = 0.4
         translatesAutoresizingMaskIntoConstraints = false
-        backgroundColor = .lightGray
     }
 
 }

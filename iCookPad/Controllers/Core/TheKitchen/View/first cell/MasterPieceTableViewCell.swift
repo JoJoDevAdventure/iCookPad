@@ -33,7 +33,7 @@ class MasterPieceTableViewCell: UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         backgroundColor = UIColor.BackgroundColors.background
         selectionStyle = .none
-        isUserInteractionEnabled = true
+        contentView.isUserInteractionEnabled = true
         setupSubViews()
         setupConstraints()
     }
