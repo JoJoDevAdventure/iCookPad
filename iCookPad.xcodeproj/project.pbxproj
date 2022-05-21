@@ -32,7 +32,8 @@
 		A35D59EF28330E40007FFC49 /* PreviewImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A35D59EE28330E40007FFC49 /* PreviewImageView.swift */; };
 		A35D59F1283340A7007FFC49 /* SecondaryLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A35D59F0283340A7007FFC49 /* SecondaryLabel.swift */; };
 		A35D59F328334348007FFC49 /* PropretyContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A35D59F228334348007FFC49 /* PropretyContainerView.swift */; };
-		A37B7FDB283840A100C0EFDE /* RandomSweetySaltyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37B7FDA283840A100C0EFDE /* RandomSweetySaltyTableViewCell.swift */; };
+		A37B7FDB283840A100C0EFDE /* RandomSweetySaltySectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37B7FDA283840A100C0EFDE /* RandomSweetySaltySectionTableViewCell.swift */; };
+		A37B7FDD28384CDD00C0EFDE /* SaltySweetyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37B7FDC28384CDD00C0EFDE /* SaltySweetyTableViewCell.swift */; };
 		A38144452837DAF500F09342 /* Recipe Difficulty Algorithme.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38144442837DAF500F09342 /* Recipe Difficulty Algorithme.swift */; };
 		A3E49F332833CE280009816C /* DifficultyContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E49F322833CE270009816C /* DifficultyContainerView.swift */; };
 		A3E49F362833CEAC0009816C /* DifficultyCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E49F352833CEAC0009816C /* DifficultyCellView.swift */; };
@@ -67,7 +68,8 @@
 		A35D59EE28330E40007FFC49 /* PreviewImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewImageView.swift; sourceTree = "<group>"; };
 		A35D59F0283340A7007FFC49 /* SecondaryLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondaryLabel.swift; sourceTree = "<group>"; };
 		A35D59F228334348007FFC49 /* PropretyContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropretyContainerView.swift; sourceTree = "<group>"; };
-		A37B7FDA283840A100C0EFDE /* RandomSweetySaltyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomSweetySaltyTableViewCell.swift; sourceTree = "<group>"; };
+		A37B7FDA283840A100C0EFDE /* RandomSweetySaltySectionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomSweetySaltySectionTableViewCell.swift; sourceTree = "<group>"; };
+		A37B7FDC28384CDD00C0EFDE /* SaltySweetyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaltySweetyTableViewCell.swift; sourceTree = "<group>"; };
 		A38144442837DAF500F09342 /* Recipe Difficulty Algorithme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Recipe Difficulty Algorithme.swift"; sourceTree = "<group>"; };
 		A3E49F322833CE270009816C /* DifficultyContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DifficultyContainerView.swift; sourceTree = "<group>"; };
 		A3E49F352833CEAC0009816C /* DifficultyCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DifficultyCellView.swift; sourceTree = "<group>"; };
@@ -185,21 +187,21 @@
 		A332D9D82831A7FA0020FC30 /* Core */ = {
 			isa = PBXGroup;
 			children = (
-				A332D9D92831A8180020FC30 /* Main */,
-				A3E85FEA2831C9A1009BED96 /* TheKitchenViewController.swift */,
+				A332D9D92831A8180020FC30 /* TheKitchen */,
 				A332D9DA2831A8240020FC30 /* To do list */,
 				A332D9E12831AC0D0020FC30 /* Settings */,
 			);
 			path = Core;
 			sourceTree = "<group>";
 		};
-		A332D9D92831A8180020FC30 /* Main */ = {
+		A332D9D92831A8180020FC30 /* TheKitchen */ = {
 			isa = PBXGroup;
 			children = (
-				A332D9DC2831A92B0020FC30 /* ViewModel */,
 				A332D9DB2831A91C0020FC30 /* View */,
+				A332D9DC2831A92B0020FC30 /* ViewModel */,
+				A3E85FEA2831C9A1009BED96 /* TheKitchenViewController.swift */,
 			);
-			path = Main;
+			path = TheKitchen;
 			sourceTree = "<group>";
 		};
 		A332D9DA2831A8240020FC30 /* To do list */ = {
@@ -219,7 +221,6 @@
 				A35D59EB28330942007FFC49 /* Labels */,
 				A35D59E8283302FB007FFC49 /* Containers */,
 				A35D59E7283302EB007FFC49 /* Images */,
-				A3524C2A2832F9E8007077C7 /* Cells */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -291,13 +292,6 @@
 			path = Networking;
 			sourceTree = "<group>";
 		};
-		A3524C2A2832F9E8007077C7 /* Cells */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Cells;
-			sourceTree = "<group>";
-		};
 		A35D59E7283302EB007FFC49 /* Images */ = {
 			isa = PBXGroup;
 			children = (
@@ -344,7 +338,8 @@
 		A37B7FD92838407900C0EFDE /* second cell */ = {
 			isa = PBXGroup;
 			children = (
-				A37B7FDA283840A100C0EFDE /* RandomSweetySaltyTableViewCell.swift */,
+				A37B7FDA283840A100C0EFDE /* RandomSweetySaltySectionTableViewCell.swift */,
+				A37B7FDC28384CDD00C0EFDE /* SaltySweetyTableViewCell.swift */,
 			);
 			path = "second cell";
 			sourceTree = "<group>";
@@ -453,12 +448,13 @@
 				A347250328356418004EBEC1 /* API PrivateInformations.swift in Sources */,
 				A332D9D42831A5660020FC30 /* MainTabController.swift in Sources */,
 				A332D9C128318F1B0020FC30 /* iCookPad.xcdatamodeld in Sources */,
-				A37B7FDB283840A100C0EFDE /* RandomSweetySaltyTableViewCell.swift in Sources */,
+				A37B7FDB283840A100C0EFDE /* RandomSweetySaltySectionTableViewCell.swift in Sources */,
 				A35D59F1283340A7007FFC49 /* SecondaryLabel.swift in Sources */,
 				A347250A2835E1D9004EBEC1 /* Converters.swift in Sources */,
 				A35D59EA28330333007FFC49 /* ItemsContainerView.swift in Sources */,
 				A3E85FEB2831C9A2009BED96 /* TheKitchenViewController.swift in Sources */,
 				A3524C292832ED21007077C7 /* ColorsExtension.swift in Sources */,
+				A37B7FDD28384CDD00C0EFDE /* SaltySweetyTableViewCell.swift in Sources */,
 				A3E49F362833CEAC0009816C /* DifficultyCellView.swift in Sources */,
 				A35D59F328334348007FFC49 /* PropretyContainerView.swift in Sources */,
 				A3E49F332833CE280009816C /* DifficultyContainerView.swift in Sources */,

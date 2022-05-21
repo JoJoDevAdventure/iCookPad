@@ -19,6 +19,7 @@ class TheKitchenViewController: UIViewController {
         tableView.sectionIndexColor = .clear
         tableView.separatorColor = .clear
         tableView.register(MasterPieceTableViewCell.self, forCellReuseIdentifier: MasterPieceTableViewCell.identifier)
+        tableView.register(RandomSweetySaltySectionTableViewCell.self, forCellReuseIdentifier: RandomSweetySaltySectionTableViewCell.identifier)
         tableView.isUserInteractionEnabled = true
         return tableView
     }()
@@ -98,6 +99,10 @@ extension TheKitchenViewController: UITableViewDelegate, UITableViewDataSource {
             guard let recipe = self.chiefChoiceRecipe else { return cell}
             cell.configureWith(recipe: recipe)
             return cell
+            
+        case 1 :
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: RandomSweetySaltySectionTableViewCell.identifier) as? RandomSweetySaltySectionTableViewCell else { return UITableViewCell()}
+            return cell
         default :
             return UITableViewCell()
         }
@@ -107,6 +112,8 @@ extension TheKitchenViewController: UITableViewDelegate, UITableViewDataSource {
         switch indexPath.section {
         case 0 :
             return view.bounds.height/2 + 50
+        case 1 :
+            return view.bounds.height - 150
         default :
             return 0
         }
