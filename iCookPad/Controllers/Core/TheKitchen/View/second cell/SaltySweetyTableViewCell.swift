@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class SaltySweetyTableViewCell: UITableViewCell {
     
@@ -46,6 +47,7 @@ class SaltySweetyTableViewCell: UITableViewCell {
     private let difficultyProperty: DifficultyContainerView = {
         let view = DifficultyContainerView()
         view.configure()
+        view.setupDifficulty(difficulty: 0)
         return view
     }()
 
@@ -107,11 +109,12 @@ class SaltySweetyTableViewCell: UITableViewCell {
     }
     
     // MARK: - Functions
-    
-    
-    // MARK: - Network Manager calls
-    
-    
-    // MARK: - Extensions
-    
+
+    func configure(recipe: Recipe) {
+        recipeTitle.text = recipe.title
+        guard let url = recipe.image else { return }
+        previewImage.sd_setImage(with: URL(string: url))
+        let difficulty = DifficultyProperty().calculateDifficulty(recipe: recipe)
+        difficultyProperty.setupDifficulty(difficulty: difficulty)
+    }
 }

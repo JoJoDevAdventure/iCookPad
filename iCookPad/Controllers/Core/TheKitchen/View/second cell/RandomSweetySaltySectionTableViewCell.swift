@@ -12,7 +12,7 @@ class RandomSweetySaltySectionTableViewCell: UITableViewCell {
     // MARK: - Properties
     
     var sweetRecipes: [Recipe] = []
-    var saltyRecipeS: [Recipe] = []
+    var saltyRecipes: [Recipe] = []
     
     static let identifier = "RandomSweetySaltySectionTableViewCell"
     
@@ -190,16 +190,48 @@ class RandomSweetySaltySectionTableViewCell: UITableViewCell {
 extension RandomSweetySaltySectionTableViewCell: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        if tableView == sweetyRecipesTableView {
+            if sweetRecipes.isEmpty {
+                sweetyRecipesTableView.isHidden = true
+            } else {
+                sweetyRecipesTableView.isHidden = false
+            }
+            return sweetRecipes.count
+        } else if tableView == saltyRecipesTableView {
+            if saltyRecipes.isEmpty {
+                saltyRecipesTableView.isHidden = true
+            } else {
+                saltyRecipesTableView.isHidden = false
+            }
+            return saltyRecipes.count
+        }
+        return 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: SaltySweetyTableViewCell.identifier) as? SaltySweetyTableViewCell else { return UITableViewCell() }
+        if tableView == sweetyRecipesTableView {
+            let recipe = sweetRecipes[indexPath.row]
+            cell.configure(recipe: recipe)
+        } else if tableView == saltyRecipesTableView {
+            let recipe = saltyRecipes[indexPath.row]
+            cell.configure(recipe: recipe)
+            return cell
+        }
         return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return (saltyRecipesTableView.bounds.height / 2) - 10
+    }
+    
+    func configure(salty: [Recipe], sweety: [Recipe]) {
+        self.saltyRecipes = salty
+        self.sweetRecipes = sweety
+        DispatchQueue.main.async {
+            self.sweetyRecipesTableView.reloadData()
+            self.saltyRecipesTableView.reloadData()
+        }
     }
     
 }

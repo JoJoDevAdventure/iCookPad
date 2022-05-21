@@ -12,6 +12,8 @@ class TheKitchenViewController: UIViewController {
     // MARK: - Properties
     
     private var chiefChoiceRecipe: Recipe?
+    private var saltyRecipes: [Recipe] = []
+    private var sweetRecipes: [Recipe] = []
     
     private let tableView: UITableView = {
         let tableView = UITableView()
@@ -78,6 +80,7 @@ class TheKitchenViewController: UIViewController {
 
     private func fetchChiefChoiceRecipe() {
         viewModel.getChiefChoiceRecipe()
+        viewModel.getSaltySweetRecipes()
     }
 
 }
@@ -102,6 +105,7 @@ extension TheKitchenViewController: UITableViewDelegate, UITableViewDataSource {
             
         case 1 :
             guard let cell = tableView.dequeueReusableCell(withIdentifier: RandomSweetySaltySectionTableViewCell.identifier) as? RandomSweetySaltySectionTableViewCell else { return UITableViewCell()}
+            cell.configure(salty: saltyRecipes, sweety: sweetRecipes)
             return cell
         default :
             return UITableViewCell()
@@ -122,6 +126,32 @@ extension TheKitchenViewController: UITableViewDelegate, UITableViewDataSource {
 }
 
 extension TheKitchenViewController: TheKitchedViewModelOutPut {
+    func showErrorMessageFetchingRandom(error: Error) {
+        print(error.localizedDescription)
+    }
+    
+    func showErrorMessageFetchingSalty(error: Error) {
+        print(error.localizedDescription)
+    }
+    
+    func showErrorMessageFetchingSweet(error: Error) {
+        print(error.localizedDescription)
+    }
+    
+    func gotSweetRecipes(sweetRecipes: [Recipe]) {
+        self.sweetRecipes = sweetRecipes
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
+    }
+    
+    func gotSaltyRecipes(saltyRecipes: [Recipe]) {
+        self.saltyRecipes = saltyRecipes
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
+    }
+    
     func gotRandRecipe(recipe: Recipe) {
         self.chiefChoiceRecipe = recipe
         DispatchQueue.main.async {
