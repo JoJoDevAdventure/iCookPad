@@ -112,7 +112,8 @@ class SaltySweetyTableViewCell: UITableViewCell {
 
     func configure(recipe: Recipe) {
         recipeTitle.text = recipe.title
-        previewImage.sd_setImage(with: URL(string: recipe.image))
+        guard let url = recipe.image else { return }
+        previewImage.sd_setImage(with: URL(string: url))
         let difficulty = DifficultyProperty().calculateDifficulty(recipe: recipe)
         difficultyProperty.setupDifficulty(difficulty: difficulty)
     }

@@ -166,13 +166,18 @@ class CheifChoiceView: UIView {
     //setup chief choice view with api informations
     func setupWith(recipe: Recipe) {
         recipeTitle.text = recipe.title
-        recipdeDesc.text = recipe.summary.html2String
-        ingredientsPropretyView.configure(proprety: "Prep. steps : ", Value: "\(recipe.extendedIngredients.count)")
-        caloriesPropretyView.configure(proprety: "Calories : ", Value: "\(recipe.weightWatcherSmartPoints * 35) KCal")
-        let price = String(format: "Value: %.2f", recipe.pricePerServing/100)
+        guard let summary = recipe.summary else { return }
+        recipdeDesc.text = summary.html2String
+        guard let steps = recipe.extendedIngredients else { return }
+        ingredientsPropretyView.configure(proprety: "Prep. steps : ", Value: "\(steps.count)")
+        guard let calories = recipe.weightWatcherSmartPoints else { return }
+        caloriesPropretyView.configure(proprety: "Calories : ", Value: "\(calories * 35) KCal")
+        guard let priceD = recipe.pricePerServing else { return }
+        let price = String(format: "Value: %.2f", priceD/100)
         coastPropretyView.configure(proprety: "Coast : ", Value: "\(price) $")
         timePropretyView.configure(proprety: "Preparation Time : ", Value: "\(recipe.readyInMinutes - 5) - \(recipe.readyInMinutes + 5) min")
-        previewImage.sd_setImage(with: URL(string: recipe.image))
+        guard let url = recipe.image else { return }
+        previewImage.sd_setImage(with: URL(string: url))
         previewImage.configure()
         let difficulty = DifficultyProperty().calculateDifficulty(recipe: recipe)
         difficultyPropretyView.setupDifficulty(difficulty: difficulty)

@@ -14,17 +14,17 @@ struct ApiResponse : Decodable {
 
 // recipe model
 struct Recipe: Decodable {
-    var id: Int
-    var title: String
-    var image: String
+    var id: Int?
+    var title: String?
+    var image: String?
     var readyInMinutes: Int
-    var healthScore: Double
+    var healthScore: Double?
     var spoonacularScore: Double?
-    var pricePerServing: Double
-    var vegan: Bool
-    var extendedIngredients: [ExtendedIngredients]
-    var weightWatcherSmartPoints: Int
-    var summary: String
+    var pricePerServing: Double?
+    var vegan: Bool?
+    var extendedIngredients: [ExtendedIngredients]?
+    var weightWatcherSmartPoints: Int?
+    var summary: String?
     var difficulty: Int?
 }
 

@@ -10,7 +10,8 @@ import Foundation
 //calculating difficulty
 struct DifficultyProperty {
     func calculateDifficulty(recipe: Recipe) -> Int {
-        let steps = Double(recipe.extendedIngredients.count)
+        guard let stepsC = recipe.extendedIngredients else { return 0 }
+        let steps = Double(stepsC.count)
         let prepTime = Double(recipe.readyInMinutes)
         let coast = recipe.pricePerServing
         //difficulty calcul :
@@ -29,6 +30,9 @@ struct DifficultyProperty {
          5// 16.875 -> 20
          6// > 20
          */
+        guard let coast = coast else {
+            return 0
+        }
         let setupCoastPerMinute = (steps * coast) / prepTime
         switch setupCoastPerMinute {
         case 0 ... 3.5 : return 1
