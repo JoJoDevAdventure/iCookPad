@@ -15,13 +15,14 @@ class SaltySweetyTableViewCell: UITableViewCell {
     private let container: ItemsContainerView = {
         let view = ItemsContainerView()
         view.configure()
+        view.layer.cornerRadius = 20
         return view
     }()
     
     private let recipeTitle: TitleLabel = {
         let label = TitleLabel()
         label.configure(fontSize: 24)
-        label.text = "This is recipe title"
+        label.text = "This is recipe title a delicious recipe"
         label.textAlignment = .center
         label.numberOfLines = 2
         return label
@@ -30,6 +31,7 @@ class SaltySweetyTableViewCell: UITableViewCell {
     private let informationContainer: ItemsContainerView = {
         let view = ItemsContainerView()
         view.configure()
+        view.layer.cornerRadius = 15
         return view
     }()
     
@@ -37,7 +39,14 @@ class SaltySweetyTableViewCell: UITableViewCell {
         let image = PreviewImageView()
         image.backgroundColor = .gray
         image.configure()
+        image.layer.cornerRadius = 15
         return image
+    }()
+    
+    private let difficultyProperty: DifficultyContainerView = {
+        let view = DifficultyContainerView()
+        view.configure()
+        return view
     }()
 
     // MARK: - Life cycle
@@ -59,6 +68,8 @@ class SaltySweetyTableViewCell: UITableViewCell {
         addSubview(container)
         container.addSubview(previewImage)
         container.addSubview(recipeTitle)
+        container.addSubview(informationContainer)
+        container.addSubview(difficultyProperty)
     }
     
     private func setupConstraints() {
@@ -72,13 +83,25 @@ class SaltySweetyTableViewCell: UITableViewCell {
             // title
             recipeTitle.widthAnchor.constraint(equalTo: container.widthAnchor, constant: -20),
             recipeTitle.centerXAnchor.constraint(equalTo: container.centerXAnchor),
-            recipeTitle.topAnchor.constraint(equalTo: container.topAnchor, constant: 20),
+            recipeTitle.topAnchor.constraint(equalTo: container.topAnchor, constant: 15),
             
             //image preview
             previewImage.widthAnchor.constraint(equalTo: container.widthAnchor, multiplier: 0.45),
             previewImage.heightAnchor.constraint(equalTo: previewImage.widthAnchor, multiplier: 0.9),
-            previewImage.leftAnchor.constraint(equalTo: container.leftAnchor, constant: 15),
+            previewImage.leftAnchor.constraint(equalTo: container.leftAnchor, constant: 10),
             previewImage.topAnchor.constraint(equalTo: recipeTitle.bottomAnchor, constant: 15),
+            
+            //container for informations
+            informationContainer.widthAnchor.constraint(equalTo: previewImage.widthAnchor),
+            informationContainer.heightAnchor.constraint(equalTo: previewImage.heightAnchor),
+            informationContainer.rightAnchor.constraint(equalTo: container.rightAnchor, constant: -10),
+            informationContainer.topAnchor.constraint(equalTo: previewImage.topAnchor),
+            
+            //difficulty property
+            difficultyProperty.widthAnchor.constraint(equalTo: container.widthAnchor, constant: -30),
+            difficultyProperty.centerXAnchor.constraint(equalTo: container.centerXAnchor),
+            difficultyProperty.topAnchor.constraint(equalTo: informationContainer.bottomAnchor, constant: 10),
+            difficultyProperty.heightAnchor.constraint(equalTo: container.heightAnchor, multiplier: 0.22)
         ]
         NSLayoutConstraint.activate(constraints)
     }

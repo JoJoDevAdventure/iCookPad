@@ -20,7 +20,6 @@ class PreviewImageView: UIImageView {
         layer.shadowOpacity = 0.8
         translatesAutoresizingMaskIntoConstraints = false
         backgroundColor = .lightGray
-        
     }
 
 }
