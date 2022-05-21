@@ -43,6 +43,7 @@ class CheifChoiceView: UIView {
         label.textColor = UIColor.LabelColors.secondLabelColor
         label.isScrollEnabled = true
         label.isEditable = false
+        label.textAlignment = .center
         return label
     }()
     
