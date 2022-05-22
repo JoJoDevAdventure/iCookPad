@@ -47,7 +47,6 @@ class SaltySweetyTableViewCell: UITableViewCell {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = .systemFont(ofSize: 18, weight: .semibold)
         label.textColor = UIColor.LabelColors.secondLabelColor
-        label.text = "1200 KCal"
         return label
     }()
     
@@ -62,7 +61,6 @@ class SaltySweetyTableViewCell: UITableViewCell {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = .systemFont(ofSize: 18, weight: .semibold)
         label.textColor = UIColor.LabelColors.secondLabelColor
-        label.text = "40-50 min"
         return label
     }()
     
@@ -77,7 +75,6 @@ class SaltySweetyTableViewCell: UITableViewCell {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = .systemFont(ofSize: 18, weight: .semibold)
         label.textColor = UIColor.LabelColors.secondLabelColor
-        label.text = "2.99 $"
         return label
     }()
     
