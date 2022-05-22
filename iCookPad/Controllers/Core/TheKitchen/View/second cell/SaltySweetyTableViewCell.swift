@@ -187,5 +187,12 @@ class SaltySweetyTableViewCell: UITableViewCell {
         previewImage.sd_setImage(with: URL(string: url))
         let difficulty = DifficultyProperty().calculateDifficulty(recipe: recipe)
         difficultyProperty.setupDifficulty(difficulty: difficulty)
+        guard let calories = recipe.weightWatcherSmartPoints else { return }
+        caloriesValueLabel.text = "\(calories*35) KCal"
+        let time = recipe.readyInMinutes
+        timeValueLabel.text = "\(time - 5)-\(time + 5) min "
+        guard let coast = recipe.pricePerServing else { return }
+        let price = String(format: "%.2f", coast/100)
+        coastValueLabel.text = "\(price) $"
     }
 }

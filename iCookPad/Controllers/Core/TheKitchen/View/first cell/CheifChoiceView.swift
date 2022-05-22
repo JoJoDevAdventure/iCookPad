@@ -173,7 +173,7 @@ class CheifChoiceView: UIView {
         guard let calories = recipe.weightWatcherSmartPoints else { return }
         caloriesPropretyView.configure(proprety: "Calories : ", Value: "\(calories * 35) KCal")
         guard let priceD = recipe.pricePerServing else { return }
-        let price = String(format: "Value: %.2f", priceD/100)
+        let price = String(format: "%.2f", priceD/100)
         coastPropretyView.configure(proprety: "Coast : ", Value: "\(price) $")
         timePropretyView.configure(proprety: "Preparation Time : ", Value: "\(recipe.readyInMinutes - 5) - \(recipe.readyInMinutes + 5) min")
         guard let url = recipe.image else { return }
