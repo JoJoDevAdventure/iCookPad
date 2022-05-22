@@ -36,6 +36,32 @@ class SaltySweetyTableViewCell: UITableViewCell {
         return view
     }()
     
+    private let caloriesIcon: iconImageView = {
+        let icon = iconImageView()
+        icon.configure(iconName: "caloriesIcon", size: 30)
+        return icon
+    }()
+    
+    private let caloriesValueLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.font = .systemFont(ofSize: 24, weight: .semibold)
+        label.textColor = UIColor.LabelColors.secondLabelColor
+        return label
+    }()
+    
+    private let timeIcon: iconImageView = {
+        let icon = iconImageView()
+        icon.configure(iconName: "TimeIcon", size: 30)
+        return icon
+    }()
+    
+    private let coastIcon: iconImageView = {
+        let icon = iconImageView()
+        icon.configure(iconName: "CoastIcon", size: 30)
+        return icon
+    }()
+    
     private let previewImage: PreviewImageView = {
         let image = PreviewImageView()
         image.backgroundColor = .gray
@@ -71,6 +97,9 @@ class SaltySweetyTableViewCell: UITableViewCell {
         container.addSubview(previewImage)
         container.addSubview(recipeTitle)
         container.addSubview(informationContainer)
+        informationContainer.addSubview(caloriesIcon)
+        informationContainer.addSubview(timeIcon)
+        informationContainer.addSubview(coastIcon)
         container.addSubview(difficultyProperty)
     }
     
@@ -103,7 +132,18 @@ class SaltySweetyTableViewCell: UITableViewCell {
             difficultyProperty.widthAnchor.constraint(equalTo: container.widthAnchor, constant: -30),
             difficultyProperty.centerXAnchor.constraint(equalTo: container.centerXAnchor),
             difficultyProperty.topAnchor.constraint(equalTo: informationContainer.bottomAnchor, constant: 10),
-            difficultyProperty.heightAnchor.constraint(equalTo: container.heightAnchor, multiplier: 0.22)
+            difficultyProperty.heightAnchor.constraint(equalTo: container.heightAnchor, multiplier: 0.22),
+            
+            /// Icons :
+            
+            caloriesIcon.topAnchor.constraint(equalTo: informationContainer.topAnchor,constant: 20),
+            caloriesIcon.leftAnchor.constraint(equalTo: informationContainer.leftAnchor, constant: 15),
+            
+            timeIcon.centerYAnchor.constraint(equalTo: informationContainer.centerYAnchor),
+            timeIcon.leftAnchor.constraint(equalTo: caloriesIcon.leftAnchor),
+            
+            coastIcon.bottomAnchor.constraint(equalTo: informationContainer.bottomAnchor,constant: -20),
+            coastIcon.leftAnchor.constraint(equalTo: caloriesIcon.leftAnchor),
         ]
         NSLayoutConstraint.activate(constraints)
     }

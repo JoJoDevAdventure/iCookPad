@@ -1,17 +1,15 @@
 {
   "images" : [
     {
-      "filename" : "CoastIcon.png",
+      "filename" : "coastIconSVG.svg",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "CoastIcon@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "CoastIcon@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

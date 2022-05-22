@@ -34,6 +34,7 @@
 		A35D59F328334348007FFC49 /* PropretyContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A35D59F228334348007FFC49 /* PropretyContainerView.swift */; };
 		A37B7FDB283840A100C0EFDE /* RandomSweetySaltySectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37B7FDA283840A100C0EFDE /* RandomSweetySaltySectionTableViewCell.swift */; };
 		A37B7FDD28384CDD00C0EFDE /* SaltySweetyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37B7FDC28384CDD00C0EFDE /* SaltySweetyTableViewCell.swift */; };
+		A37BE969283AB25900D78D81 /* iconImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37BE968283AB25900D78D81 /* iconImageView.swift */; };
 		A38144452837DAF500F09342 /* Recipe Difficulty Algorithme.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38144442837DAF500F09342 /* Recipe Difficulty Algorithme.swift */; };
 		A3E49F332833CE280009816C /* DifficultyContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E49F322833CE270009816C /* DifficultyContainerView.swift */; };
 		A3E49F362833CEAC0009816C /* DifficultyCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E49F352833CEAC0009816C /* DifficultyCellView.swift */; };
@@ -70,6 +71,7 @@
 		A35D59F228334348007FFC49 /* PropretyContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropretyContainerView.swift; sourceTree = "<group>"; };
 		A37B7FDA283840A100C0EFDE /* RandomSweetySaltySectionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomSweetySaltySectionTableViewCell.swift; sourceTree = "<group>"; };
 		A37B7FDC28384CDD00C0EFDE /* SaltySweetyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaltySweetyTableViewCell.swift; sourceTree = "<group>"; };
+		A37BE968283AB25900D78D81 /* iconImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iconImageView.swift; sourceTree = "<group>"; };
 		A38144442837DAF500F09342 /* Recipe Difficulty Algorithme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Recipe Difficulty Algorithme.swift"; sourceTree = "<group>"; };
 		A3E49F322833CE270009816C /* DifficultyContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DifficultyContainerView.swift; sourceTree = "<group>"; };
 		A3E49F352833CEAC0009816C /* DifficultyCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DifficultyCellView.swift; sourceTree = "<group>"; };
@@ -296,6 +298,7 @@
 			isa = PBXGroup;
 			children = (
 				A35D59EE28330E40007FFC49 /* PreviewImageView.swift */,
+				A37BE968283AB25900D78D81 /* iconImageView.swift */,
 			);
 			path = Images;
 			sourceTree = "<group>";
@@ -451,6 +454,7 @@
 				A37B7FDB283840A100C0EFDE /* RandomSweetySaltySectionTableViewCell.swift in Sources */,
 				A35D59F1283340A7007FFC49 /* SecondaryLabel.swift in Sources */,
 				A347250A2835E1D9004EBEC1 /* Converters.swift in Sources */,
+				A37BE969283AB25900D78D81 /* iconImageView.swift in Sources */,
 				A35D59EA28330333007FFC49 /* ItemsContainerView.swift in Sources */,
 				A3E85FEB2831C9A2009BED96 /* TheKitchenViewController.swift in Sources */,
 				A3524C292832ED21007077C7 /* ColorsExtension.swift in Sources */,
