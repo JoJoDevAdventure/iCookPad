@@ -57,6 +57,7 @@ class APIsCaller: TheKitchenAPICaller {
             do {
                 let results = try JSONDecoder().decode(ApiResponse.self, from: data)
                 let recipes = results.recipes
+                print(recipes)
                 completion(.success(recipes))
             } catch {
                 completion(.failure(error))
@@ -80,6 +81,7 @@ class APIsCaller: TheKitchenAPICaller {
             do {
                 let results = try JSONDecoder().decode(ApiResponse.self, from: data)
                 let recipes = results.recipes
+                print(recipes)
                 completion(.success(recipes))
             } catch {
                 completion(.failure(error))
