@@ -16,11 +16,46 @@ class CustomSearchTableViewCell: UITableViewCell {
     private let titleLabel: TitleLabel = {
         let label = TitleLabel()
         label.configure(fontSize: 38)
-        label.text = "You wish, We grant."
+        label.text = "You wish, We grant. "
         return label
     }()
     
-    private let selectionOfCal: DropDownMenu = {
+    private let originLabel: SecondaryLabel = {
+        let label = SecondaryLabel()
+        label.configure(fontSize: 28)
+        label.text = "Origin preference : "
+        return label
+    }()
+    
+    private let selectionOfOrigin: DropDownMenu = {
+        let view = DropDownMenu()
+        view.configure()
+        view.setup(title: "test", selectionItems: ["test1", "test2", "test3", "test4"])
+        return view
+    }()
+    
+    private let typeLabel: SecondaryLabel = {
+        let label = SecondaryLabel()
+        label.configure(fontSize: 28)
+        label.text = "Type preference : "
+        return label
+    }()
+    
+    private let selectionOfType: DropDownMenu = {
+        let view = DropDownMenu()
+        view.configure()
+        view.setup(title: "test", selectionItems: ["test1", "test2", "test3", "test4"])
+        return view
+    }()
+    
+    private let dietLabel: SecondaryLabel = {
+        let label = SecondaryLabel()
+        label.configure(fontSize: 28)
+        label.text = "Diet preference : "
+        return label
+    }()
+    
+    private let selectionOfDiet: DropDownMenu = {
         let view = DropDownMenu()
         view.configure()
         view.setup(title: "test", selectionItems: ["test1", "test2", "test3", "test4"])
@@ -48,7 +83,12 @@ class CustomSearchTableViewCell: UITableViewCell {
     
     private func setupSubviews() {
         addSubview(titleLabel)
-        addSubview(selectionOfCal)
+        addSubview(originLabel)
+        addSubview(selectionOfOrigin)
+        addSubview(typeLabel)
+        addSubview(selectionOfType)
+        addSubview(dietLabel)
+        addSubview(selectionOfDiet)
     }
     
     private func setupConstraints() {
@@ -57,8 +97,23 @@ class CustomSearchTableViewCell: UITableViewCell {
             titleLabel.leftAnchor.constraint(equalTo: leftAnchor, constant: 20),
             titleLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -400),
             
-            selectionOfCal.leftAnchor.constraint(equalTo: leftAnchor, constant: 40),
-            selectionOfCal.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 40),
+            originLabel.leftAnchor.constraint(equalTo: leftAnchor, constant: 25),
+            originLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 40),
+            
+            selectionOfOrigin.topAnchor.constraint(equalTo: originLabel.bottomAnchor, constant: 10),
+            selectionOfOrigin.leftAnchor.constraint(equalTo: originLabel.leftAnchor),
+            
+            typeLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
+            typeLabel.topAnchor.constraint(equalTo: originLabel.topAnchor),
+            
+            selectionOfType.topAnchor.constraint(equalTo: typeLabel.bottomAnchor, constant: 10),
+            selectionOfType.leftAnchor.constraint(equalTo: typeLabel.leftAnchor),
+            
+            dietLabel.rightAnchor.constraint(equalTo: rightAnchor, constant: -45),
+            dietLabel.topAnchor.constraint(equalTo: originLabel.topAnchor),
+
+            selectionOfDiet.topAnchor.constraint(equalTo: dietLabel.bottomAnchor, constant: 10),
+            selectionOfDiet.leftAnchor.constraint(equalTo: dietLabel.leftAnchor),
             
         ]
         NSLayoutConstraint.activate(constraints)
