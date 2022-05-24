@@ -148,7 +148,7 @@ class SaltySweetyTableViewCell: UITableViewCell {
             informationContainer.topAnchor.constraint(equalTo: previewImage.topAnchor),
             
             //difficulty property
-            difficultyProperty.widthAnchor.constraint(equalTo: container.widthAnchor, constant: -30),
+            difficultyProperty.widthAnchor.constraint(equalTo: container.widthAnchor, constant: -20),
             difficultyProperty.centerXAnchor.constraint(equalTo: container.centerXAnchor),
             difficultyProperty.topAnchor.constraint(equalTo: informationContainer.bottomAnchor, constant: 10),
             difficultyProperty.heightAnchor.constraint(equalTo: container.heightAnchor, multiplier: 0.22),

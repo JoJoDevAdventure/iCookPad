@@ -7,7 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2874E0422615C6AC4A19B03E /* Pods_iCookPad.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23E54F2AE13D7CF83CB3093F /* Pods_iCookPad.framework */; };
+		0DF8457D6514467E572267C5 /* Pods_iCookPad.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE538706518F362E57FBAE12 /* Pods_iCookPad.framework */; };
+		A323B527283D1FBD000A4E6B /* CustomSearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A323B526283D1FBD000A4E6B /* CustomSearchTableViewCell.swift */; };
+		A323B529283D200C000A4E6B /* DropDownMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = A323B528283D200C000A4E6B /* DropDownMenu.swift */; };
 		A332D9B728318F1B0020FC30 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A332D9B628318F1B0020FC30 /* AppDelegate.swift */; };
 		A332D9B928318F1B0020FC30 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A332D9B828318F1B0020FC30 /* SceneDelegate.swift */; };
 		A332D9C128318F1B0020FC30 /* iCookPad.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A332D9BF28318F1B0020FC30 /* iCookPad.xcdatamodeld */; };
@@ -44,8 +46,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		23E54F2AE13D7CF83CB3093F /* Pods_iCookPad.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iCookPad.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		5756C2263612AC528BBB2AEB /* Pods-iCookPad.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iCookPad.debug.xcconfig"; path = "Target Support Files/Pods-iCookPad/Pods-iCookPad.debug.xcconfig"; sourceTree = "<group>"; };
+		A323B526283D1FBD000A4E6B /* CustomSearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSearchTableViewCell.swift; sourceTree = "<group>"; };
+		A323B528283D200C000A4E6B /* DropDownMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDownMenu.swift; sourceTree = "<group>"; };
 		A332D9B328318F1B0020FC30 /* iCookPad.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iCookPad.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A332D9B628318F1B0020FC30 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A332D9B828318F1B0020FC30 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -80,7 +82,9 @@
 		A3E49F352833CEAC0009816C /* DifficultyCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DifficultyCellView.swift; sourceTree = "<group>"; };
 		A3E85FE82831C989009BED96 /* TheKitchedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheKitchedViewModel.swift; sourceTree = "<group>"; };
 		A3E85FEA2831C9A1009BED96 /* TheKitchenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheKitchenViewController.swift; sourceTree = "<group>"; };
-		B77A8D04D06B20089702E262 /* Pods-iCookPad.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iCookPad.release.xcconfig"; path = "Target Support Files/Pods-iCookPad/Pods-iCookPad.release.xcconfig"; sourceTree = "<group>"; };
+		AE538706518F362E57FBAE12 /* Pods_iCookPad.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iCookPad.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DBA0CB1674A40DBC422E6862 /* Pods-iCookPad.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iCookPad.release.xcconfig"; path = "Target Support Files/Pods-iCookPad/Pods-iCookPad.release.xcconfig"; sourceTree = "<group>"; };
+		F54034ABB74FB69C20768301 /* Pods-iCookPad.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iCookPad.debug.xcconfig"; path = "Target Support Files/Pods-iCookPad/Pods-iCookPad.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,29 +94,37 @@
 			files = (
 				A34725082835D5D4004EBEC1 /* SDWebImageMapKit in Frameworks */,
 				A34725062835D5D4004EBEC1 /* SDWebImage in Frameworks */,
-				2874E0422615C6AC4A19B03E /* Pods_iCookPad.framework in Frameworks */,
+				0DF8457D6514467E572267C5 /* Pods_iCookPad.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		3C45C313847631BF8A4F7568 /* Frameworks */ = {
+		041EE50AE7C6167D133A2266 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				23E54F2AE13D7CF83CB3093F /* Pods_iCookPad.framework */,
+				AE538706518F362E57FBAE12 /* Pods_iCookPad.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		789FC5A58AD78D4956F0E2F8 /* Pods */ = {
+		9F3141BDCB58850550BF3AA8 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				5756C2263612AC528BBB2AEB /* Pods-iCookPad.debug.xcconfig */,
-				B77A8D04D06B20089702E262 /* Pods-iCookPad.release.xcconfig */,
+				F54034ABB74FB69C20768301 /* Pods-iCookPad.debug.xcconfig */,
+				DBA0CB1674A40DBC422E6862 /* Pods-iCookPad.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		A323B525283D1F73000A4E6B /* third cell */ = {
+			isa = PBXGroup;
+			children = (
+				A323B526283D1FBD000A4E6B /* CustomSearchTableViewCell.swift */,
+				A323B528283D200C000A4E6B /* DropDownMenu.swift */,
+			);
+			path = "third cell";
 			sourceTree = "<group>";
 		};
 		A332D9AA28318F1B0020FC30 = {
@@ -120,8 +132,8 @@
 			children = (
 				A332D9B528318F1B0020FC30 /* iCookPad */,
 				A332D9B428318F1B0020FC30 /* Products */,
-				789FC5A58AD78D4956F0E2F8 /* Pods */,
-				3C45C313847631BF8A4F7568 /* Frameworks */,
+				9F3141BDCB58850550BF3AA8 /* Pods */,
+				041EE50AE7C6167D133A2266 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -245,6 +257,7 @@
 			children = (
 				A37B7FD82838406400C0EFDE /* first cell */,
 				A37B7FD92838407900C0EFDE /* second cell */,
+				A323B525283D1F73000A4E6B /* third cell */,
 				A35D59EB28330942007FFC49 /* Labels */,
 				A35D59E8283302FB007FFC49 /* Containers */,
 				A35D59E7283302EB007FFC49 /* Images */,
@@ -388,11 +401,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A332D9CA28318F1D0020FC30 /* Build configuration list for PBXNativeTarget "iCookPad" */;
 			buildPhases = (
-				1069234412B23528C28E904E /* [CP] Check Pods Manifest.lock */,
+				7DBDBE97590B59C9D45CAA51 /* [CP] Check Pods Manifest.lock */,
 				A332D9AF28318F1B0020FC30 /* Sources */,
 				A332D9B028318F1B0020FC30 /* Frameworks */,
 				A332D9B128318F1B0020FC30 /* Resources */,
-				773A3108CC01B36A1F8F6A00 /* [CP] Embed Pods Frameworks */,
+				0A68F101B691879937B653CA /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -432,7 +445,7 @@
 			);
 			mainGroup = A332D9AA28318F1B0020FC30;
 			packageReferences = (
-				A34725042835D5D4004EBEC1 /* XCRemoteSwiftPackageReference "SDWebImage.git" */,
+				A34725042835D5D4004EBEC1 /* XCRemoteSwiftPackageReference "SDWebImage" */,
 			);
 			productRefGroup = A332D9B428318F1B0020FC30 /* Products */;
 			projectDirPath = "";
@@ -456,7 +469,24 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		1069234412B23528C28E904E /* [CP] Check Pods Manifest.lock */ = {
+		0A68F101B691879937B653CA /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-iCookPad/Pods-iCookPad-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-iCookPad/Pods-iCookPad-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-iCookPad/Pods-iCookPad-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7DBDBE97590B59C9D45CAA51 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -478,23 +508,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		773A3108CC01B36A1F8F6A00 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-iCookPad/Pods-iCookPad-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-iCookPad/Pods-iCookPad-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-iCookPad/Pods-iCookPad-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -505,11 +518,13 @@
 				A332D9E72831AC830020FC30 /* ToDoListViewModel.swift in Sources */,
 				A35D59EF28330E40007FFC49 /* PreviewImageView.swift in Sources */,
 				A332D9E52831AC630020FC30 /* ToDoListViewController.swift in Sources */,
+				A323B529283D200C000A4E6B /* DropDownMenu.swift in Sources */,
 				A35D59E62832FACC007FFC49 /* MasterPieceTableViewCell.swift in Sources */,
 				A34724FB28355B9D004EBEC1 /* APIsCaller.swift in Sources */,
 				A35D59ED2833099D007FFC49 /* TitleLabel.swift in Sources */,
 				A38144452837DAF500F09342 /* Recipe Difficulty Algorithme.swift in Sources */,
 				A34724F92835540A004EBEC1 /* CheifChoiceView.swift in Sources */,
+				A323B527283D1FBD000A4E6B /* CustomSearchTableViewCell.swift in Sources */,
 				A332D9EE2831AEA70020FC30 /* SettingsViewController.swift in Sources */,
 				A332D9B728318F1B0020FC30 /* AppDelegate.swift in Sources */,
 				A332D9B928318F1B0020FC30 /* SceneDelegate.swift in Sources */,
@@ -666,7 +681,7 @@
 		};
 		A332D9CB28318F1D0020FC30 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5756C2263612AC528BBB2AEB /* Pods-iCookPad.debug.xcconfig */;
+			baseConfigurationReference = F54034ABB74FB69C20768301 /* Pods-iCookPad.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -695,7 +710,7 @@
 		};
 		A332D9CC28318F1D0020FC30 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B77A8D04D06B20089702E262 /* Pods-iCookPad.release.xcconfig */;
+			baseConfigurationReference = DBA0CB1674A40DBC422E6862 /* Pods-iCookPad.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -746,7 +761,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		A34725042835D5D4004EBEC1 /* XCRemoteSwiftPackageReference "SDWebImage.git" */ = {
+		A34725042835D5D4004EBEC1 /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SDWebImage/SDWebImage.git";
 			requirement = {
@@ -759,12 +774,12 @@
 /* Begin XCSwiftPackageProductDependency section */
 		A34725052835D5D4004EBEC1 /* SDWebImage */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = A34725042835D5D4004EBEC1 /* XCRemoteSwiftPackageReference "SDWebImage.git" */;
+			package = A34725042835D5D4004EBEC1 /* XCRemoteSwiftPackageReference "SDWebImage" */;
 			productName = SDWebImage;
 		};
 		A34725072835D5D4004EBEC1 /* SDWebImageMapKit */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = A34725042835D5D4004EBEC1 /* XCRemoteSwiftPackageReference "SDWebImage.git" */;
+			package = A34725042835D5D4004EBEC1 /* XCRemoteSwiftPackageReference "SDWebImage" */;
 			productName = SDWebImageMapKit;
 		};
 /* End XCSwiftPackageProductDependency section */

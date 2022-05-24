@@ -23,6 +23,7 @@ class PreviewImageView: UIImageView {
         layer.shadowRadius = 6
         layer.shadowOpacity = 0.3
         translatesAutoresizingMaskIntoConstraints = false
+        layer.masksToBounds = false
     }
 
 }
