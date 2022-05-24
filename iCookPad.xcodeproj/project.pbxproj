@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		0DF8457D6514467E572267C5 /* Pods_iCookPad.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE538706518F362E57FBAE12 /* Pods_iCookPad.framework */; };
+		A323B527283D1FBD000A4E6B /* CustomSearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A323B526283D1FBD000A4E6B /* CustomSearchTableViewCell.swift */; };
+		A323B529283D200C000A4E6B /* DropDownMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = A323B528283D200C000A4E6B /* DropDownMenu.swift */; };
 		A332D9B728318F1B0020FC30 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A332D9B628318F1B0020FC30 /* AppDelegate.swift */; };
 		A332D9B928318F1B0020FC30 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A332D9B828318F1B0020FC30 /* SceneDelegate.swift */; };
 		A332D9C128318F1B0020FC30 /* iCookPad.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A332D9BF28318F1B0020FC30 /* iCookPad.xcdatamodeld */; };
@@ -44,6 +46,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A323B526283D1FBD000A4E6B /* CustomSearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSearchTableViewCell.swift; sourceTree = "<group>"; };
+		A323B528283D200C000A4E6B /* DropDownMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDownMenu.swift; sourceTree = "<group>"; };
 		A332D9B328318F1B0020FC30 /* iCookPad.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iCookPad.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A332D9B628318F1B0020FC30 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A332D9B828318F1B0020FC30 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -111,8 +115,16 @@
 				F54034ABB74FB69C20768301 /* Pods-iCookPad.debug.xcconfig */,
 				DBA0CB1674A40DBC422E6862 /* Pods-iCookPad.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		A323B525283D1F73000A4E6B /* third cell */ = {
+			isa = PBXGroup;
+			children = (
+				A323B526283D1FBD000A4E6B /* CustomSearchTableViewCell.swift */,
+				A323B528283D200C000A4E6B /* DropDownMenu.swift */,
+			);
+			path = "third cell";
 			sourceTree = "<group>";
 		};
 		A332D9AA28318F1B0020FC30 = {
@@ -245,6 +257,7 @@
 			children = (
 				A37B7FD82838406400C0EFDE /* first cell */,
 				A37B7FD92838407900C0EFDE /* second cell */,
+				A323B525283D1F73000A4E6B /* third cell */,
 				A35D59EB28330942007FFC49 /* Labels */,
 				A35D59E8283302FB007FFC49 /* Containers */,
 				A35D59E7283302EB007FFC49 /* Images */,
@@ -432,7 +445,7 @@
 			);
 			mainGroup = A332D9AA28318F1B0020FC30;
 			packageReferences = (
-				A34725042835D5D4004EBEC1 /* XCRemoteSwiftPackageReference "SDWebImage.git" */,
+				A34725042835D5D4004EBEC1 /* XCRemoteSwiftPackageReference "SDWebImage" */,
 			);
 			productRefGroup = A332D9B428318F1B0020FC30 /* Products */;
 			projectDirPath = "";
@@ -505,11 +518,13 @@
 				A332D9E72831AC830020FC30 /* ToDoListViewModel.swift in Sources */,
 				A35D59EF28330E40007FFC49 /* PreviewImageView.swift in Sources */,
 				A332D9E52831AC630020FC30 /* ToDoListViewController.swift in Sources */,
+				A323B529283D200C000A4E6B /* DropDownMenu.swift in Sources */,
 				A35D59E62832FACC007FFC49 /* MasterPieceTableViewCell.swift in Sources */,
 				A34724FB28355B9D004EBEC1 /* APIsCaller.swift in Sources */,
 				A35D59ED2833099D007FFC49 /* TitleLabel.swift in Sources */,
 				A38144452837DAF500F09342 /* Recipe Difficulty Algorithme.swift in Sources */,
 				A34724F92835540A004EBEC1 /* CheifChoiceView.swift in Sources */,
+				A323B527283D1FBD000A4E6B /* CustomSearchTableViewCell.swift in Sources */,
 				A332D9EE2831AEA70020FC30 /* SettingsViewController.swift in Sources */,
 				A332D9B728318F1B0020FC30 /* AppDelegate.swift in Sources */,
 				A332D9B928318F1B0020FC30 /* SceneDelegate.swift in Sources */,
@@ -746,7 +761,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		A34725042835D5D4004EBEC1 /* XCRemoteSwiftPackageReference "SDWebImage.git" */ = {
+		A34725042835D5D4004EBEC1 /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SDWebImage/SDWebImage.git";
 			requirement = {
@@ -759,12 +774,12 @@
 /* Begin XCSwiftPackageProductDependency section */
 		A34725052835D5D4004EBEC1 /* SDWebImage */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = A34725042835D5D4004EBEC1 /* XCRemoteSwiftPackageReference "SDWebImage.git" */;
+			package = A34725042835D5D4004EBEC1 /* XCRemoteSwiftPackageReference "SDWebImage" */;
 			productName = SDWebImage;
 		};
 		A34725072835D5D4004EBEC1 /* SDWebImageMapKit */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = A34725042835D5D4004EBEC1 /* XCRemoteSwiftPackageReference "SDWebImage.git" */;
+			package = A34725042835D5D4004EBEC1 /* XCRemoteSwiftPackageReference "SDWebImage" */;
 			productName = SDWebImageMapKit;
 		};
 /* End XCSwiftPackageProductDependency section */
