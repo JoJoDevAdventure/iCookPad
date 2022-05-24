@@ -104,8 +104,20 @@ class CustomSearchTableViewCell: UITableViewCell {
         return switcher
     }()
     
-    // MARK: - View Model
-    
+    private let findButton: UIButton = {
+        let button = UIButton()
+        button.backgroundColor = .systemGreen
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setTitle("Find !", for: .normal)
+        button.setImage(UIImage(systemName: "magnifyingglass"), for: .normal)
+        button.tintColor = .white
+        button.layer.cornerRadius = 8
+        button.layer.shadowColor = UIColor.black.cgColor
+        button.layer.shadowOffset = .zero
+        button.layer.shadowRadius = 4
+        button.layer.shadowOpacity = 0.3
+        return button
+    }()
     
     // MARK: - Life cycle
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -137,6 +149,7 @@ class CustomSearchTableViewCell: UITableViewCell {
         addSubview(vegetarianSwitch)
         addSubview(veganSwitch)
         addSubview(veganFreeLabel)
+        addSubview(findButton)
     }
     
     private func setupConstraints() {
@@ -163,23 +176,28 @@ class CustomSearchTableViewCell: UITableViewCell {
             selectionOfDiet.topAnchor.constraint(equalTo: dietLabel.bottomAnchor, constant: 10),
             selectionOfDiet.leftAnchor.constraint(equalTo: dietLabel.leftAnchor),
             
-            glutenFreeLabel.leftAnchor.constraint(equalTo: leftAnchor, constant: 100),
-            glutenFreeLabel.topAnchor.constraint(equalTo: selectionOfDiet.bottomAnchor, constant: 40),
+            glutenFreeLabel.leftAnchor.constraint(equalTo: leftAnchor, constant: 35),
+            glutenFreeLabel.topAnchor.constraint(equalTo: selectionOfDiet.bottomAnchor, constant: 50),
             
             glutenSwitch.leftAnchor.constraint(equalTo: glutenFreeLabel.rightAnchor, constant: 10),
             glutenSwitch.centerYAnchor.constraint(equalTo: glutenFreeLabel.centerYAnchor),
             
-            vegetarianFreeLabel.leftAnchor.constraint(equalTo: glutenSwitch.rightAnchor, constant: 50),
+            vegetarianFreeLabel.leftAnchor.constraint(equalTo: glutenSwitch.rightAnchor, constant: 40),
             vegetarianFreeLabel.topAnchor.constraint(equalTo: glutenFreeLabel.topAnchor),
             
             vegetarianSwitch.leftAnchor.constraint(equalTo: vegetarianFreeLabel.rightAnchor, constant: 10),
             vegetarianSwitch.centerYAnchor.constraint(equalTo: vegetarianFreeLabel.centerYAnchor),
             
-            veganFreeLabel.leftAnchor.constraint(equalTo: vegetarianSwitch.rightAnchor, constant: 50),
+            veganFreeLabel.leftAnchor.constraint(equalTo: vegetarianSwitch.rightAnchor, constant: 40),
             veganFreeLabel.topAnchor.constraint(equalTo: glutenFreeLabel.topAnchor),
             
             veganSwitch.leftAnchor.constraint(equalTo: veganFreeLabel.rightAnchor, constant: 10),
             veganSwitch.centerYAnchor.constraint(equalTo: veganFreeLabel.centerYAnchor),
+            
+            findButton.leftAnchor.constraint(equalTo: veganSwitch.rightAnchor, constant: 40),
+            findButton.heightAnchor.constraint(equalToConstant: 50),
+            findButton.centerYAnchor.constraint(equalTo: veganSwitch.centerYAnchor),
+            findButton.widthAnchor.constraint(equalToConstant: 150)
             
         ]
         NSLayoutConstraint.activate(constraints)

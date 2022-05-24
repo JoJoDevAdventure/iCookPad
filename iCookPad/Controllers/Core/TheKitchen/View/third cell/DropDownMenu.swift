@@ -15,6 +15,7 @@ class DropDownMenu: UIView {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = .systemFont(ofSize: 22, weight: .light)
+        label.textColor = .black
         return label
     }()
     
