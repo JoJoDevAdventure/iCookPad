@@ -62,6 +62,48 @@ class CustomSearchTableViewCell: UITableViewCell {
         return view
     }()
     
+    private let glutenFreeLabel: SecondaryLabel = {
+        let label = SecondaryLabel()
+        label.configure(fontSize: 22)
+        label.text = "Gluten free :"
+        return label
+    }()
+    
+    private let glutenSwitch: UISwitch = {
+        let switcher = UISwitch()
+        switcher.translatesAutoresizingMaskIntoConstraints = false
+        switcher.onTintColor = .systemGreen
+        return switcher
+    }()
+    
+    private let veganFreeLabel: SecondaryLabel = {
+        let label = SecondaryLabel()
+        label.configure(fontSize: 22)
+        label.text = "Vegan :"
+        return label
+    }()
+    
+    private let veganSwitch: UISwitch = {
+        let switcher = UISwitch()
+        switcher.translatesAutoresizingMaskIntoConstraints = false
+        switcher.onTintColor = .systemGreen
+        return switcher
+    }()
+    
+    private let vegetarianFreeLabel: SecondaryLabel = {
+        let label = SecondaryLabel()
+        label.configure(fontSize: 22)
+        label.text = "Gluten free :"
+        return label
+    }()
+    
+    private let vegetarianSwitch: UISwitch = {
+        let switcher = UISwitch()
+        switcher.translatesAutoresizingMaskIntoConstraints = false
+        switcher.onTintColor = .systemGreen
+        return switcher
+    }()
+    
     // MARK: - View Model
     
     
@@ -89,6 +131,12 @@ class CustomSearchTableViewCell: UITableViewCell {
         addSubview(selectionOfType)
         addSubview(dietLabel)
         addSubview(selectionOfDiet)
+        addSubview(glutenFreeLabel)
+        addSubview(glutenSwitch)
+        addSubview(vegetarianFreeLabel)
+        addSubview(vegetarianSwitch)
+        addSubview(veganSwitch)
+        addSubview(veganFreeLabel)
     }
     
     private func setupConstraints() {
@@ -114,6 +162,24 @@ class CustomSearchTableViewCell: UITableViewCell {
 
             selectionOfDiet.topAnchor.constraint(equalTo: dietLabel.bottomAnchor, constant: 10),
             selectionOfDiet.leftAnchor.constraint(equalTo: dietLabel.leftAnchor),
+            
+            glutenFreeLabel.leftAnchor.constraint(equalTo: leftAnchor, constant: 100),
+            glutenFreeLabel.topAnchor.constraint(equalTo: selectionOfDiet.bottomAnchor, constant: 40),
+            
+            glutenSwitch.leftAnchor.constraint(equalTo: glutenFreeLabel.rightAnchor, constant: 10),
+            glutenSwitch.centerYAnchor.constraint(equalTo: glutenFreeLabel.centerYAnchor),
+            
+            vegetarianFreeLabel.leftAnchor.constraint(equalTo: glutenSwitch.rightAnchor, constant: 50),
+            vegetarianFreeLabel.topAnchor.constraint(equalTo: glutenFreeLabel.topAnchor),
+            
+            vegetarianSwitch.leftAnchor.constraint(equalTo: vegetarianFreeLabel.rightAnchor, constant: 10),
+            vegetarianSwitch.centerYAnchor.constraint(equalTo: vegetarianFreeLabel.centerYAnchor),
+            
+            veganFreeLabel.leftAnchor.constraint(equalTo: vegetarianSwitch.rightAnchor, constant: 50),
+            veganFreeLabel.topAnchor.constraint(equalTo: glutenFreeLabel.topAnchor),
+            
+            veganSwitch.leftAnchor.constraint(equalTo: veganFreeLabel.rightAnchor, constant: 10),
+            veganSwitch.centerYAnchor.constraint(equalTo: veganFreeLabel.centerYAnchor),
             
         ]
         NSLayoutConstraint.activate(constraints)
