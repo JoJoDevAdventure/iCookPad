@@ -62,7 +62,8 @@ class DropDownMenu: UIView {
         dropDownMenu.cornerRadius = 7
         dropDownMenu.animationEntranceOptions = .transitionCrossDissolve
         dropDownMenu.animationExitOptions = .transitionCrossDissolve
-        dropDownMenu.animationduration = 0.5
+        dropDownMenu.animationduration = 0.3
+        
     }
     
     private func setupConstraints() {
