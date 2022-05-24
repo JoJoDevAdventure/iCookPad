@@ -123,13 +123,12 @@ extension TheKitchenViewController: UITableViewDelegate, UITableViewDataSource {
             return view.bounds.height/2 + 50
         case 1 :
             return view.bounds.height - 150
-        case 3 :
+        case 2 :
             return UITableView.automaticDimension
         default :
             return 0
         }
     }
-    
 }
 
 extension TheKitchenViewController: TheKitchedViewModelOutPut {

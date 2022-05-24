@@ -14,7 +14,7 @@ class DropDownMenu: UIView {
     private let menuSelectedLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = .systemFont(ofSize: 18, weight: .semibold)
+        label.font = .systemFont(ofSize: 22, weight: .semibold)
         return label
     }()
     
@@ -26,21 +26,32 @@ class DropDownMenu: UIView {
     }
     
     func configure() {
+        backgroundColor = .white
         setupConstraints()
         setupDropDownMenu()
+        setupGesture()
     }
     
     private func setupDropDownMenu() {
         dropDownMenu.anchorView = self
+        dropDownMenu.selectionAction = {[unowned self] (index: Int, item: String) in
+            menuSelectedLabel.text = item
+        }
     }
     
     private func setupConstraints() {
+        translatesAutoresizingMaskIntoConstraints = false
         addSubview(menuSelectedLabel)
         let constraints = [
+            // selection
+            heightAnchor.constraint(equalToConstant: 40),
+            widthAnchor.constraint(equalToConstant: 150),
+            
             // selected item label
             menuSelectedLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
             menuSelectedLabel.centerYAnchor.constraint(equalTo: centerYAnchor),
             menuSelectedLabel.widthAnchor.constraint(equalTo:widthAnchor),
+            
         ]
         NSLayoutConstraint.activate(constraints)
     }

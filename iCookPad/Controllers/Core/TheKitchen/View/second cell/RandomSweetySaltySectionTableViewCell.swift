@@ -156,7 +156,7 @@ class RandomSweetySaltySectionTableViewCell: UITableViewCell {
             //tableview
             saltyRecipesTableView.topAnchor.constraint(equalTo: saltyTitleSection.bottomAnchor, constant: 30),
             saltyRecipesTableView.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.5, constant: -50),
-            saltyRecipesTableView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.69),
+            saltyRecipesTableView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.75),
             saltyRecipesTableView.leftAnchor.constraint(equalTo: leftAnchor, constant: 40),
             //bottom separator
             bottomSaltySeparator.centerXAnchor.constraint(equalTo: saltyRecipesTableView.centerXAnchor),
@@ -171,7 +171,7 @@ class RandomSweetySaltySectionTableViewCell: UITableViewCell {
             //tableview
             sweetyRecipesTableView.topAnchor.constraint(equalTo: saltyRecipesTableView.topAnchor),
             sweetyRecipesTableView.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.5, constant: -50),
-            sweetyRecipesTableView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.69),
+            sweetyRecipesTableView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.75),
             sweetyRecipesTableView.rightAnchor.constraint(equalTo: rightAnchor, constant: -40),
             //bottom separator
             bottomSweetySeparator.centerXAnchor.constraint(equalTo: sweetyRecipesTableView.centerXAnchor),
