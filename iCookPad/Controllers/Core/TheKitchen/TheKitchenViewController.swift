@@ -22,6 +22,7 @@ class TheKitchenViewController: UIViewController {
         tableView.separatorColor = .clear
         tableView.register(MasterPieceTableViewCell.self, forCellReuseIdentifier: MasterPieceTableViewCell.identifier)
         tableView.register(RandomSweetySaltySectionTableViewCell.self, forCellReuseIdentifier: RandomSweetySaltySectionTableViewCell.identifier)
+        tableView.register(CustomSearchTableViewCell.self, forCellReuseIdentifier: CustomSearchTableViewCell.identifier)
         tableView.isUserInteractionEnabled = true
         return tableView
     }()
@@ -107,6 +108,10 @@ extension TheKitchenViewController: UITableViewDelegate, UITableViewDataSource {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: RandomSweetySaltySectionTableViewCell.identifier) as? RandomSweetySaltySectionTableViewCell else { return UITableViewCell()}
             cell.configure(salty: saltyRecipes, sweety: sweetRecipes)
             return cell
+            
+        case 2 :
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: CustomSearchTableViewCell.identifier) as? CustomSearchTableViewCell else { return UITableViewCell() }
+            return cell
         default :
             return UITableViewCell()
         }
@@ -118,6 +123,8 @@ extension TheKitchenViewController: UITableViewDelegate, UITableViewDataSource {
             return view.bounds.height/2 + 50
         case 1 :
             return view.bounds.height - 150
+        case 3 :
+            return UITableView.automaticDimension
         default :
             return 0
         }
@@ -127,15 +134,21 @@ extension TheKitchenViewController: UITableViewDelegate, UITableViewDataSource {
 
 extension TheKitchenViewController: TheKitchedViewModelOutPut {
     func showErrorMessageFetchingRandom(error: Error) {
-        print(error.localizedDescription)
+        if error.localizedDescription == "The data couldn’t be read because it is missing." {
+            viewModel.getChiefChoiceRecipe()
+        }
     }
     
     func showErrorMessageFetchingSalty(error: Error) {
-        print(error.localizedDescription)
+        if error.localizedDescription == "The data couldn’t be read because it is missing." {
+            viewModel.getSaltyRecipes()
+        }
     }
     
     func showErrorMessageFetchingSweet(error: Error) {
-        print(error.localizedDescription)
+        if error.localizedDescription == "The data couldn’t be read because it is missing." {
+            viewModel.getSweetRecipes()
+        }
     }
     
     func gotSweetRecipes(sweetRecipes: [Recipe]) {
@@ -158,6 +171,7 @@ extension TheKitchenViewController: TheKitchedViewModelOutPut {
             self.tableView.reloadData()
         }
     }
+    
     func showErrorMessage(error: Error) {
         print("error")
     }
