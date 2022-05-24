@@ -33,6 +33,8 @@ class SaltySweetyTableViewCell: UITableViewCell {
         let view = ItemsContainerView()
         view.configure()
         view.layer.cornerRadius = 15
+        view.layer.shadowOffset = .zero
+        view.layer.shadowRadius = 3
         return view
     }()
     

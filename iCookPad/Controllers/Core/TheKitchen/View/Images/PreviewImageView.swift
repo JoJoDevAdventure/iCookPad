@@ -13,7 +13,6 @@ class PreviewImageView: UIImageView {
         
         layer.cornerRadius = 30
         contentMode = .scaleAspectFill
-        clipsToBounds = true
         layer.borderWidth = 0.2
         layer.borderColor = UIColor.lightGray.cgColor
         backgroundColor = .lightGray
@@ -22,8 +21,9 @@ class PreviewImageView: UIImageView {
                                           height: 4)
         layer.shadowRadius = 6
         layer.shadowOpacity = 0.3
-        translatesAutoresizingMaskIntoConstraints = false
         layer.masksToBounds = false
+        clipsToBounds = true
+        translatesAutoresizingMaskIntoConstraints = false
     }
 
 }

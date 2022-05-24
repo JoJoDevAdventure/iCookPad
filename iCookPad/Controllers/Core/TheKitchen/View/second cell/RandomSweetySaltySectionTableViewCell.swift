@@ -222,7 +222,7 @@ extension RandomSweetySaltySectionTableViewCell: UITableViewDelegate, UITableVie
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return (saltyRecipesTableView.bounds.height / 2) - 10
+        return (saltyRecipesTableView.bounds.height / 2) - 30
     }
     
     func configure(salty: [Recipe], sweety: [Recipe]) {
