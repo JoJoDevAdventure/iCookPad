@@ -35,6 +35,7 @@ class DropDownMenu: UIView {
     }
     
     func configure() {
+        setupConstraints()
         clipsToBounds = true
         backgroundColor = .white
         layer.cornerRadius = 8
@@ -46,7 +47,6 @@ class DropDownMenu: UIView {
         layer.shadowRadius = 4
         layer.shadowOpacity = 0.3
         layer.masksToBounds = false
-        setupConstraints()
         setupDropDownMenu()
         setupGesture()
     }
@@ -60,8 +60,8 @@ class DropDownMenu: UIView {
         dropDownMenu.selectedTextColor = .black
         dropDownMenu.selectionBackgroundColor = .lightGray
         dropDownMenu.cornerRadius = 7
-        dropDownMenu.animationEntranceOptions = .transitionFlipFromTop
-        dropDownMenu.animationExitOptions = .transitionFlipFromBottom
+        dropDownMenu.animationEntranceOptions = .transitionCrossDissolve
+        dropDownMenu.animationExitOptions = .transitionCrossDissolve
         dropDownMenu.animationduration = 0.5
     }
     
