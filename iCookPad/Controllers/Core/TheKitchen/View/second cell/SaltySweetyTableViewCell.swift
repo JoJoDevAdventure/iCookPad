@@ -131,6 +131,9 @@ class SaltySweetyTableViewCell: UITableViewCell {
             container.leftAnchor.constraint(equalTo: leftAnchor, constant: 15),
             container.rightAnchor.constraint(equalTo: rightAnchor, constant: -15),
             container.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -15),
+            container.widthAnchor.constraint(equalTo: widthAnchor, constant: -30),
+            container.centerXAnchor.constraint(equalTo: centerXAnchor),
+            container.centerYAnchor.constraint(equalTo: centerYAnchor),
             
             // title
             recipeTitle.widthAnchor.constraint(equalTo: container.widthAnchor, constant: -20),
@@ -152,8 +155,9 @@ class SaltySweetyTableViewCell: UITableViewCell {
             //difficulty property
             difficultyProperty.widthAnchor.constraint(equalTo: container.widthAnchor, constant: -20),
             difficultyProperty.centerXAnchor.constraint(equalTo: container.centerXAnchor),
-            difficultyProperty.topAnchor.constraint(equalTo: informationContainer.bottomAnchor, constant: 10),
+            difficultyProperty.topAnchor.constraint(equalTo: previewImage.bottomAnchor, constant: 20),
             difficultyProperty.heightAnchor.constraint(equalTo: container.heightAnchor, multiplier: 0.22),
+            difficultyProperty.bottomAnchor.constraint(equalTo: container.bottomAnchor, constant: -20),
             
             /// Icons :
             
