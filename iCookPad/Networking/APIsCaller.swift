@@ -21,7 +21,7 @@ class APIsCaller: TheKitchenAPICaller {
     //&tags=vegetarian,dessert
     //call to get a random recipe
     func getOneRandomRecipe(completion: @escaping (Result<Recipe, Error>) -> Void) {
-        let urlString = "https://api.spoonacular.com/recipes/random?apiKey=5f0d16a8c0514dd39a913e5bf9802c65&number=1"
+        let urlString = "\(informations.baseUrl)\(informations.randomRecipe)\(informations.apiKeyUrlBase)\(informations.apiKey)&number=1"
         guard let url = URL(string: urlString) else { return }
         let task = URLSession.shared.dataTask(with: URLRequest(url: url)) { data, _, error in
             guard let data = data else {
@@ -44,7 +44,7 @@ class APIsCaller: TheKitchenAPICaller {
     }
     
     func getRandomSaltyRecipe(completion: @escaping (Result<[Recipe], Error>) -> Void) {
-        let urlString = "https://api.spoonacular.com/recipes/random?apiKey=5f0d16a8c0514dd39a913e5bf9802c65&number=5&tags=lunch"
+        let urlString = "\(informations.baseUrl)\(informations.randomRecipe)\(informations.apiKeyUrlBase)\(informations.apiKey)&number=5&tags=lunch"
         guard let url = URL(string: urlString) else { return }
         let task = URLSession.shared.dataTask(with: URLRequest(url: url)) { data, _, error in
             guard let data = data else {
@@ -67,7 +67,7 @@ class APIsCaller: TheKitchenAPICaller {
     }
     
     func getRandomSweetRecipe(completion: @escaping (Result<[Recipe], Error>) -> Void) {
-        let urlString = "https://api.spoonacular.com/recipes/random?apiKey=5f0d16a8c0514dd39a913e5bf9802c65&number=5&tags=sweet"
+        let urlString = "\(informations.baseUrl)\(informations.randomRecipe)\(informations.apiKeyUrlBase)\(informations.apiKey)&number=5&tags=sweet"
         guard let url = URL(string: urlString) else { return }
         let task = URLSession.shared.dataTask(with: URLRequest(url: url)) { data, _, error in
             guard let data = data else {
