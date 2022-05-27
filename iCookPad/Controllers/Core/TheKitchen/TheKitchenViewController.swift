@@ -52,7 +52,7 @@ class TheKitchenViewController: UIViewController {
     // MARK: - Set up
     
     private func setupNavBar() {
-        title = "iCookBook"
+        title = "iCookPad"
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationController?.navigationItem.largeTitleDisplayMode = .always
         navigationController?.navigationBar.tintColor = .white
