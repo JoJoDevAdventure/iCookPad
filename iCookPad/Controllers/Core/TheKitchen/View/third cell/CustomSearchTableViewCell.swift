@@ -11,6 +11,8 @@ class CustomSearchTableViewCell: UITableViewCell {
     
     // MARK: - Properties
     
+    private let cuisines = ["African", "American", "Chinese", "French","Indian","Italian", "Japanese", "Thai"]
+    
     static let identifier = "CustomSearchTableViewCe"
     
     private let titleLabel: TitleLabel = {
@@ -30,7 +32,6 @@ class CustomSearchTableViewCell: UITableViewCell {
     private let selectionOfOrigin: DropDownMenu = {
         let view = DropDownMenu()
         view.configure()
-        view.setup(title: "test", selectionItems: ["test1", "test2", "test3", "test4"])
         return view
     }()
     
@@ -127,6 +128,7 @@ class CustomSearchTableViewCell: UITableViewCell {
         contentView.isUserInteractionEnabled = true
         setupSubviews()
         setupConstraints()
+        setupSelection()
     }
     
     required init?(coder: NSCoder) {
@@ -201,6 +203,10 @@ class CustomSearchTableViewCell: UITableViewCell {
             
         ]
         NSLayoutConstraint.activate(constraints)
+    }
+    
+    private func setupSelection() {
+        selectionOfOrigin.setup(title: "N/A", selectionItems: cuisines)
     }
     
     // MARK: - Functions
