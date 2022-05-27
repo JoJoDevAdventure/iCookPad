@@ -59,7 +59,7 @@ class DropDownMenu: UIView {
         }
         dropDownMenu.backgroundColor = .white
         dropDownMenu.selectedTextColor = .black
-        dropDownMenu.selectionBackgroundColor = .lightGray
+        dropDownMenu.selectionBackgroundColor = UIColor.SelectionColor.selectionDropDown
         dropDownMenu.cornerRadius = 7
         dropDownMenu.animationEntranceOptions = .transitionCrossDissolve
         dropDownMenu.animationExitOptions = .transitionCrossDissolve

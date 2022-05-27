@@ -13,6 +13,10 @@ class CustomSearchTableViewCell: UITableViewCell {
     
     private let cuisines = ["African", "American", "Chinese", "French","Indian","Italian", "Japanese", "Thai"]
     
+    private let types = ["breakfast","lunch","soup","salad","dessert", "snack","beverage", "drink"]
+    
+    private let diet = ["Ketogenic","Pescetarian","Paleo","Primal","Low FODMAP","Whole30"]
+    
     static let identifier = "CustomSearchTableViewCe"
     
     private let titleLabel: TitleLabel = {
@@ -94,7 +98,7 @@ class CustomSearchTableViewCell: UITableViewCell {
     private let vegetarianFreeLabel: SecondaryLabel = {
         let label = SecondaryLabel()
         label.configure(fontSize: 22)
-        label.text = "Gluten free :"
+        label.text = "Vegetarian :"
         return label
     }()
     
@@ -207,6 +211,8 @@ class CustomSearchTableViewCell: UITableViewCell {
     
     private func setupSelection() {
         selectionOfOrigin.setup(title: "N/A", selectionItems: cuisines)
+        selectionOfType.setup(title: "N/A", selectionItems: types)
+        selectionOfDiet.setup(title: "N/A", selectionItems: diet)
     }
     
     // MARK: - Functions
