@@ -119,12 +119,13 @@ class CustomSearchTableViewCell: UITableViewCell {
     private let findResultsCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
-        layout.estimatedItemSize = CGSize(width: 150, height: 150)
+        layout.minimumLineSpacing = 20
+        layout.estimatedItemSize = CGSize(width: 330, height: 330)
         let collection = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collection.translatesAutoresizingMaskIntoConstraints = false
         collection.registerCell(SearchCollectionViewCell.self)
         collection.isHidden = true
-        collection.backgroundColor = .blue
+        collection.backgroundColor = UIColor.BackgroundColors.background
         return collection
     }()
     // MARK: - Life cycle
@@ -217,10 +218,10 @@ class CustomSearchTableViewCell: UITableViewCell {
         } else {
             findButton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -40).isActive = false
             findResultsCollectionView.widthAnchor.constraint(equalTo: widthAnchor).isActive = true
-            findResultsCollectionView.heightAnchor.constraint(equalToConstant: 200).isActive = true
+            findResultsCollectionView.heightAnchor.constraint(equalToConstant: 400).isActive = true
             findResultsCollectionView.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
-            findResultsCollectionView.topAnchor.constraint(equalTo: findButton.bottomAnchor, constant: 40).isActive = true
-            findButton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -250).isActive = true
+            findResultsCollectionView.topAnchor.constraint(equalTo: findButton.bottomAnchor, constant: 20).isActive = true
+            findButton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -450).isActive = true
         }
         NSLayoutConstraint.activate(constraints)
     }
@@ -269,7 +270,7 @@ class CustomSearchTableViewCell: UITableViewCell {
 // MARK: - Extension : CollectionView
 extension CustomSearchTableViewCell: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 0
+        return 6
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
