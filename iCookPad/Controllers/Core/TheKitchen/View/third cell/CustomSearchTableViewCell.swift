@@ -124,6 +124,7 @@ class CustomSearchTableViewCell: UITableViewCell {
         collection.translatesAutoresizingMaskIntoConstraints = false
         collection.registerCell(SearchCollectionViewCell.self)
         collection.isHidden = true
+        collection.backgroundColor = .blue
         return collection
     }()
     // MARK: - Life cycle
@@ -219,7 +220,7 @@ class CustomSearchTableViewCell: UITableViewCell {
             findResultsCollectionView.heightAnchor.constraint(equalToConstant: 200).isActive = true
             findResultsCollectionView.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
             findResultsCollectionView.topAnchor.constraint(equalTo: findButton.bottomAnchor, constant: 40).isActive = true
-            findResultsCollectionView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -40).isActive = true
+            findButton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -250).isActive = true
         }
         NSLayoutConstraint.activate(constraints)
     }
@@ -234,6 +235,7 @@ class CustomSearchTableViewCell: UITableViewCell {
         findButton.addAction(UIAction(handler: { _ in
             self.collectInformations()
             self.setupConstraints()
+            NotificationCenter.default.post(name: NSNotification.Name("reload"), object: nil)
         }), for: .touchUpInside)
     }
     //setup CollectionView
@@ -267,7 +269,7 @@ class CustomSearchTableViewCell: UITableViewCell {
 // MARK: - Extension : CollectionView
 extension CustomSearchTableViewCell: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 6
+        return 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
