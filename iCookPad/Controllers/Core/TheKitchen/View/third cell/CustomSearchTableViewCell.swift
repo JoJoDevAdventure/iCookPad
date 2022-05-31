@@ -10,121 +10,108 @@ import UIKit
 class CustomSearchTableViewCell: UITableViewCell {
     
     // MARK: - Properties
-    
+    // type of cuisines
     private let cuisines = ["African", "American", "Chinese", "French","Indian","Italian", "Japanese", "Thai"]
-    
+    // type of recipe
     private let types = ["breakfast","lunch","soup","salad","dessert", "snack","beverage", "drink"]
-    
+    // type of diet
     private let diet = ["Ketogenic","Pescetarian","Paleo","Primal","Low FODMAP","Whole30"]
     
     static let identifier = "CustomSearchTableViewCe"
     
     // MARK: - UI
-    
+    // Title
     private let titleLabel: TitleLabel = {
         let label = TitleLabel()
         label.configure(fontSize: 38)
         label.text = "You wish, We grant. "
         return label
     }()
-    
+    // Origin Label
     private let originLabel: SecondaryLabel = {
         let label = SecondaryLabel()
         label.configure(fontSize: 28)
         label.text = "Origin preference : "
         return label
     }()
-    
+    // Origin DropDownMenu
     private let selectionOfOrigin: DropDownMenu = {
         let view = DropDownMenu()
         view.configure()
         return view
     }()
-    
+    // Type Label
     private let typeLabel: SecondaryLabel = {
         let label = SecondaryLabel()
         label.configure(fontSize: 28)
         label.text = "Type preference : "
         return label
     }()
-    
+    // Type DropDownMenu
     private let selectionOfType: DropDownMenu = {
         let view = DropDownMenu()
         view.configure()
         view.setup(title: "test", selectionItems: ["test1", "test2", "test3", "test4"])
         return view
     }()
-    
+    // Diet Label
     private let dietLabel: SecondaryLabel = {
         let label = SecondaryLabel()
         label.configure(fontSize: 28)
         label.text = "Diet preference : "
         return label
     }()
-    
+    // Diet DropDownMenu
     private let selectionOfDiet: DropDownMenu = {
         let view = DropDownMenu()
         view.configure()
         view.setup(title: "test", selectionItems: ["test1", "test2", "test3", "test4"])
         return view
     }()
-    
+    // Gluten free Label
     private let glutenFreeLabel: SecondaryLabel = {
         let label = SecondaryLabel()
         label.configure(fontSize: 22)
         label.text = "Gluten free :"
         return label
     }()
-    
+    // Gluten switch
     private let glutenSwitch: UISwitch = {
         let switcher = UISwitch()
         switcher.translatesAutoresizingMaskIntoConstraints = false
         switcher.onTintColor = .systemGreen
         return switcher
     }()
-    
+    // Vegan Free Label
     private let veganFreeLabel: SecondaryLabel = {
         let label = SecondaryLabel()
         label.configure(fontSize: 22)
         label.text = "Vegan :"
         return label
     }()
-    
+    // Vegan Switch
     private let veganSwitch: UISwitch = {
         let switcher = UISwitch()
         switcher.translatesAutoresizingMaskIntoConstraints = false
         switcher.onTintColor = .systemGreen
         return switcher
     }()
-    
+    // Vegetarien Free Label
     private let vegetarianFreeLabel: SecondaryLabel = {
         let label = SecondaryLabel()
         label.configure(fontSize: 22)
         label.text = "Vegetarian :"
         return label
     }()
-    
+    // Vegetarian switch
     private let vegetarianSwitch: UISwitch = {
         let switcher = UISwitch()
         switcher.translatesAutoresizingMaskIntoConstraints = false
         switcher.onTintColor = .systemGreen
         return switcher
     }()
-    
-    private let findButton: UIButton = {
-        let button = UIButton()
-        button.backgroundColor = .systemGreen
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle("Find !", for: .normal)
-        button.setImage(UIImage(systemName: "magnifyingglass"), for: .normal)
-        button.tintColor = .white
-        button.layer.cornerRadius = 8
-        button.layer.shadowColor = UIColor.black.cgColor
-        button.layer.shadowOffset = .zero
-        button.layer.shadowRadius = 4
-        button.layer.shadowOpacity = 0.3
-        return button
-    }()
+    // Find Rexipe Button
+    private let findButton = FindButton(frame: .zero)
     
     // MARK: - Life cycle
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -143,7 +130,7 @@ class CustomSearchTableViewCell: UITableViewCell {
     }
     
     // MARK: - Set up
-    
+    // Adding Subviews
     private func setupSubviews() {
         addSubview(titleLabel)
         addSubview(originLabel)
@@ -160,48 +147,49 @@ class CustomSearchTableViewCell: UITableViewCell {
         addSubview(veganFreeLabel)
         addSubview(findButton)
     }
-    
+    // Constraints
     private func setupConstraints() {
         let constraints = [
+            // Title
             titleLabel.topAnchor.constraint(equalTo: topAnchor),
             titleLabel.leftAnchor.constraint(equalTo: leftAnchor, constant: 20),
-            
+            // Origin Label
             originLabel.leftAnchor.constraint(equalTo: leftAnchor, constant: 25),
             originLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 40),
-            
+            // Origin Selection
             selectionOfOrigin.topAnchor.constraint(equalTo: originLabel.bottomAnchor, constant: 10),
             selectionOfOrigin.leftAnchor.constraint(equalTo: originLabel.leftAnchor),
-            
+            // Type Label
             typeLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
             typeLabel.topAnchor.constraint(equalTo: originLabel.topAnchor),
-            
+            // Type Selection
             selectionOfType.topAnchor.constraint(equalTo: typeLabel.bottomAnchor, constant: 10),
             selectionOfType.leftAnchor.constraint(equalTo: typeLabel.leftAnchor),
-            
+            // Diet Label
             dietLabel.rightAnchor.constraint(equalTo: rightAnchor, constant: -45),
             dietLabel.topAnchor.constraint(equalTo: originLabel.topAnchor),
-
+            // Diet Selection
             selectionOfDiet.topAnchor.constraint(equalTo: dietLabel.bottomAnchor, constant: 10),
             selectionOfDiet.leftAnchor.constraint(equalTo: dietLabel.leftAnchor),
-            
+            // GlutenFree Label
             glutenFreeLabel.leftAnchor.constraint(equalTo: leftAnchor, constant: 35),
             glutenFreeLabel.topAnchor.constraint(equalTo: selectionOfDiet.bottomAnchor, constant: 50),
             
             glutenSwitch.leftAnchor.constraint(equalTo: glutenFreeLabel.rightAnchor, constant: 10),
             glutenSwitch.centerYAnchor.constraint(equalTo: glutenFreeLabel.centerYAnchor),
-            
+            // Vegetarian Label
             vegetarianFreeLabel.leftAnchor.constraint(equalTo: glutenSwitch.rightAnchor, constant: 40),
             vegetarianFreeLabel.topAnchor.constraint(equalTo: glutenFreeLabel.topAnchor),
-            
+            // Vegetarian Switch
             vegetarianSwitch.leftAnchor.constraint(equalTo: vegetarianFreeLabel.rightAnchor, constant: 10),
             vegetarianSwitch.centerYAnchor.constraint(equalTo: vegetarianFreeLabel.centerYAnchor),
-            
+            // Vegan Label
             veganFreeLabel.leftAnchor.constraint(equalTo: vegetarianSwitch.rightAnchor, constant: 40),
             veganFreeLabel.topAnchor.constraint(equalTo: glutenFreeLabel.topAnchor),
-            
+            // Vegan Switch
             veganSwitch.leftAnchor.constraint(equalTo: veganFreeLabel.rightAnchor, constant: 10),
             veganSwitch.centerYAnchor.constraint(equalTo: veganFreeLabel.centerYAnchor),
-            
+            // Find Button
             findButton.leftAnchor.constraint(equalTo: veganSwitch.rightAnchor, constant: 40),
             findButton.heightAnchor.constraint(equalToConstant: 50),
             findButton.centerYAnchor.constraint(equalTo: veganSwitch.centerYAnchor),
@@ -210,20 +198,21 @@ class CustomSearchTableViewCell: UITableViewCell {
         ]
         NSLayoutConstraint.activate(constraints)
     }
-    
+    // setupSelection titles
     private func setupSelection() {
         selectionOfOrigin.setup(title: "N/A", selectionItems: cuisines)
         selectionOfType.setup(title: "N/A", selectionItems: types)
         selectionOfDiet.setup(title: "N/A", selectionItems: diet)
     }
-    
+    // Setup Find Button action
     private func setupButtonsAction() {
         findButton.addAction(UIAction(handler: { _ in
             self.collectInformations()
         }), for: .touchUpInside)
     }
     // MARK: - Functions
-    
+    // Get all data
+    // TODO: - API Requeset
     func collectInformations() {
         let origin = selectionOfOrigin.getSelectedItem() ?? "N/A"
         let type = selectionOfType.getSelectedItem() ?? "N/A"
@@ -231,7 +220,6 @@ class CustomSearchTableViewCell: UITableViewCell {
         let glutenFree = glutenSwitch.isOn
         let vegetarian = vegetarianSwitch.isOn
         let vegan = veganSwitch.isOn
-        
         print("origin: \(origin), type: \(type), diet: \(diet), gluten free ?: \(glutenFree), vegetarian ?: \(vegetarian), vegan ?: \(vegan)")
     }
     

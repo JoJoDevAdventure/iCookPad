@@ -14,6 +14,7 @@ class RandomSweetySaltySectionTableViewCell: UITableViewCell {
     var sweetRecipes: [Recipe] = []
     var saltyRecipes: [Recipe] = []
     
+    // Title
     private let titleSection: TitleLabel = {
         let label = TitleLabel()
         label.configure(fontSize: 52)
@@ -21,6 +22,7 @@ class RandomSweetySaltySectionTableViewCell: UITableViewCell {
         return label
     }()
     
+    //Sweety Title
     private let sweetyTitleSection: TitleLabel = {
         let label = TitleLabel()
         label.configure(fontSize: 38)
@@ -28,6 +30,7 @@ class RandomSweetySaltySectionTableViewCell: UITableViewCell {
         return label
     }()
     
+    // Sweety TableView
     private let sweetyRecipesTableView: UITableView = {
         let tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
@@ -40,6 +43,7 @@ class RandomSweetySaltySectionTableViewCell: UITableViewCell {
         return tableView
     }()
     
+    // Salty Title
     private let saltyTitleSection: TitleLabel = {
         let label = TitleLabel()
         label.configure(fontSize: 38)
@@ -47,6 +51,7 @@ class RandomSweetySaltySectionTableViewCell: UITableViewCell {
         return label
     }()
     
+    // Salty TableView
     private let saltyRecipesTableView: UITableView = {
         let tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
@@ -59,6 +64,8 @@ class RandomSweetySaltySectionTableViewCell: UITableViewCell {
         return tableView
     }()
     
+    /// Separators :
+    // Salty Top
     private let topSaltySeparator: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -67,7 +74,7 @@ class RandomSweetySaltySectionTableViewCell: UITableViewCell {
         view.backgroundColor = UIColor.LabelColors.mainTitleColor
         return view
     }()
-    
+    // Sweety Top
     private let topSweetySeparator: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -76,7 +83,7 @@ class RandomSweetySaltySectionTableViewCell: UITableViewCell {
         view.backgroundColor = UIColor.LabelColors.mainTitleColor
         return view
     }()
-    
+    // Salty Bottom
     private let bottomSaltySeparator: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -85,7 +92,7 @@ class RandomSweetySaltySectionTableViewCell: UITableViewCell {
         view.backgroundColor = UIColor.LabelColors.mainTitleColor
         return view
     }()
-    
+    // Sweety Bottom
     private let bottomSweetySeparator: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -96,7 +103,6 @@ class RandomSweetySaltySectionTableViewCell: UITableViewCell {
     }()
     
     // MARK: - View Model
-    
     
     // MARK: - Life cycle
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -114,14 +120,14 @@ class RandomSweetySaltySectionTableViewCell: UITableViewCell {
     }
     
     // MARK: - Set up
-    
+    // setup TableView
     private func setupTableView() {
         sweetyRecipesTableView.delegate = self
         saltyRecipesTableView.delegate = self
         sweetyRecipesTableView.dataSource = self
         saltyRecipesTableView.dataSource = self
     }
-    
+    // Adding SubViews
     private func setupSubviews() {
         addSubview(titleSection)
         addSubview(topSaltySeparator)
@@ -133,16 +139,16 @@ class RandomSweetySaltySectionTableViewCell: UITableViewCell {
         addSubview(sweetyTitleSection)
         addSubview(sweetyRecipesTableView)
     }
-    
+    // Constraints
     private func setupConstraints() {
         let constraints = [
-            
+            // Title
             titleSection.topAnchor.constraint(equalTo: topAnchor, constant: 30),
             titleSection.leftAnchor.constraint(equalTo: leftAnchor, constant: 20),
-            
+            // Salty Title
             saltyTitleSection.centerXAnchor.constraint(equalTo: saltyRecipesTableView.centerXAnchor),
             saltyTitleSection.topAnchor.constraint(equalTo: titleSection.bottomAnchor, constant: 40),
-            
+            // Sweety Title
             sweetyTitleSection.centerXAnchor.constraint(equalTo: sweetyRecipesTableView.centerXAnchor),
             sweetyTitleSection.topAnchor.constraint(equalTo: saltyTitleSection.topAnchor),
             
@@ -184,7 +190,7 @@ class RandomSweetySaltySectionTableViewCell: UITableViewCell {
     
 
 }
-// MARK: - Functions
+// MARK: - Extension : TableView
 extension RandomSweetySaltySectionTableViewCell: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -207,7 +213,7 @@ extension RandomSweetySaltySectionTableViewCell: UITableViewDelegate, UITableVie
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: SaltySweetyTableViewCell.identifier) as? SaltySweetyTableViewCell else { return UITableViewCell() }
+        let cell = tableView.dequeueReusableCell(for: SaltySweetyTableViewCell.self, for: indexPath)
         if tableView == sweetyRecipesTableView {
             let recipe = sweetRecipes[indexPath.row]
             cell.configure(recipe: recipe)
