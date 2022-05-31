@@ -9,6 +9,8 @@ import UIKit
 
 class CustomSearchTableViewCell: UITableViewCell {
     
+    var results : [Int] = []
+    
     // MARK: - Properties
     // type of cuisines
     private let cuisines = ["African", "American", "Chinese", "French","Indian","Italian", "Japanese", "Thai"]
@@ -113,6 +115,17 @@ class CustomSearchTableViewCell: UITableViewCell {
     // Find Rexipe Button
     private let findButton = FindButton(frame: .zero)
     
+//     Collection View
+    private let findResultsCollectionView: UICollectionView = {
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .horizontal
+        layout.estimatedItemSize = CGSize(width: 150, height: 150)
+        let collection = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        collection.translatesAutoresizingMaskIntoConstraints = false
+        collection.registerCell(SearchCollectionViewCell.self)
+        collection.isHidden = true
+        return collection
+    }()
     // MARK: - Life cycle
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -123,6 +136,7 @@ class CustomSearchTableViewCell: UITableViewCell {
         setupConstraints()
         setupSelection()
         setupButtonsAction()
+        setupCollectionView()
     }
     
     required init?(coder: NSCoder) {
@@ -146,6 +160,7 @@ class CustomSearchTableViewCell: UITableViewCell {
         addSubview(veganSwitch)
         addSubview(veganFreeLabel)
         addSubview(findButton)
+        addSubview(findResultsCollectionView)
     }
     // Constraints
     private func setupConstraints() {
@@ -174,7 +189,7 @@ class CustomSearchTableViewCell: UITableViewCell {
             // GlutenFree Label
             glutenFreeLabel.leftAnchor.constraint(equalTo: leftAnchor, constant: 35),
             glutenFreeLabel.topAnchor.constraint(equalTo: selectionOfDiet.bottomAnchor, constant: 50),
-            
+            // Gluten Switch
             glutenSwitch.leftAnchor.constraint(equalTo: glutenFreeLabel.rightAnchor, constant: 10),
             glutenSwitch.centerYAnchor.constraint(equalTo: glutenFreeLabel.centerYAnchor),
             // Vegetarian Label
@@ -194,8 +209,18 @@ class CustomSearchTableViewCell: UITableViewCell {
             findButton.heightAnchor.constraint(equalToConstant: 50),
             findButton.centerYAnchor.constraint(equalTo: veganSwitch.centerYAnchor),
             findButton.widthAnchor.constraint(equalToConstant: 150),
-            findButton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -40)
+            
         ]
+        if results.isEmpty {
+            findButton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -40).isActive = true
+        } else {
+            findButton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -40).isActive = false
+            findResultsCollectionView.widthAnchor.constraint(equalTo: widthAnchor).isActive = true
+            findResultsCollectionView.heightAnchor.constraint(equalToConstant: 200).isActive = true
+            findResultsCollectionView.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
+            findResultsCollectionView.topAnchor.constraint(equalTo: findButton.bottomAnchor, constant: 40).isActive = true
+            findResultsCollectionView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -40).isActive = true
+        }
         NSLayoutConstraint.activate(constraints)
     }
     // setupSelection titles
@@ -208,8 +233,15 @@ class CustomSearchTableViewCell: UITableViewCell {
     private func setupButtonsAction() {
         findButton.addAction(UIAction(handler: { _ in
             self.collectInformations()
+            self.setupConstraints()
         }), for: .touchUpInside)
     }
+    //setup CollectionView
+    private func setupCollectionView() {
+        findResultsCollectionView.delegate = self
+        findResultsCollectionView.dataSource = self
+    }
+    
     // MARK: - Functions
     // Get all data
     // TODO: - API Requeset
@@ -221,12 +253,25 @@ class CustomSearchTableViewCell: UITableViewCell {
         let vegetarian = vegetarianSwitch.isOn
         let vegan = veganSwitch.isOn
         print("origin: \(origin), type: \(type), diet: \(diet), gluten free ?: \(glutenFree), vegetarian ?: \(vegetarian), vegan ?: \(vegan)")
+        results.append(5)
+        findResultsCollectionView.isHidden = false
     }
     
     
     // MARK: - Network Manager calls
     
     
-    // MARK: - Extensions
+
     
+}
+// MARK: - Extension : CollectionView
+extension CustomSearchTableViewCell: UICollectionViewDelegate, UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 6
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(for: SearchCollectionViewCell.self, for: indexPath)
+        return cell
+    }
 }
