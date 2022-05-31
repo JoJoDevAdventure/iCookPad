@@ -66,6 +66,7 @@ class DropDownMenu: UIView {
         dropDownMenu.animationduration = 0.3
     }
     
+    // Constraints
     private func setupConstraints() {
         translatesAutoresizingMaskIntoConstraints = false
         addSubview(menuSelectedLabel)
@@ -89,6 +90,7 @@ class DropDownMenu: UIView {
         NSLayoutConstraint.activate(constraints)
     }
     
+    // Gesture
     private func setupGesture() {
         self.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(deployMenu)))
         downButton.addAction(UIAction(handler: { _ in
