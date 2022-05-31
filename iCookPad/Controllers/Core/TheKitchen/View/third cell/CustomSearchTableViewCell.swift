@@ -19,6 +19,8 @@ class CustomSearchTableViewCell: UITableViewCell {
     
     static let identifier = "CustomSearchTableViewCe"
     
+    // MARK: - UI
+    
     private let titleLabel: TitleLabel = {
         let label = TitleLabel()
         label.configure(fontSize: 38)
@@ -133,6 +135,7 @@ class CustomSearchTableViewCell: UITableViewCell {
         setupSubviews()
         setupConstraints()
         setupSelection()
+        setupButtonsAction()
     }
     
     required init?(coder: NSCoder) {
@@ -162,7 +165,6 @@ class CustomSearchTableViewCell: UITableViewCell {
         let constraints = [
             titleLabel.topAnchor.constraint(equalTo: topAnchor),
             titleLabel.leftAnchor.constraint(equalTo: leftAnchor, constant: 20),
-            titleLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -400),
             
             originLabel.leftAnchor.constraint(equalTo: leftAnchor, constant: 25),
             originLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 40),
@@ -203,8 +205,8 @@ class CustomSearchTableViewCell: UITableViewCell {
             findButton.leftAnchor.constraint(equalTo: veganSwitch.rightAnchor, constant: 40),
             findButton.heightAnchor.constraint(equalToConstant: 50),
             findButton.centerYAnchor.constraint(equalTo: veganSwitch.centerYAnchor),
-            findButton.widthAnchor.constraint(equalToConstant: 150)
-            
+            findButton.widthAnchor.constraint(equalToConstant: 150),
+            findButton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -40)
         ]
         NSLayoutConstraint.activate(constraints)
     }
@@ -215,7 +217,23 @@ class CustomSearchTableViewCell: UITableViewCell {
         selectionOfDiet.setup(title: "N/A", selectionItems: diet)
     }
     
+    private func setupButtonsAction() {
+        findButton.addAction(UIAction(handler: { _ in
+            self.collectInformations()
+        }), for: .touchUpInside)
+    }
     // MARK: - Functions
+    
+    func collectInformations() {
+        let origin = selectionOfOrigin.getSelectedItem() ?? "N/A"
+        let type = selectionOfType.getSelectedItem() ?? "N/A"
+        let diet = selectionOfDiet.getSelectedItem() ?? "N/A"
+        let glutenFree = glutenSwitch.isOn
+        let vegetarian = vegetarianSwitch.isOn
+        let vegan = veganSwitch.isOn
+        
+        print("origin: \(origin), type: \(type), diet: \(diet), gluten free ?: \(glutenFree), vegetarian ?: \(vegetarian), vegan ?: \(vegan)")
+    }
     
     
     // MARK: - Network Manager calls
