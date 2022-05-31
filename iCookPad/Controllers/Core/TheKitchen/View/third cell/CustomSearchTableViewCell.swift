@@ -19,6 +19,8 @@ class CustomSearchTableViewCell: UITableViewCell {
     
     static let identifier = "CustomSearchTableViewCe"
     
+    // MARK: - UI
+    
     private let titleLabel: TitleLabel = {
         let label = TitleLabel()
         label.configure(fontSize: 38)
