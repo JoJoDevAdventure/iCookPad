@@ -263,9 +263,6 @@ class CustomSearchTableViewCell: UITableViewCell {
     
     // MARK: - Network Manager calls
     
-    
-
-    
 }
 // MARK: - Extension : CollectionView
 extension CustomSearchTableViewCell: UICollectionViewDelegate, UICollectionViewDataSource {
