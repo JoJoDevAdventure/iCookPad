@@ -50,6 +50,11 @@ class TheKitchenViewController: UIViewController {
         setupSubviews()
         setupTableView()
         fetchChiefChoiceRecipe()
+        NotificationCenter.default.addObserver(forName: NSNotification.Name("reload"), object: nil, queue: nil) { _ in
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        }
     }
     
     // MARK: - Set up
