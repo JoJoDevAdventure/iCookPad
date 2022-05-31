@@ -15,14 +15,17 @@ class TheKitchenViewController: UIViewController {
     private var saltyRecipes: [Recipe] = []
     private var sweetRecipes: [Recipe] = []
     
+    // MARK: - UI
+    
+    // TableView
     private let tableView: UITableView = {
         let tableView = UITableView()
         tableView.backgroundColor = UIColor.BackgroundColors.background
         tableView.sectionIndexColor = .clear
         tableView.separatorColor = .clear
-        tableView.register(MasterPieceTableViewCell.self, forCellReuseIdentifier: MasterPieceTableViewCell.identifier)
-        tableView.register(RandomSweetySaltySectionTableViewCell.self, forCellReuseIdentifier: RandomSweetySaltySectionTableViewCell.identifier)
-        tableView.register(CustomSearchTableViewCell.self, forCellReuseIdentifier: CustomSearchTableViewCell.identifier)
+        tableView.registerCell(MasterPieceTableViewCell.self)
+        tableView.registerCell(RandomSweetySaltySectionTableViewCell.self)
+        tableView.registerCell(CustomSearchTableViewCell.self)
         tableView.isUserInteractionEnabled = true
         return tableView
     }()
@@ -50,28 +53,25 @@ class TheKitchenViewController: UIViewController {
     }
     
     // MARK: - Set up
-    
+    // NavBar
     private func setupNavBar() {
         title = "iCookPad"
-        navigationController?.navigationBar.prefersLargeTitles = true
-        navigationController?.navigationItem.largeTitleDisplayMode = .always
-        navigationController?.navigationBar.tintColor = .white
-        navigationController?.navigationBar.backgroundColor = UIColor.BackgroundColors.background
-        navigationController?.navigationBar.largeTitleTextAttributes = [.foregroundColor: UIColor.LabelColors.mainTitleColor, .font: UIFont.systemFont(ofSize: 60, weight: UIFont.Weight.bold) ]
-        navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.LabelColors.mainTitleColor, .font: UIFont.systemFont(ofSize: 28, weight: UIFont.Weight.semibold)]
+        navigationController?.largeTitle()
     }
     
+    // adding subview
     private func setupSubviews() {
         view.addSubview(tableView)
     }
     
+    override func viewDidLayoutSubviews() {
+        tableView.frame = view.bounds
+    }
+    
+    // tableView delegate / datasource
     private func setupTableView() {
         tableView.delegate = self
         tableView.dataSource = self
-    }
-    
-    override func viewDidLayoutSubviews() {
-        tableView.frame = view.bounds
     }
     
     // MARK: - Functions
@@ -79,13 +79,14 @@ class TheKitchenViewController: UIViewController {
     
     // MARK: - Network Manager calls
 
+    // fetch recipes
     private func fetchChiefChoiceRecipe() {
         viewModel.getChiefChoiceRecipe()
         viewModel.getSaltySweetRecipes()
     }
 
 }
-// MARK: - Extensions
+// MARK: - Extension : TableView
 extension TheKitchenViewController: UITableViewDelegate, UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -99,18 +100,18 @@ extension TheKitchenViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch indexPath.section {
         case 0 :
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: MasterPieceTableViewCell.identifier) as? MasterPieceTableViewCell else { return UITableViewCell() }
+            let cell = tableView.dequeueReusableCell(for: MasterPieceTableViewCell.self, for: indexPath)
             guard let recipe = self.chiefChoiceRecipe else { return cell}
             cell.configureWith(recipe: recipe)
             return cell
             
         case 1 :
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: RandomSweetySaltySectionTableViewCell.identifier) as? RandomSweetySaltySectionTableViewCell else { return UITableViewCell()}
+            let cell = tableView.dequeueReusableCell(for: RandomSweetySaltySectionTableViewCell.self, for: indexPath)
             cell.configure(salty: saltyRecipes, sweety: sweetRecipes)
             return cell
             
         case 2 :
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: CustomSearchTableViewCell.identifier) as? CustomSearchTableViewCell else { return UITableViewCell() }
+            let cell = tableView.dequeueReusableCell(for: CustomSearchTableViewCell.self, for: indexPath)
             return cell
         default :
             return UITableViewCell()
@@ -131,6 +132,7 @@ extension TheKitchenViewController: UITableViewDelegate, UITableViewDataSource {
     }
 }
 
+// MARK: - Extension : ViewModel OutPut
 extension TheKitchenViewController: TheKitchedViewModelOutPut {
     func showErrorMessageFetchingRandom(error: Error) {
         if error.localizedDescription == "The data couldn’t be read because it is missing." {

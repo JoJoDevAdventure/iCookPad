@@ -14,8 +14,6 @@ class RandomSweetySaltySectionTableViewCell: UITableViewCell {
     var sweetRecipes: [Recipe] = []
     var saltyRecipes: [Recipe] = []
     
-    static let identifier = "RandomSweetySaltySectionTableViewCell"
-    
     private let titleSection: TitleLabel = {
         let label = TitleLabel()
         label.configure(fontSize: 52)
@@ -34,7 +32,7 @@ class RandomSweetySaltySectionTableViewCell: UITableViewCell {
         let tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.backgroundColor = .gray
-        tableView.register(SaltySweetyTableViewCell.self, forCellReuseIdentifier: SaltySweetyTableViewCell.identifier)
+        tableView.registerCell(SaltySweetyTableViewCell.self)
         tableView.separatorColor = .clear
         tableView.sectionIndexColor = .clear
         tableView.backgroundColor = UIColor.BackgroundColors.background
@@ -53,7 +51,7 @@ class RandomSweetySaltySectionTableViewCell: UITableViewCell {
         let tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.backgroundColor = .gray
-        tableView.register(SaltySweetyTableViewCell.self, forCellReuseIdentifier: SaltySweetyTableViewCell.identifier)
+        tableView.registerCell(SaltySweetyTableViewCell.self)
         tableView.separatorColor = .clear
         tableView.sectionIndexColor = .clear
         tableView.backgroundColor = UIColor.BackgroundColors.background

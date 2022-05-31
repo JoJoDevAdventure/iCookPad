@@ -9,11 +9,8 @@ import UIKit
 
 class MasterPieceTableViewCell: UITableViewCell {
     
-    // MARK: - Properties
-    
-    static let identifier = "MasterPieceTableViewCell"
-    
-    
+    // MARK: - UI
+    // Title
     private let titleLabel: TitleLabel = {
         let label = TitleLabel()
         label.text = "Today's chief choice :"
@@ -21,6 +18,7 @@ class MasterPieceTableViewCell: UITableViewCell {
         return label
     }()
     
+    // Chef Choice View
     private let chefChoiceView: CheifChoiceView = {
         let view = CheifChoiceView()
         view.configure()
@@ -28,7 +26,6 @@ class MasterPieceTableViewCell: UITableViewCell {
     }()
     
     // MARK: - Life cycle
-
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         backgroundColor = UIColor.BackgroundColors.background
@@ -43,13 +40,13 @@ class MasterPieceTableViewCell: UITableViewCell {
     }
     
     // MARK: - Set up
-    
+    // Adding subviews
     private func setupSubViews() {
         addSubview(titleLabel)
         addSubview(chefChoiceView)
-        
     }
     
+    // Constraints
     private func setupConstraints() {
         let constraints = [
             //title
@@ -61,20 +58,13 @@ class MasterPieceTableViewCell: UITableViewCell {
             chefChoiceView.centerYAnchor.constraint(equalTo: centerYAnchor, constant: 25),
             chefChoiceView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.84),
             chefChoiceView.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.85),
-            
         ]
         NSLayoutConstraint.activate(constraints)
     }
     
     // MARK: - Functions
-    
+    // Configure
     func configureWith(recipe: Recipe) {
         chefChoiceView.setupWith(recipe: recipe)
     }
-    
-    // MARK: - Network Manager calls
-    
-    
-    // MARK: - Extensions
-    
 }

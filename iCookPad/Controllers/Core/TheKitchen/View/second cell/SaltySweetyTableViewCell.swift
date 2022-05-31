@@ -11,8 +11,8 @@ import SDWebImage
 class SaltySweetyTableViewCell: UITableViewCell {
     
     // MARK: - Properties
-    static let identifier = "SaltySweetyTableViewCell"
     
+    // container
     private let container: ItemsContainerView = {
         let view = ItemsContainerView()
         view.configure()
@@ -20,6 +20,7 @@ class SaltySweetyTableViewCell: UITableViewCell {
         return view
     }()
     
+    // recipe Title
     private let recipeTitle: TitleLabel = {
         let label = TitleLabel()
         label.configure(fontSize: 24)
@@ -29,6 +30,7 @@ class SaltySweetyTableViewCell: UITableViewCell {
         return label
     }()
     
+    // information
     private let informationContainer: ItemsContainerView = {
         let view = ItemsContainerView()
         view.configure()
@@ -38,12 +40,14 @@ class SaltySweetyTableViewCell: UITableViewCell {
         return view
     }()
     
+    // calories Icon
     private let caloriesIcon: iconImageView = {
         let icon = iconImageView()
         icon.configure(iconName: "caloriesIcon", size: 30)
         return icon
     }()
     
+    // Calories Value
     private let caloriesValueLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -52,12 +56,14 @@ class SaltySweetyTableViewCell: UITableViewCell {
         return label
     }()
     
+    // Time icon
     private let timeIcon: iconImageView = {
         let icon = iconImageView()
         icon.configure(iconName: "TimeIcon", size: 30)
         return icon
     }()
     
+    // Time Value
     private let timeValueLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -66,12 +72,14 @@ class SaltySweetyTableViewCell: UITableViewCell {
         return label
     }()
     
+    // Coast Icon
     private let coastIcon: iconImageView = {
         let icon = iconImageView()
         icon.configure(iconName: "CoastIcon", size: 30)
         return icon
     }()
     
+    // Coast Value
     private let coastValueLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -80,6 +88,7 @@ class SaltySweetyTableViewCell: UITableViewCell {
         return label
     }()
     
+    // Preview Image
     private let previewImage: PreviewImageView = {
         let image = PreviewImageView()
         image.backgroundColor = .gray
@@ -88,6 +97,7 @@ class SaltySweetyTableViewCell: UITableViewCell {
         return image
     }()
     
+    // Difficulty property
     private let difficultyProperty: DifficultyContainerView = {
         let view = DifficultyContainerView()
         view.configure()
@@ -109,7 +119,7 @@ class SaltySweetyTableViewCell: UITableViewCell {
     }
     
     // MARK: - Set up
-    
+    // adding subviews
     private func setupSubViews() {
         addSubview(container)
         container.addSubview(previewImage)
@@ -124,6 +134,7 @@ class SaltySweetyTableViewCell: UITableViewCell {
         container.addSubview(difficultyProperty)
     }
     
+    //Constraints
     private func setupConstraints() {
         let constraints = [
             //container
@@ -160,22 +171,22 @@ class SaltySweetyTableViewCell: UITableViewCell {
             difficultyProperty.bottomAnchor.constraint(equalTo: container.bottomAnchor, constant: -20),
             
             /// Icons :
-            
+            // calories icon
             caloriesIcon.topAnchor.constraint(equalTo: informationContainer.topAnchor,constant: 15),
             caloriesIcon.leftAnchor.constraint(equalTo: informationContainer.leftAnchor, constant: 15),
-            
+            // time icon
             timeIcon.centerYAnchor.constraint(equalTo: informationContainer.centerYAnchor),
             timeIcon.leftAnchor.constraint(equalTo: caloriesIcon.leftAnchor),
-            
+            // coast icon
             coastIcon.bottomAnchor.constraint(equalTo: informationContainer.bottomAnchor,constant: -15),
             coastIcon.leftAnchor.constraint(equalTo: caloriesIcon.leftAnchor),
-            
+            // calories value
             caloriesValueLabel.centerYAnchor.constraint(equalTo: caloriesIcon.centerYAnchor),
             caloriesValueLabel.leftAnchor.constraint(equalTo: caloriesIcon.rightAnchor, constant: 5),
-            
+            // time value
             timeValueLabel.centerYAnchor.constraint(equalTo: timeIcon.centerYAnchor),
             timeValueLabel.leftAnchor.constraint(equalTo: timeIcon.rightAnchor, constant: 5),
-            
+            // coast value
             coastValueLabel.centerYAnchor.constraint(equalTo: coastIcon.centerYAnchor),
             coastValueLabel.leftAnchor.constraint(equalTo: coastIcon.rightAnchor, constant: 5),
         ]
@@ -183,7 +194,7 @@ class SaltySweetyTableViewCell: UITableViewCell {
     }
     
     // MARK: - Functions
-
+    // configuration
     func configure(recipe: Recipe) {
         recipeTitle.text = recipe.title
         guard let url = recipe.image else { return }
