@@ -120,7 +120,7 @@ class CustomSearchTableViewCell: UITableViewCell {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
         layout.minimumLineSpacing = 20
-        layout.estimatedItemSize = CGSize(width: 330, height: 330)
+        layout.estimatedItemSize = CGSize(width: 400, height: 400)
         let collection = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collection.translatesAutoresizingMaskIntoConstraints = false
         collection.registerCell(SearchCollectionViewCell.self)
@@ -218,10 +218,10 @@ class CustomSearchTableViewCell: UITableViewCell {
         } else {
             findButton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -40).isActive = false
             findResultsCollectionView.widthAnchor.constraint(equalTo: widthAnchor).isActive = true
-            findResultsCollectionView.heightAnchor.constraint(equalToConstant: 400).isActive = true
+            findResultsCollectionView.heightAnchor.constraint(equalToConstant: 430).isActive = true
             findResultsCollectionView.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
             findResultsCollectionView.topAnchor.constraint(equalTo: findButton.bottomAnchor, constant: 20).isActive = true
-            findButton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -450).isActive = true
+            findButton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -500).isActive = true
         }
         NSLayoutConstraint.activate(constraints)
     }

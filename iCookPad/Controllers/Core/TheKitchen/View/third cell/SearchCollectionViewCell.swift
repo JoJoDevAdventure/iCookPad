@@ -22,9 +22,9 @@ class SearchCollectionViewCell: UICollectionViewCell {
     private let recipeTitle: TitleLabel = {
         let label = TitleLabel()
         label.configure(fontSize: 24)
-        label.text = "This is recipe title a delicious recipe"
+        label.text = "This is recipe title a delicious recipe and I need to see what"
         label.textAlignment = .center
-        label.numberOfLines = 2
+        label.numberOfLines = 3
         return label
     }()
     
@@ -139,12 +139,13 @@ class SearchCollectionViewCell: UICollectionViewCell {
             container.leftAnchor.constraint(equalTo: leftAnchor, constant: 15),
             container.rightAnchor.constraint(equalTo: rightAnchor, constant: -15),
             container.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -15),
+            container.heightAnchor.constraint(equalTo: heightAnchor, constant: -30),
             container.widthAnchor.constraint(equalTo: widthAnchor, constant: -30),
             container.centerXAnchor.constraint(equalTo: centerXAnchor),
             container.centerYAnchor.constraint(equalTo: centerYAnchor),
             
             // title
-            recipeTitle.widthAnchor.constraint(equalTo: container.widthAnchor, constant: -20),
+            recipeTitle.widthAnchor.constraint(equalToConstant: 320),
             recipeTitle.centerXAnchor.constraint(equalTo: container.centerXAnchor),
             recipeTitle.topAnchor.constraint(equalTo: container.topAnchor, constant: 15),
             
