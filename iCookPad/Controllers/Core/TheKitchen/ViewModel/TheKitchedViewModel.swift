@@ -72,8 +72,8 @@ class TheKitchedViewModel {
         }
     }
     
-    func getCustomSearchRecipes() {
-        TheKitchenService.getCustomSearchResult { [weak self] results in
+    func getCustomSearchRecipes(customSearch: CustomSearch) {
+        TheKitchenService.getCustomSearchResult(customSearch: customSearch) { [weak self] results in
             switch results {
             case .success(let recipes) :
                 self?.output?.gotCustomSearchRecipes(recipes: recipes)

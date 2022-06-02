@@ -11,7 +11,7 @@ protocol TheKitchenAPICaller {
     func getOneRandomRecipe(completion: @escaping (Result<Recipe, Error>) -> Void)
     func getRandomSaltyRecipe(completion: @escaping (Result<[Recipe], Error>) -> Void)
     func getRandomSweetRecipe(completion: @escaping (Result<[Recipe], Error>) -> Void)
-    func getCustomSearchResult(completion: @escaping (Result<[Recipe], Error>) -> Void)
+    func getCustomSearchResult(customSearch: CustomSearch, completion: @escaping (Result<[ComplexRecipe], Error>) -> Void)
 }
 
 class APIsCaller: TheKitchenAPICaller {
@@ -90,8 +90,23 @@ class APIsCaller: TheKitchenAPICaller {
         task.resume()
     }
     
-    func getCustomSearchResult(completion: @escaping (Result<[Recipe], Error>) -> Void) {
-        let urlString = "\(informations.baseUrl)\(informations.randomRecipe)\(informations.apiKeyUrlBase)\(informations.apiKey)&number=6"
+    func getCustomSearchResult(customSearch: CustomSearch,completion: @escaping (Result<[ComplexRecipe], Error>) -> Void) {
+        var urlString = "\(informations.baseUrl)\(informations.complexSearch)\(informations.apiKeyUrlBase)\(informations.apiKey)"
+        if let diet = customSearch.diet {
+            urlString += diet
+        }
+        if let origin = customSearch.origin {
+            urlString += origin
+        }
+        if let type = customSearch.type {
+            urlString += type
+        }
+        if customSearch.tags != "&tags=" {
+            urlString += customSearch.tags!
+        }
+        urlString += "&number=8"
+        
+        print(urlString)
         guard let url = URL(string: urlString) else { return }
         let task = URLSession.shared.dataTask(with: URLRequest(url: url)) { data, _, error in
             guard let data = data else {
@@ -100,10 +115,10 @@ class APIsCaller: TheKitchenAPICaller {
             guard error == nil else {
                 return
             }
-            
+
             do {
-                let results = try JSONDecoder().decode(ApiResponse.self, from: data)
-                let recipes = results.recipes
+                let results = try JSONDecoder().decode(ComplexRecipeResponse.self, from: data)
+                let recipes = results.results
                 completion(.success(recipes))
             } catch {
                 completion(.failure(error))
@@ -112,4 +127,9 @@ class APIsCaller: TheKitchenAPICaller {
         }
         task.resume()
     }
+    
+    func fromComplexToRecipe(complexRecipes: [ComplexRecipe]) async throws {
+        let urlToId = "https://api.spoonacular.com/recipes/716429/information?includeNutrition=false"
+    }
+
 }

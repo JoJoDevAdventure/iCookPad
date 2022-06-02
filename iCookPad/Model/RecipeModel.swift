@@ -52,3 +52,14 @@ struct MeasuresType: Decodable {
     var unitLong: String
     var unitShort: String
 }
+
+struct ComplexRecipeResponse : Decodable {
+    var results: [ComplexRecipe]
+}
+
+struct ComplexRecipe: Decodable {
+    var id : Int
+    var title : String
+    var image : String
+    var imageType: String
+}

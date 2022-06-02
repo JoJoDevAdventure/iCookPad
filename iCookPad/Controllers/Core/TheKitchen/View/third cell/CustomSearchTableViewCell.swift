@@ -8,7 +8,7 @@
 import UIKit
 
 protocol CustomSearchTableViewCellDelegate : AnyObject {
-    func didTapSearch()
+    func didTapSearch(customSearch: CustomSearch)
 }
 
 
@@ -245,7 +245,6 @@ class CustomSearchTableViewCell: UITableViewCell {
         findButton.addAction(UIAction(handler: { _ in
             self.collectInformations()
             self.setupConstraints()
-            self.delegate?.didTapSearch()
         }), for: .touchUpInside)
     }
     //setup CollectionView
@@ -264,7 +263,9 @@ class CustomSearchTableViewCell: UITableViewCell {
         let glutenFree = glutenSwitch.isOn
         let vegetarian = vegetarianSwitch.isOn
         let vegan = veganSwitch.isOn
-        print("origin: \(origin), type: \(type), diet: \(diet), gluten free ?: \(glutenFree), vegetarian ?: \(vegetarian), vegan ?: \(vegan)")
+        let customOrigin = CustomSearch(origin: origin, type: type, diet: diet, glutenFree: glutenFree, vegetarian: vegetarian, vegan: vegan)
+        print(customOrigin)
+        self.delegate?.didTapSearch(customSearch: customOrigin)
         findResultsCollectionView.isHidden = false
         findResultsCollectionView.showLoadingSpinner(show: true)
     }
