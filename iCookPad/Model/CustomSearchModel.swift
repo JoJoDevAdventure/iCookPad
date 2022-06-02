@@ -10,9 +10,15 @@ import Foundation
 struct CustomSearch {
     
     init(origin: String, type: String, diet: String, glutenFree: Bool, vegetarian: Bool, vegan: Bool) {
-        self.origin = ["cuisine=" : origin]
-        self.type = ["type=" : type]
-        self.diet = ["diet=" : diet]
+        if origin != "N/A" {
+            self.origin = ["&cuisine=" : origin]
+        }
+        if type != "N/A" {
+            self.type = ["&type=" : type]
+        }
+        if diet != "N/A" {
+            self.diet = ["&diet=" : diet]
+        }
         var tags = [String]()
         var stringTag : String = ""
         if glutenFree {
@@ -28,10 +34,11 @@ struct CustomSearch {
             }
             stringTag += ",\(tag)"
         }
+        self.tags = ["&tags=":stringTag]
     }
-    var origin : [String : String]? = ["cuisine=": Origin.na.description]
-    var type : [String : String]? = ["type=": TypeOfMeal.na.description]
-    var diet : [String : String]? = ["diet=": Diet.na.description]
+    var origin : [String : String]?
+    var type : [String : String]?
+    var diet : [String : String]?
     var tags : [String : String]?
 }
 

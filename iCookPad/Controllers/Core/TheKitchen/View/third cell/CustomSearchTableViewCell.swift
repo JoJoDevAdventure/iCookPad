@@ -225,21 +225,7 @@ class CustomSearchTableViewCell: UITableViewCell {
         }
         NSLayoutConstraint.activate(constraints)
     }
-    // setupSelection titles
-    private func setupSelection() {
-        var origins : [String] = []
-        Origin.allCases.forEach({origins.append($0.description)})
-        var types : [String] = []
-        TypeOfMeal.allCases.forEach({types.append($0.description)})
-        var diets : [String] = []
-        Diet.allCases.forEach({diets.append($0.description)})
-        
-        selectionOfOrigin.setup(title: Origin.na.description, selectionItems: origins)
-        selectionOfType.setup(title: TypeOfMeal.na.description, selectionItems: types)
-        selectionOfDiet.setup(title: Diet.na.description, selectionItems: diets)
-        
-        
-    }
+    
     // Setup Find Button action
     private func setupButtonsAction() {
         findButton.addAction(UIAction(handler: { _ in
@@ -265,6 +251,8 @@ class CustomSearchTableViewCell: UITableViewCell {
         let vegetarian = vegetarianSwitch.isOn
         let vegan = veganSwitch.isOn
         print("origin: \(origin), type: \(type), diet: \(diet), gluten free ?: \(glutenFree), vegetarian ?: \(vegetarian), vegan ?: \(vegan)")
+        let customOrigin = CustomSearch(origin: origin, type: type, diet: diet, glutenFree: glutenFree, vegetarian: vegetarian, vegan: vegan)
+        print(customOrigin)
         findResultsCollectionView.isHidden = false
         findResultsCollectionView.showLoadingSpinner(show: true)
     }
