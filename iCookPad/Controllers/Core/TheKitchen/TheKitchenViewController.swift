@@ -203,12 +203,12 @@ extension TheKitchenViewController: TheKitchedViewModelOutPut {
 
 extension TheKitchenViewController: CustomSearchTableViewCellDelegate {
     
-    func didTapSearch() {
+    func didTapSearch(customSearch: CustomSearch) {
         DispatchQueue.main.async {
             self.tableView.reloadData()
         }
         tableView.setContentOffset(CGPoint(x: 0, y: self.tableView.contentSize.height), animated: true)
-        viewModel.getCustomSearchRecipes()
+        viewModel.getCustomSearchRecipes(customSearch: customSearch)
     }
     
 }
