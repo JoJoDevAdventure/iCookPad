@@ -14,6 +14,7 @@ class TheKitchenViewController: UIViewController {
     private var chiefChoiceRecipe: Recipe?
     private var saltyRecipes: [Recipe] = []
     private var sweetRecipes: [Recipe] = []
+    private var customSearchResult: [Recipe] = []
     
     // MARK: - UI
     
@@ -117,6 +118,15 @@ extension TheKitchenViewController: UITableViewDelegate, UITableViewDataSource {
             
         case 2 :
             let cell = tableView.dequeueReusableCell(for: CustomSearchTableViewCell.self, for: indexPath)
+            cell.delegate = self
+            if !customSearchResult.isEmpty {
+                cell.results = customSearchResult
+                DispatchQueue.main.async {
+                    cell.findResultsCollectionView.showLoadingSpinner(show: false)
+                    cell.findResultsCollectionView.reloadData()
+                    
+                }
+            }
             return cell
         default :
             return UITableViewCell()
@@ -139,6 +149,14 @@ extension TheKitchenViewController: UITableViewDelegate, UITableViewDataSource {
 
 // MARK: - Extension : ViewModel OutPut
 extension TheKitchenViewController: TheKitchedViewModelOutPut {
+    
+    func gotCustomSearchRecipes(recipes: [Recipe]) {
+        self.customSearchResult = recipes
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
+    }
+    
     func showErrorMessageFetchingRandom(error: Error) {
         if error.localizedDescription == "The data couldn’t be read because it is missing." {
             viewModel.getChiefChoiceRecipe()
@@ -181,4 +199,16 @@ extension TheKitchenViewController: TheKitchedViewModelOutPut {
     func showErrorMessage(error: Error) {
         print("error")
     }
+}
+
+extension TheKitchenViewController: CustomSearchTableViewCellDelegate {
+    
+    func didTapSearch() {
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
+        tableView.setContentOffset(CGPoint(x: 0, y: self.tableView.contentSize.height), animated: true)
+        viewModel.getCustomSearchRecipes()
+    }
+    
 }
