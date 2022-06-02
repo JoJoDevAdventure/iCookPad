@@ -139,13 +139,12 @@ class SearchCollectionViewCell: UICollectionViewCell {
             container.leftAnchor.constraint(equalTo: leftAnchor, constant: 15),
             container.rightAnchor.constraint(equalTo: rightAnchor, constant: -15),
             container.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -15),
-            container.heightAnchor.constraint(equalTo: heightAnchor, constant: -30),
-            container.widthAnchor.constraint(equalTo: widthAnchor, constant: -30),
-            container.centerXAnchor.constraint(equalTo: centerXAnchor),
-            container.centerYAnchor.constraint(equalTo: centerYAnchor),
+            container.widthAnchor.constraint(equalToConstant: 400),
+            container.heightAnchor.constraint(equalToConstant: 400),
             
             // title
             recipeTitle.widthAnchor.constraint(equalToConstant: 320),
+            recipeTitle.heightAnchor.constraint(greaterThanOrEqualToConstant: 30),
             recipeTitle.centerXAnchor.constraint(equalTo: container.centerXAnchor),
             recipeTitle.topAnchor.constraint(equalTo: container.topAnchor, constant: 15),
             

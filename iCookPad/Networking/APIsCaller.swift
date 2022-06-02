@@ -11,6 +11,7 @@ protocol TheKitchenAPICaller {
     func getOneRandomRecipe(completion: @escaping (Result<Recipe, Error>) -> Void)
     func getRandomSaltyRecipe(completion: @escaping (Result<[Recipe], Error>) -> Void)
     func getRandomSweetRecipe(completion: @escaping (Result<[Recipe], Error>) -> Void)
+    func getCustomSearchResult(completion: @escaping (Result<[Recipe], Error>) -> Void)
 }
 
 class APIsCaller: TheKitchenAPICaller {
@@ -68,6 +69,29 @@ class APIsCaller: TheKitchenAPICaller {
     
     func getRandomSweetRecipe(completion: @escaping (Result<[Recipe], Error>) -> Void) {
         let urlString = "\(informations.baseUrl)\(informations.randomRecipe)\(informations.apiKeyUrlBase)\(informations.apiKey)&number=5&tags=sweet"
+        guard let url = URL(string: urlString) else { return }
+        let task = URLSession.shared.dataTask(with: URLRequest(url: url)) { data, _, error in
+            guard let data = data else {
+                return
+            }
+            guard error == nil else {
+                return
+            }
+            
+            do {
+                let results = try JSONDecoder().decode(ApiResponse.self, from: data)
+                let recipes = results.recipes
+                completion(.success(recipes))
+            } catch {
+                completion(.failure(error))
+            }
+
+        }
+        task.resume()
+    }
+    
+    func getCustomSearchResult(completion: @escaping (Result<[Recipe], Error>) -> Void) {
+        let urlString = "\(informations.baseUrl)\(informations.randomRecipe)\(informations.apiKeyUrlBase)\(informations.apiKey)&number=6"
         guard let url = URL(string: urlString) else { return }
         let task = URLSession.shared.dataTask(with: URLRequest(url: url)) { data, _, error in
             guard let data = data else {

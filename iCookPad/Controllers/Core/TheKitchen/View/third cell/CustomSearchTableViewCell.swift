@@ -11,20 +11,14 @@ protocol CustomSearchTableViewCellDelegate : AnyObject {
     func didTapSearch()
 }
 
+
 class CustomSearchTableViewCell: UITableViewCell {
     
-    var results : [Int] = []
+    var results : [Recipe] = []
     
     // MARK: - Properties
     
     weak var delegate: CustomSearchTableViewCellDelegate?
-    
-    // type of cuisines
-    private let cuisines = ["African", "American", "Chinese", "French","Indian","Italian", "Japanese", "Thai"]
-    // type of recipe
-    private let types = ["breakfast","lunch","soup","salad","dessert", "snack","beverage", "drink"]
-    // type of diet
-    private let diet = ["Ketogenic","Pescetarian","Paleo","Primal","Low FODMAP","Whole30"]
     
     static let identifier = "CustomSearchTableViewCe"
     
@@ -122,11 +116,10 @@ class CustomSearchTableViewCell: UITableViewCell {
     // Find Rexipe Button
     private let findButton = FindButton(frame: .zero)
     
-//     Collection View
-    private let findResultsCollectionView: UICollectionView = {
+    //Collection View
+    let findResultsCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
-        layout.minimumLineSpacing = 20
         layout.estimatedItemSize = CGSize(width: 400, height: 400)
         let collection = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collection.translatesAutoresizingMaskIntoConstraints = false
@@ -220,7 +213,7 @@ class CustomSearchTableViewCell: UITableViewCell {
             findButton.widthAnchor.constraint(equalToConstant: 150),
             
         ]
-        if results.isEmpty {
+        if findResultsCollectionView.isHidden {
             findButton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -40).isActive = true
         } else {
             findButton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -40).isActive = false
@@ -234,9 +227,18 @@ class CustomSearchTableViewCell: UITableViewCell {
     }
     // setupSelection titles
     private func setupSelection() {
-        selectionOfOrigin.setup(title: "N/A", selectionItems: cuisines)
-        selectionOfType.setup(title: "N/A", selectionItems: types)
-        selectionOfDiet.setup(title: "N/A", selectionItems: diet)
+        var origins : [String] = []
+        Origin.allCases.forEach({origins.append($0.description)})
+        var types : [String] = []
+        TypeOfMeal.allCases.forEach({types.append($0.description)})
+        var diets : [String] = []
+        Diet.allCases.forEach({diets.append($0.description)})
+        
+        selectionOfOrigin.setup(title: Origin.na.description, selectionItems: origins)
+        selectionOfType.setup(title: TypeOfMeal.na.description, selectionItems: types)
+        selectionOfDiet.setup(title: Diet.na.description, selectionItems: diets)
+        
+        
     }
     // Setup Find Button action
     private func setupButtonsAction() {
@@ -263,9 +265,8 @@ class CustomSearchTableViewCell: UITableViewCell {
         let vegetarian = vegetarianSwitch.isOn
         let vegan = veganSwitch.isOn
         print("origin: \(origin), type: \(type), diet: \(diet), gluten free ?: \(glutenFree), vegetarian ?: \(vegetarian), vegan ?: \(vegan)")
-        results.append(5)
         findResultsCollectionView.isHidden = false
-        findResultsCollectionView.showLoadingSpinner()
+        findResultsCollectionView.showLoadingSpinner(show: true)
     }
     
     
@@ -275,11 +276,14 @@ class CustomSearchTableViewCell: UITableViewCell {
 // MARK: - Extension : CollectionView
 extension CustomSearchTableViewCell: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 0
+        return results.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(for: SearchCollectionViewCell.self, for: indexPath)
+        if !results.isEmpty {
+            cell.configure(recipe: results[indexPath.row])
+        }
         return cell
     }
 }

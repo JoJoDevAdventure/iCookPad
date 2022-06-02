@@ -10,14 +10,15 @@ import UIKit
 
 extension UICollectionView {
     
-    public func showLoadingSpinner() {
+    public func showLoadingSpinner(show: Bool) {
         let loadingAnimationView = SpinnerLoading()
-        loadingAnimationView.showOnCollectionView(view: self)
-    }
-    
-    public func dismiss() {
-        let loadingAnimationView = SpinnerLoading()
-        loadingAnimationView.dismiss()
+        if show {
+            loadingAnimationView.showOnCollectionView(view: self)
+        } else {
+            for aview in self.subviews {
+                aview.removeFromSuperview()
+            }
+        }
     }
     
 }
