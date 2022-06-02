@@ -51,6 +51,8 @@
 		A3B9E73B2848F4E000DE9F19 /* loading.json in Resources */ = {isa = PBXBuildFile; fileRef = A3B9E73A2848F4E000DE9F19 /* loading.json */; };
 		A3B9E73D2848F54200DE9F19 /* NSLayoutConstraints+Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3B9E73C2848F54200DE9F19 /* NSLayoutConstraints+Util.swift */; };
 		A3B9E7412848FA0900DE9F19 /* CustomSearchModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3B9E7402848FA0900DE9F19 /* CustomSearchModel.swift */; };
+		A3B9E7462849746F00DE9F19 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3B9E7452849746F00DE9F19 /* DetailViewController.swift */; };
+		A3B9E748284974A900DE9F19 /* DetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3B9E747284974A900DE9F19 /* DetailsViewModel.swift */; };
 		A3E49F332833CE280009816C /* DifficultyContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E49F322833CE270009816C /* DifficultyContainerView.swift */; };
 		A3E49F362833CEAC0009816C /* DifficultyCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E49F352833CEAC0009816C /* DifficultyCellView.swift */; };
 		A3E85FE92831C989009BED96 /* TheKitchedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E85FE82831C989009BED96 /* TheKitchedViewModel.swift */; };
@@ -101,6 +103,8 @@
 		A3B9E73A2848F4E000DE9F19 /* loading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loading.json; sourceTree = "<group>"; };
 		A3B9E73C2848F54200DE9F19 /* NSLayoutConstraints+Util.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSLayoutConstraints+Util.swift"; sourceTree = "<group>"; };
 		A3B9E7402848FA0900DE9F19 /* CustomSearchModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSearchModel.swift; sourceTree = "<group>"; };
+		A3B9E7452849746F00DE9F19 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		A3B9E747284974A900DE9F19 /* DetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewModel.swift; sourceTree = "<group>"; };
 		A3E49F322833CE270009816C /* DifficultyContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DifficultyContainerView.swift; sourceTree = "<group>"; };
 		A3E49F352833CEAC0009816C /* DifficultyCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DifficultyCellView.swift; sourceTree = "<group>"; };
 		A3E85FE82831C989009BED96 /* TheKitchedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheKitchedViewModel.swift; sourceTree = "<group>"; };
@@ -216,6 +220,7 @@
 		A332D9CF2831A3180020FC30 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				A3B9E7422849742800DE9F19 /* Detail Recipe */,
 				A332D9D82831A7FA0020FC30 /* Core */,
 				A332D9D12831A47E0020FC30 /* Main Tab Bar */,
 			);
@@ -436,6 +441,31 @@
 			path = LoadingSpinner;
 			sourceTree = "<group>";
 		};
+		A3B9E7422849742800DE9F19 /* Detail Recipe */ = {
+			isa = PBXGroup;
+			children = (
+				A3B9E7432849744600DE9F19 /* View */,
+				A3B9E7442849744F00DE9F19 /* ViewModel */,
+				A3B9E7452849746F00DE9F19 /* DetailViewController.swift */,
+			);
+			path = "Detail Recipe";
+			sourceTree = "<group>";
+		};
+		A3B9E7432849744600DE9F19 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		A3B9E7442849744F00DE9F19 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				A3B9E747284974A900DE9F19 /* DetailsViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		A3E49F342833CE7E0009816C /* Difficulty container */ = {
 			isa = PBXGroup;
 			children = (
@@ -583,6 +613,7 @@
 				A38144452837DAF500F09342 /* Recipe Difficulty Algorithme.swift in Sources */,
 				A3B9E7322848EFD100DE9F19 /* CollectionView+UI.swift in Sources */,
 				A34724F92835540A004EBEC1 /* CheifChoiceView.swift in Sources */,
+				A3B9E748284974A900DE9F19 /* DetailsViewModel.swift in Sources */,
 				A323B527283D1FBD000A4E6B /* CustomSearchTableViewCell.swift in Sources */,
 				A3B9E7412848FA0900DE9F19 /* CustomSearchModel.swift in Sources */,
 				A332D9EE2831AEA70020FC30 /* SettingsViewController.swift in Sources */,
@@ -596,6 +627,7 @@
 				A332D9C128318F1B0020FC30 /* iCookPad.xcdatamodeld in Sources */,
 				A37B7FDB283840A100C0EFDE /* RandomSweetySaltySectionTableViewCell.swift in Sources */,
 				A35D59F1283340A7007FFC49 /* SecondaryLabel.swift in Sources */,
+				A3B9E7462849746F00DE9F19 /* DetailViewController.swift in Sources */,
 				A347250A2835E1D9004EBEC1 /* String + HTML.swift in Sources */,
 				A37BE969283AB25900D78D81 /* iconImageView.swift in Sources */,
 				A36E1D192846A24B0050BCBD /* FindButton.swift in Sources */,
