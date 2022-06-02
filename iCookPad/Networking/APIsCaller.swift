@@ -11,7 +11,7 @@ protocol TheKitchenAPICaller {
     func getOneRandomRecipe(completion: @escaping (Result<Recipe, Error>) -> Void)
     func getRandomSaltyRecipe(completion: @escaping (Result<[Recipe], Error>) -> Void)
     func getRandomSweetRecipe(completion: @escaping (Result<[Recipe], Error>) -> Void)
-    func getCustomSearchResult(customSearch: CustomSearch, completion: @escaping (Result<[Recipe], Error>) -> Void)
+    func getCustomSearchResult(customSearch: CustomSearch, completion: @escaping (Result<[ComplexRecipe], Error>) -> Void)
 }
 
 class APIsCaller: TheKitchenAPICaller {
@@ -90,7 +90,7 @@ class APIsCaller: TheKitchenAPICaller {
         task.resume()
     }
     
-    func getCustomSearchResult(customSearch: CustomSearch,completion: @escaping (Result<[Recipe], Error>) -> Void) {
+    func getCustomSearchResult(customSearch: CustomSearch,completion: @escaping (Result<[ComplexRecipe], Error>) -> Void) {
         var urlString = "\(informations.baseUrl)\(informations.complexSearch)\(informations.apiKeyUrlBase)\(informations.apiKey)"
         if let diet = customSearch.diet {
             urlString += diet
@@ -107,24 +107,29 @@ class APIsCaller: TheKitchenAPICaller {
         urlString += "&number=8"
         
         print(urlString)
-//        guard let url = URL(string: urlString) else { return }
-//        let task = URLSession.shared.dataTask(with: URLRequest(url: url)) { data, _, error in
-//            guard let data = data else {
-//                return
-//            }
-//            guard error == nil else {
-//                return
-//            }
-//
-//            do {
-//                let results = try JSONDecoder().decode(ApiResponse.self, from: data)
-//                let recipes = results.recipes
-//                completion(.success(recipes))
-//            } catch {
-//                completion(.failure(error))
-//            }
-//
-//        }
-//        task.resume()
+        guard let url = URL(string: urlString) else { return }
+        let task = URLSession.shared.dataTask(with: URLRequest(url: url)) { data, _, error in
+            guard let data = data else {
+                return
+            }
+            guard error == nil else {
+                return
+            }
+
+            do {
+                let results = try JSONDecoder().decode(ComplexRecipeResponse.self, from: data)
+                let recipes = results.results
+                completion(.success(recipes))
+            } catch {
+                completion(.failure(error))
+            }
+
+        }
+        task.resume()
     }
+    
+    func fromComplexToRecipe(complexRecipes: [ComplexRecipe]) async throws {
+        let urlToId = "https://api.spoonacular.com/recipes/716429/information?includeNutrition=false"
+    }
+
 }
