@@ -44,6 +44,12 @@
 		A37B7FDD28384CDD00C0EFDE /* SaltySweetyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37B7FDC28384CDD00C0EFDE /* SaltySweetyTableViewCell.swift */; };
 		A37BE969283AB25900D78D81 /* iconImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37BE968283AB25900D78D81 /* iconImageView.swift */; };
 		A38144452837DAF500F09342 /* Recipe Difficulty Algorithme.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38144442837DAF500F09342 /* Recipe Difficulty Algorithme.swift */; };
+		A3B9E7302848EFC100DE9F19 /* TableView+UI.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3B9E72F2848EFC100DE9F19 /* TableView+UI.swift */; };
+		A3B9E7322848EFD100DE9F19 /* CollectionView+UI.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3B9E7312848EFD100DE9F19 /* CollectionView+UI.swift */; };
+		A3B9E7352848F28D00DE9F19 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = A3B9E7342848F28D00DE9F19 /* Lottie */; };
+		A3B9E7382848F34D00DE9F19 /* SpinnerLoading.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3B9E7372848F34D00DE9F19 /* SpinnerLoading.swift */; };
+		A3B9E73B2848F4E000DE9F19 /* loading.json in Resources */ = {isa = PBXBuildFile; fileRef = A3B9E73A2848F4E000DE9F19 /* loading.json */; };
+		A3B9E73D2848F54200DE9F19 /* NSLayoutConstraints+Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3B9E73C2848F54200DE9F19 /* NSLayoutConstraints+Util.swift */; };
 		A3E49F332833CE280009816C /* DifficultyContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E49F322833CE270009816C /* DifficultyContainerView.swift */; };
 		A3E49F362833CEAC0009816C /* DifficultyCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E49F352833CEAC0009816C /* DifficultyCellView.swift */; };
 		A3E85FE92831C989009BED96 /* TheKitchedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E85FE82831C989009BED96 /* TheKitchedViewModel.swift */; };
@@ -88,6 +94,11 @@
 		A37B7FDC28384CDD00C0EFDE /* SaltySweetyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaltySweetyTableViewCell.swift; sourceTree = "<group>"; };
 		A37BE968283AB25900D78D81 /* iconImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iconImageView.swift; sourceTree = "<group>"; };
 		A38144442837DAF500F09342 /* Recipe Difficulty Algorithme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Recipe Difficulty Algorithme.swift"; sourceTree = "<group>"; };
+		A3B9E72F2848EFC100DE9F19 /* TableView+UI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TableView+UI.swift"; sourceTree = "<group>"; };
+		A3B9E7312848EFD100DE9F19 /* CollectionView+UI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CollectionView+UI.swift"; sourceTree = "<group>"; };
+		A3B9E7372848F34D00DE9F19 /* SpinnerLoading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinnerLoading.swift; sourceTree = "<group>"; };
+		A3B9E73A2848F4E000DE9F19 /* loading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loading.json; sourceTree = "<group>"; };
+		A3B9E73C2848F54200DE9F19 /* NSLayoutConstraints+Util.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSLayoutConstraints+Util.swift"; sourceTree = "<group>"; };
 		A3E49F322833CE270009816C /* DifficultyContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DifficultyContainerView.swift; sourceTree = "<group>"; };
 		A3E49F352833CEAC0009816C /* DifficultyCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DifficultyCellView.swift; sourceTree = "<group>"; };
 		A3E85FE82831C989009BED96 /* TheKitchedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheKitchedViewModel.swift; sourceTree = "<group>"; };
@@ -105,6 +116,7 @@
 				A34725082835D5D4004EBEC1 /* SDWebImageMapKit in Frameworks */,
 				A34725062835D5D4004EBEC1 /* SDWebImage in Frameworks */,
 				0DF8457D6514467E572267C5 /* Pods_iCookPad.framework in Frameworks */,
+				A3B9E7352848F28D00DE9F19 /* Lottie in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -186,12 +198,15 @@
 		A332D9CE2831A2B60020FC30 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				A38144442837DAF500F09342 /* Recipe Difficulty Algorithme.swift */,
 				A3524C282832ED21007077C7 /* ColorsExtension.swift */,
 				A34725092835E1D9004EBEC1 /* String + HTML.swift */,
-				A38144442837DAF500F09342 /* Recipe Difficulty Algorithme.swift */,
 				A36E1D12284689450050BCBD /* TableView+Util.swift */,
 				A36E1D14284689540050BCBD /* CollectionView+Util.swift */,
 				A36E1D1628468FDC0050BCBD /* NavBar+Util.swift */,
+				A3B9E72F2848EFC100DE9F19 /* TableView+UI.swift */,
+				A3B9E7312848EFD100DE9F19 /* CollectionView+UI.swift */,
+				A3B9E73C2848F54200DE9F19 /* NSLayoutConstraints+Util.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -241,6 +256,7 @@
 		A332D9D82831A7FA0020FC30 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				A3B9E7362848F2F300DE9F19 /* Componement  */,
 				A332D9D92831A8180020FC30 /* TheKitchen */,
 				A332D9DA2831A8240020FC30 /* To do list */,
 				A332D9E12831AC0D0020FC30 /* Settings */,
@@ -400,6 +416,23 @@
 			path = "second cell";
 			sourceTree = "<group>";
 		};
+		A3B9E7362848F2F300DE9F19 /* Componement  */ = {
+			isa = PBXGroup;
+			children = (
+				A3B9E7392848F38800DE9F19 /* LoadingSpinner */,
+				A3B9E7372848F34D00DE9F19 /* SpinnerLoading.swift */,
+			);
+			path = "Componement ";
+			sourceTree = "<group>";
+		};
+		A3B9E7392848F38800DE9F19 /* LoadingSpinner */ = {
+			isa = PBXGroup;
+			children = (
+				A3B9E73A2848F4E000DE9F19 /* loading.json */,
+			);
+			path = LoadingSpinner;
+			sourceTree = "<group>";
+		};
 		A3E49F342833CE7E0009816C /* Difficulty container */ = {
 			isa = PBXGroup;
 			children = (
@@ -430,6 +463,7 @@
 			packageProductDependencies = (
 				A34725052835D5D4004EBEC1 /* SDWebImage */,
 				A34725072835D5D4004EBEC1 /* SDWebImageMapKit */,
+				A3B9E7342848F28D00DE9F19 /* Lottie */,
 			);
 			productName = iCookPad;
 			productReference = A332D9B328318F1B0020FC30 /* iCookPad.app */;
@@ -461,6 +495,7 @@
 			mainGroup = A332D9AA28318F1B0020FC30;
 			packageReferences = (
 				A34725042835D5D4004EBEC1 /* XCRemoteSwiftPackageReference "SDWebImage" */,
+				A3B9E7332848F28D00DE9F19 /* XCRemoteSwiftPackageReference "lottie-ios" */,
 			);
 			productRefGroup = A332D9B428318F1B0020FC30 /* Products */;
 			projectDirPath = "";
@@ -478,6 +513,7 @@
 			files = (
 				A332D9C628318F1D0020FC30 /* LaunchScreen.storyboard in Resources */,
 				A332D9C328318F1D0020FC30 /* Assets.xcassets in Resources */,
+				A3B9E73B2848F4E000DE9F19 /* loading.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -531,14 +567,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				A332D9E72831AC830020FC30 /* ToDoListViewModel.swift in Sources */,
+				A3B9E73D2848F54200DE9F19 /* NSLayoutConstraints+Util.swift in Sources */,
+				A3B9E7302848EFC100DE9F19 /* TableView+UI.swift in Sources */,
 				A35D59EF28330E40007FFC49 /* PreviewImageView.swift in Sources */,
 				A332D9E52831AC630020FC30 /* ToDoListViewController.swift in Sources */,
+				A3B9E7382848F34D00DE9F19 /* SpinnerLoading.swift in Sources */,
 				A323B529283D200C000A4E6B /* DropDownMenu.swift in Sources */,
 				A35D59E62832FACC007FFC49 /* MasterPieceTableViewCell.swift in Sources */,
 				A34724FB28355B9D004EBEC1 /* APIsCaller.swift in Sources */,
 				A35D59ED2833099D007FFC49 /* TitleLabel.swift in Sources */,
 				A35AF27528416B5C00FA4477 /* API Private informations.swift in Sources */,
 				A38144452837DAF500F09342 /* Recipe Difficulty Algorithme.swift in Sources */,
+				A3B9E7322848EFD100DE9F19 /* CollectionView+UI.swift in Sources */,
 				A34724F92835540A004EBEC1 /* CheifChoiceView.swift in Sources */,
 				A323B527283D1FBD000A4E6B /* CustomSearchTableViewCell.swift in Sources */,
 				A332D9EE2831AEA70020FC30 /* SettingsViewController.swift in Sources */,
@@ -789,6 +829,14 @@
 				kind = branch;
 			};
 		};
+		A3B9E7332848F28D00DE9F19 /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/airbnb/lottie-ios.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -801,6 +849,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = A34725042835D5D4004EBEC1 /* XCRemoteSwiftPackageReference "SDWebImage" */;
 			productName = SDWebImageMapKit;
+		};
+		A3B9E7342848F28D00DE9F19 /* Lottie */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A3B9E7332848F28D00DE9F19 /* XCRemoteSwiftPackageReference "lottie-ios" */;
+			productName = Lottie;
 		};
 /* End XCSwiftPackageProductDependency section */
 
