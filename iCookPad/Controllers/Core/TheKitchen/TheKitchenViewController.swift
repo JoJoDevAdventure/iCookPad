@@ -150,6 +150,7 @@ extension TheKitchenViewController: UITableViewDelegate, UITableViewDataSource {
 // MARK: - Extension : ViewModel OutPut
 extension TheKitchenViewController: TheKitchedViewModelOutPut {
     
+    // got custom recipes
     func gotCustomSearchRecipes(recipes: [Recipe]) {
         self.customSearchResult = recipes
         DispatchQueue.main.async {
@@ -157,24 +158,28 @@ extension TheKitchenViewController: TheKitchedViewModelOutPut {
         }
     }
     
+    // show error message
     func showErrorMessageFetchingRandom(error: Error) {
         if error.localizedDescription == "The data couldn’t be read because it is missing." {
             viewModel.getChiefChoiceRecipe()
         }
     }
     
+    // show error message
     func showErrorMessageFetchingSalty(error: Error) {
         if error.localizedDescription == "The data couldn’t be read because it is missing." {
             viewModel.getSaltyRecipes()
         }
     }
     
+    // show error message
     func showErrorMessageFetchingSweet(error: Error) {
         if error.localizedDescription == "The data couldn’t be read because it is missing." {
             viewModel.getSweetRecipes()
         }
     }
     
+    // got sweet recuipes
     func gotSweetRecipes(sweetRecipes: [Recipe]) {
         self.sweetRecipes = sweetRecipes
         DispatchQueue.main.async {
@@ -182,6 +187,7 @@ extension TheKitchenViewController: TheKitchedViewModelOutPut {
         }
     }
     
+    // got salty recipe
     func gotSaltyRecipes(saltyRecipes: [Recipe]) {
         self.saltyRecipes = saltyRecipes
         DispatchQueue.main.async {
@@ -189,6 +195,7 @@ extension TheKitchenViewController: TheKitchedViewModelOutPut {
         }
     }
     
+    // got random recipe
     func gotRandRecipe(recipe: Recipe) {
         self.chiefChoiceRecipe = recipe
         DispatchQueue.main.async {
@@ -196,13 +203,16 @@ extension TheKitchenViewController: TheKitchedViewModelOutPut {
         }
     }
     
+    // show random message
     func showErrorMessage(error: Error) {
         print("error")
     }
 }
 
+// MARK: - extension : CustomSearchDelegate
 extension TheKitchenViewController: CustomSearchTableViewCellDelegate {
     
+    // did tap seach button
     func didTapSearch(customSearch: CustomSearch) {
         DispatchQueue.main.async {
             self.tableView.reloadData()
