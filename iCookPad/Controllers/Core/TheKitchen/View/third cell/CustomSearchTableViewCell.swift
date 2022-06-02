@@ -7,11 +7,18 @@
 
 import UIKit
 
+protocol CustomSearchTableViewCellDelegate : AnyObject {
+    func didTapSearch()
+}
+
 class CustomSearchTableViewCell: UITableViewCell {
     
     var results : [Int] = []
     
     // MARK: - Properties
+    
+    weak var delegate: CustomSearchTableViewCellDelegate?
+    
     // type of cuisines
     private let cuisines = ["African", "American", "Chinese", "French","Indian","Italian", "Japanese", "Thai"]
     // type of recipe
@@ -236,7 +243,7 @@ class CustomSearchTableViewCell: UITableViewCell {
         findButton.addAction(UIAction(handler: { _ in
             self.collectInformations()
             self.setupConstraints()
-            NotificationCenter.default.post(name: NSNotification.Name("reload"), object: nil)
+            self.delegate?.didTapSearch()
         }), for: .touchUpInside)
     }
     //setup CollectionView
@@ -258,6 +265,7 @@ class CustomSearchTableViewCell: UITableViewCell {
         print("origin: \(origin), type: \(type), diet: \(diet), gluten free ?: \(glutenFree), vegetarian ?: \(vegetarian), vegan ?: \(vegan)")
         results.append(5)
         findResultsCollectionView.isHidden = false
+        findResultsCollectionView.showLoadingSpinner()
     }
     
     
@@ -267,7 +275,7 @@ class CustomSearchTableViewCell: UITableViewCell {
 // MARK: - Extension : CollectionView
 extension CustomSearchTableViewCell: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 6
+        return 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {

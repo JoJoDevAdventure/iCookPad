@@ -23,7 +23,7 @@ class SpinnerLoading: UIView {
     
     private let loadingAnimation: AnimationView = {
         let animation = AnimationView()
-        animation.animation = Animation.named("lightLoadingView")
+        animation.animation = Animation.named("loading")
         animation.translatesAutoresizingMaskIntoConstraints = false
         animation.heightAnchor.constraint(equalToConstant: 150).isActive = true
         animation.widthAnchor.constraint(equalToConstant: 150).isActive = true

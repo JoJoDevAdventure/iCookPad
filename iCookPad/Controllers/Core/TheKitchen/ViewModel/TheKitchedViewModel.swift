@@ -17,6 +17,7 @@ protocol TheKitchedViewModelOutPut: AnyObject {
 }
 
 class TheKitchedViewModel {
+    let mock = Recipe(id: nil, title: nil, image: nil, readyInMinutes: 10, healthScore: nil, spoonacularScore: nil, pricePerServing: nil, vegan: nil, extendedIngredients: nil, weightWatcherSmartPoints: nil, summary: nil, difficulty: nil)
     
     weak var output: TheKitchedViewModelOutPut?
     let TheKitchenService: TheKitchenAPICaller
@@ -27,14 +28,16 @@ class TheKitchedViewModel {
     
     // get chief choice recipe and set it to TheChiken controller
     func getChiefChoiceRecipe() {
-        TheKitchenService.getOneRandomRecipe {[weak self] results in
-            switch results {
-            case .success(let recipe) :
-                self?.output?.gotRandRecipe(recipe: recipe)
-            case .failure(let error) :
-                self?.output?.showErrorMessageFetchingRandom(error: error)
-            }
-        }
+        let recipe = mock
+        self.output?.gotRandRecipe(recipe: recipe)
+//        TheKitchenService.getOneRandomRecipe {[weak self] results in
+//            switch results {
+//            case .success(let recipe) :
+//                self?.output?.gotRandRecipe(recipe: recipe)
+//            case .failure(let error) :
+//                self?.output?.showErrorMessageFetchingRandom(error: error)
+//            }
+//        }
     }
     
     func getSaltySweetRecipes() {
@@ -43,25 +46,29 @@ class TheKitchedViewModel {
     }
     
     func getSaltyRecipes() {
-        TheKitchenService.getRandomSaltyRecipe {[weak self] results in
-            switch results {
-            case .success(let salty) :
-                self?.output?.gotSaltyRecipes(saltyRecipes: salty)
-            case .failure(let error) :
-                self?.output?.showErrorMessageFetchingSalty(error: error)
-            }
-        }
+        let salty = [mock, mock, mock, mock, mock]
+        self.output?.gotSaltyRecipes(saltyRecipes: salty)
+//        TheKitchenService.getRandomSaltyRecipe {[weak self] results in
+//            switch results {
+//            case .success(let salty) :
+//                self?.output?.gotSaltyRecipes(saltyRecipes: salty)
+//            case .failure(let error) :
+//                self?.output?.showErrorMessageFetchingSalty(error: error)
+//            }
+//        }
     }
     
     func getSweetRecipes() {
-        TheKitchenService.getRandomSweetRecipe {[weak self] results in
-            switch results {
-            case .success(let sweet):
-                self?.output?.gotSweetRecipes(sweetRecipes: sweet)
-            case .failure(let error):
-                self?.output?.showErrorMessageFetchingSweet(error: error)
-            }
-        }
+        let sweet = [mock, mock, mock, mock, mock]
+        self.output?.gotSweetRecipes(sweetRecipes: sweet)
+//        TheKitchenService.getRandomSweetRecipe {[weak self] results in
+//            switch results {
+//            case .success(let sweet):
+//                self?.output?.gotSweetRecipes(sweetRecipes: sweet)
+//            case .failure(let error):
+//                self?.output?.showErrorMessageFetchingSweet(error: error)
+//            }
+//        }
     }
     
 }

@@ -117,6 +117,7 @@ extension TheKitchenViewController: UITableViewDelegate, UITableViewDataSource {
             
         case 2 :
             let cell = tableView.dequeueReusableCell(for: CustomSearchTableViewCell.self, for: indexPath)
+            cell.delegate = self
             return cell
         default :
             return UITableViewCell()
@@ -181,4 +182,16 @@ extension TheKitchenViewController: TheKitchedViewModelOutPut {
     func showErrorMessage(error: Error) {
         print("error")
     }
+}
+
+extension TheKitchenViewController: CustomSearchTableViewCellDelegate {
+    
+    func didTapSearch() {
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+            
+        }
+        tableView.setContentOffset(CGPoint(x: 0, y: self.tableView.contentSize.height), animated: true)
+    }
+    
 }
