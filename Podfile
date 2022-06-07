@@ -7,4 +7,5 @@ target 'iCookPad' do
 
   # Pods for iCookPad
 pod 'DropDown'
+pod 'Alamofire'
 end

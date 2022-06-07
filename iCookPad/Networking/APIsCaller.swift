@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Alamofire
 
 protocol TheKitchenAPICaller {
     func getOneRandomRecipe(completion: @escaping (Result<Recipe, Error>) -> Void)
