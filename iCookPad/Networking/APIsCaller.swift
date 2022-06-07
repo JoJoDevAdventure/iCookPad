@@ -93,72 +93,41 @@ class APIsCaller: TheKitchenAPICaller {
     
     func getCustomSearchResult(customSearch: CustomSearch,completion: @escaping (Result<[Recipe], Error>) -> Void) {
         var urlString = "\(informations.baseUrl)\(informations.complexSearch)\(informations.apiKeyUrlBase)\(informations.apiKey)"
-        var custom = false
+        
         if let diet = customSearch.diet {
             urlString += diet
-            custom = true
         }
         if let origin = customSearch.origin {
             urlString += origin
-            custom = true
         }
         if let type = customSearch.type {
             urlString += type
-            custom = true
         }
         if customSearch.tags != "&tags=" {
             urlString += customSearch.tags!
-            custom = true
         }
         
-        if !custom {
-            urlString = "\(informations.baseUrl)\(informations.randomRecipe)\(informations.apiKeyUrlBase)\(informations.apiKey)"
-        }
         urlString += "&number=8"
         
-        print(urlString)
-        guard let url = URL(string: urlString) else { return }
-        
-        var recipes = [ComplexRecipe]()
-        let task = URLSession.shared.dataTask(with: URLRequest(url: url)) { data, _, error in
-            guard let data = data else {
-                return
+        let request = AF.request(urlString)
+        var complexRecipes = [ComplexRecipe]()
+        var recipes = [Recipe]()
+        request.validate().responseDecodable(of: ComplexRecipeResponse.self) { [self] (response) in
+            
+            guard let apiResponse = response.value else { return }
+            complexRecipes = apiResponse.results
+            for complexRecipe in complexRecipes {
+                let srequest = AF.request("https://api.spoonacular.com/recipes/\(complexRecipe.id)/information?\(self.informations.apiKeyUrlBase)\(informations.apiKey)&includeNutrition=false")
+                srequest.validate().responseDecodable(of: Recipe.self) { response in
+                    guard let recipe = response.value else {
+                        return
+                    }
+                    recipes.append(recipe)
+                    completion(.success(recipes))
+                }
             }
-            guard error == nil else {
-                return
-            }
-
-            do {
-                let results = try JSONDecoder().decode(ComplexRecipeResponse.self, from: data)
-                recipes = results.results
-                print(recipes)
-            } catch {
-                completion(.failure(error))
-            }
-
         }
-        var finalRecipes = [Recipe]()
-        for recipe in recipes {
-            let urlId = "https://api.spoonacular.com/recipes/\(recipe.id)/information?includeNutrition=false"
-            guard let url = URL(string: urlId) else { return }
-            let task = URLSession.shared.dataTask(with: URLRequest(url: url)) { data, _, error in
-                guard let data = data else {
-                    return
-                }
-                guard error == nil else {
-                    return
-                }
-
-                do {
-                    let results = try JSONDecoder().decode(Recipe.self, from: data)
-                    finalRecipes.append(results)
-                } catch {
-                    completion(.failure(error))
-                }
-
-            }
-            task.resume()
-        }
-        completion(.success(finalRecipes))
+    
     }
+        
 }
