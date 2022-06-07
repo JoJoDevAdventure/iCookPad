@@ -12,6 +12,13 @@ class DetailViewController: UIViewController {
     // MARK: - Properties
     
     // MARK: - UI
+    //Title
+    private lazy var titleLabel: TitleLabel = {
+        let title = TitleLabel()
+        title.configure(fontSize: 42)
+        title.text = "Test Recipe Title"
+        return title
+    }()
     
     // MARK: - View Model
     
@@ -26,7 +33,6 @@ class DetailViewController: UIViewController {
     
     
     // MARK: - Functions
-    
     
     
     // MARK: - Extensions
