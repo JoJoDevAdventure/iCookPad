@@ -28,8 +28,23 @@ class DetailViewController: UIViewController {
         return title
     }()
     
-    private lazy var previewImage: PreviewImageView {
-        let image 
+    // Preview image
+    private lazy var previewImage: PreviewImageView = {
+        let image = PreviewImageView()
+        image.configure()
+        return image
+    }()
+    
+    // descriprion TextView
+    private lazy var recipdeDesc: UITextView = {
+        let label = UITextView()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.font = .systemFont(ofSize: 20, weight: .regular)
+        label.textColor = UIColor.LabelColors.secondLabelColor
+        label.isScrollEnabled = true
+        label.isEditable = false
+        label.textAlignment = .center
+        return label
     }()
     
     // MARK: - View Model
