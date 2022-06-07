@@ -53,11 +53,22 @@ class DetailViewController: UIViewController {
     // MARK: - Life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupSubviews()
     }
     
     
     // MARK: - Set up
+    private func setupSubviews() {
+        view.addSubview(scrollView)
+    }
     
+    override func viewDidLayoutSubviews() {
+        scrollView.frame = view.bounds
+    }
+    
+    private func setupConstraints() {
+        
+    }
     
     // MARK: - Functions
     
