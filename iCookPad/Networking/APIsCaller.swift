@@ -6,12 +6,13 @@
 //
 
 import Foundation
+import Alamofire
 
 protocol TheKitchenAPICaller {
     func getOneRandomRecipe(completion: @escaping (Result<Recipe, Error>) -> Void)
     func getRandomSaltyRecipe(completion: @escaping (Result<[Recipe], Error>) -> Void)
     func getRandomSweetRecipe(completion: @escaping (Result<[Recipe], Error>) -> Void)
-    func getCustomSearchResult(customSearch: CustomSearch, completion: @escaping (Result<[ComplexRecipe], Error>) -> Void)
+    func getCustomSearchResult(customSearch: CustomSearch, completion: @escaping (Result<[Recipe], Error>) -> Void)
 }
 
 class APIsCaller: TheKitchenAPICaller {
@@ -90,24 +91,35 @@ class APIsCaller: TheKitchenAPICaller {
         task.resume()
     }
     
-    func getCustomSearchResult(customSearch: CustomSearch,completion: @escaping (Result<[ComplexRecipe], Error>) -> Void) {
+    func getCustomSearchResult(customSearch: CustomSearch,completion: @escaping (Result<[Recipe], Error>) -> Void) {
         var urlString = "\(informations.baseUrl)\(informations.complexSearch)\(informations.apiKeyUrlBase)\(informations.apiKey)"
+        var custom = false
         if let diet = customSearch.diet {
             urlString += diet
+            custom = true
         }
         if let origin = customSearch.origin {
             urlString += origin
+            custom = true
         }
         if let type = customSearch.type {
             urlString += type
+            custom = true
         }
         if customSearch.tags != "&tags=" {
             urlString += customSearch.tags!
+            custom = true
+        }
+        
+        if !custom {
+            urlString = "\(informations.baseUrl)\(informations.randomRecipe)\(informations.apiKeyUrlBase)\(informations.apiKey)"
         }
         urlString += "&number=8"
         
         print(urlString)
         guard let url = URL(string: urlString) else { return }
+        
+        var recipes = [ComplexRecipe]()
         let task = URLSession.shared.dataTask(with: URLRequest(url: url)) { data, _, error in
             guard let data = data else {
                 return
@@ -118,18 +130,35 @@ class APIsCaller: TheKitchenAPICaller {
 
             do {
                 let results = try JSONDecoder().decode(ComplexRecipeResponse.self, from: data)
-                let recipes = results.results
-                completion(.success(recipes))
+                recipes = results.results
+                print(recipes)
             } catch {
                 completion(.failure(error))
             }
 
         }
-        task.resume()
-    }
-    
-    func fromComplexToRecipe(complexRecipes: [ComplexRecipe]) async throws {
-        let urlToId = "https://api.spoonacular.com/recipes/716429/information?includeNutrition=false"
-    }
+        var finalRecipes = [Recipe]()
+        for recipe in recipes {
+            let urlId = "https://api.spoonacular.com/recipes/\(recipe.id)/information?includeNutrition=false"
+            guard let url = URL(string: urlId) else { return }
+            let task = URLSession.shared.dataTask(with: URLRequest(url: url)) { data, _, error in
+                guard let data = data else {
+                    return
+                }
+                guard error == nil else {
+                    return
+                }
 
+                do {
+                    let results = try JSONDecoder().decode(Recipe.self, from: data)
+                    finalRecipes.append(results)
+                } catch {
+                    completion(.failure(error))
+                }
+
+            }
+            task.resume()
+        }
+        completion(.success(finalRecipes))
+    }
 }

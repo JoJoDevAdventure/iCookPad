@@ -78,7 +78,7 @@ class TheKitchedViewModel {
             case .success(let recipes) :
                 self?.output?.gotCustomSearchRecipes(recipes: recipes)
             case .failure(_) : break
-                
+
             }
         }
     }
