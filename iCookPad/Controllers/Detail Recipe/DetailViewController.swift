@@ -17,6 +17,7 @@ class DetailViewController: UIViewController {
         let scrollView = UIScrollView()
         scrollView.translatesAutoresizingMaskIntoConstraints = false
         scrollView.showsVerticalScrollIndicator = false
+        scrollView.backgroundColor = .clear
         return scrollView
     }()
     
@@ -25,6 +26,8 @@ class DetailViewController: UIViewController {
         let title = TitleLabel()
         title.configure(fontSize: 42)
         title.text = "Test Recipe Title"
+        title.textAlignment = .center
+        title.numberOfLines = 3
         return title
     }()
     
@@ -54,20 +57,32 @@ class DetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupSubviews()
+        setupConstraints()
     }
     
     
     // MARK: - Set up
     private func setupSubviews() {
         view.addSubview(scrollView)
-    }
-    
-    override func viewDidLayoutSubviews() {
-        scrollView.frame = view.bounds
+        scrollView.addSubview(titleLabel)
     }
     
     private func setupConstraints() {
-        
+        let constraints = [
+            scrollView.topAnchor.constraint(equalTo: view.topAnchor),
+            scrollView.leftAnchor.constraint(equalTo: view.leftAnchor),
+            scrollView.rightAnchor.constraint(equalTo: view.rightAnchor),
+            scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            
+            // Title constraints
+            titleLabel.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
+            titleLabel.widthAnchor.constraint(equalTo: scrollView.widthAnchor, constant: -300),
+            titleLabel.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 30),
+            titleLabel.heightAnchor.constraint(greaterThanOrEqualToConstant: 60)
+            
+            // PreviewImage
+        ]
+        NSLayoutConstraint.activate(constraints)
     }
     
     // MARK: - Functions
