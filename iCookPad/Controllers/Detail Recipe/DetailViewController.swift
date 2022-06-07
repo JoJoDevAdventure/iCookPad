@@ -18,6 +18,7 @@ class DetailViewController: UIViewController {
         scrollView.translatesAutoresizingMaskIntoConstraints = false
         scrollView.showsVerticalScrollIndicator = false
         scrollView.backgroundColor = .clear
+        scrollView.isScrollEnabled = true
         return scrollView
     }()
     
@@ -45,10 +46,11 @@ class DetailViewController: UIViewController {
         label.font = .systemFont(ofSize: 20, weight: .regular)
         label.textColor = UIColor.LabelColors.secondLabelColor
         label.isScrollEnabled = true
-        label.text = "xxxx xx xxxx x xx xx xxxxxx x xxx x x xxxxxxx x xx xx xxxxxxxxx xx xxxx x xx xx xxxxxx x xxx x x xxxxxxx x xx xx xxxxxxxxx xx xxxx x xx xx xxxxxx x xxx x x xxxxxxx x xx xx xxxxxxxxx xx xxxx x xx xx xxxxxx x xxx x x xxxxxxx x xx xx xxxxxxxxx xx xxxx x xx xx xxxxxx x xxx x x xxxxxxx x xx xx xxxxxxxxx xx xxxx x xx xx xxxxxx x xxx x x xxxxxxx x xx xx xxxxxxxxx xx xxxx x xx xx xxxxxx x xxx x x xxxxxxx x xx xx xxxxxxxxx xx xxxx x xx xx xxxxxx x xxx x x xxxxxxx x xx xx xxxxx"
+        label.text = "xxxx xx xxxx x xx xx xxxxxx x xxx x x xxxxxxx x xx xx xxxxxxxxx xx xxxx x xx xx xxxxxx x xxx x x xxxxxxx x xx xx xxxxxxxxx xx xxxx x xx xx xxxxxx x xxx x x xxxxxxx x xx xx xxxxxxxxx xx xxxx x xx xx xxxxxx x xxx x x xxxxxxx x xx xx xxxxxxxxx xx xxxx x xx xx xxxxxx x xxx x x xxxxxxx x xx xx xxxxxxxxx xx xxxx x xx xx xxxxxx x xxx x x xxxxxxx x xx xx xxxxxxxxx xx xxxx x xx xx xxxxxx x xxx x x xxxxxxx x xx xx xxxxxxxxx xx xxxx x xx xx xxxxxx x xxx x x xxxxxxx x xx xxxxxxxxxxx xx xxxx x xx xx xxxxxx x xxx x x xxxxxxx x xx xx xxxxxxxxx xx xxxx x xx xx xxxxxx x xxx x x xxxxxxx x xx xx xxxxxxxxx xx xxxx x xx xx xxxxxx x xxx x x xxxxxxx x xx xx xxxxxxxxx xx xxxx x xx xx xxxxxx x xxx x x xxxxxxx x xx xx xxxxxxxxx xx xxxx x xx xx xxxxxx x xxx x x xxxxxxx x xx xx xxxxx"
         label.isEditable = false
+        label.backgroundColor = .clear
         label.textAlignment = .center
-        label.backgroundColor = .gray
+        label.layer.cornerRadius = 20
         return label
     }()
     
@@ -62,7 +64,6 @@ class DetailViewController: UIViewController {
         setupConstraints()
     }
     
-    
     // MARK: - Set up
     private func setupSubviews() {
         view.addSubview(scrollView)
@@ -75,7 +76,7 @@ class DetailViewController: UIViewController {
         let constraints = [
             scrollView.topAnchor.constraint(equalTo: view.topAnchor),
             scrollView.leftAnchor.constraint(equalTo: view.leftAnchor),
-            scrollView.rightAnchor.constraint(equalTo: view.rightAnchor),
+            scrollView.widthAnchor.constraint(equalTo: view.widthAnchor),
             scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             
             // Title constraints
@@ -91,11 +92,10 @@ class DetailViewController: UIViewController {
             previewImage.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 40),
             
             // Description
-            recipdeDesc.widthAnchor.constraint(equalTo: scrollView.widthAnchor, multiplier: 0.45),
-            recipdeDesc.heightAnchor.constraint(equalTo: recipdeDesc.widthAnchor, multiplier: 0.85),
-            recipdeDesc.rightAnchor.constraint(equalTo: scrollView.rightAnchor, constant: -30),
+            recipdeDesc.widthAnchor.constraint(equalTo: previewImage.widthAnchor),
+            recipdeDesc.heightAnchor.constraint(equalTo: previewImage.heightAnchor),
+            recipdeDesc.leftAnchor.constraint(equalTo: previewImage.rightAnchor, constant: 25),
             recipdeDesc.topAnchor.constraint(equalTo: previewImage.topAnchor),
-            recipdeDesc.centerYAnchor.constraint(equalTo: previewImage.centerYAnchor)
         ]
         NSLayoutConstraint.activate(constraints)
     }
