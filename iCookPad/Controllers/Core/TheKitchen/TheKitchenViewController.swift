@@ -211,7 +211,6 @@ extension TheKitchenViewController: TheKitchedViewModelOutPut {
 
 // MARK: - extension : CustomSearchDelegate
 extension TheKitchenViewController: CustomSearchTableViewCellDelegate {
-    
     // did tap seach button
     func didTapSearch(customSearch: CustomSearch) {
         DispatchQueue.main.async {
@@ -220,5 +219,4 @@ extension TheKitchenViewController: CustomSearchTableViewCellDelegate {
         tableView.setContentOffset(CGPoint(x: 0, y: self.tableView.contentSize.height), animated: true)
         viewModel.getCustomSearchRecipes(customSearch: customSearch)
     }
-    
 }
