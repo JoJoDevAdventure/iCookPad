@@ -7,7 +7,14 @@
 
 import UIKit
 
+protocol RandomSweetySaltySectionTableViewCellDelegate : AnyObject {
+    func didSelectRecipe(recipe: Recipe)
+}
+
+
 class RandomSweetySaltySectionTableViewCell: UITableViewCell {
+    
+    weak var delegate : RandomSweetySaltySectionTableViewCellDelegate?
     
     // MARK: - Properties
     
@@ -235,6 +242,16 @@ extension RandomSweetySaltySectionTableViewCell: UITableViewDelegate, UITableVie
         DispatchQueue.main.async {
             self.sweetyRecipesTableView.reloadData()
             self.saltyRecipesTableView.reloadData()
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if tableView == sweetyRecipesTableView {
+            let recipe = sweetRecipes[indexPath.row]
+            delegate?.didSelectRecipe(recipe: recipe)
+        } else if tableView == saltyRecipesTableView {
+            let recipe = saltyRecipes[indexPath.row]
+            delegate?.didSelectRecipe(recipe: recipe)
         }
     }
     
