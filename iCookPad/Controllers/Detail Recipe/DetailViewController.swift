@@ -111,6 +111,7 @@ class DetailViewController: UIViewController {
         let image = PreviewImageView()
         image.configure()
         image.layer.cornerRadius = 20
+        image.contentMode = .top
         return image
     }()
     
@@ -130,6 +131,7 @@ class DetailViewController: UIViewController {
         image.configure()
         image.layer.cornerRadius = 20
         image.alpha = 0
+        image.contentMode = .top
         return image
     }()
     
@@ -147,6 +149,7 @@ class DetailViewController: UIViewController {
         let image = PreviewImageView()
         image.configure()
         image.layer.cornerRadius = 20
+        image.contentMode = .scaleAspectFit
         return image
     }()
     
@@ -164,6 +167,7 @@ class DetailViewController: UIViewController {
         let image = PreviewImageView()
         image.configure()
         image.layer.cornerRadius = 20
+        image.contentMode = .scaleAspectFit
         return image
     }()
     
@@ -181,6 +185,7 @@ class DetailViewController: UIViewController {
         let image = PreviewImageView()
         image.configure()
         image.layer.cornerRadius = 20
+        image.contentMode = .scaleAspectFit
         return image
     }()
     
@@ -283,7 +288,6 @@ class DetailViewController: UIViewController {
             
             // image :
             ingredientsImage.widthAnchor.constraint(equalTo: scrollView.widthAnchor, multiplier: 0.9),
-            ingredientsImage.heightAnchor.constraint(equalTo: ingredientsImage.widthAnchor, multiplier: 0.4),
             ingredientsImage.topAnchor.constraint(equalTo: ingredientsLabel.bottomAnchor, constant: 30),
             ingredientsImage.centerXAnchor.constraint(equalTo: titleLabel.centerXAnchor),
             
@@ -348,12 +352,16 @@ class DetailViewController: UIViewController {
         stepsProprety.configure(proprety: "Steps :", Value: "\(recipe.extendedIngredients?.count ?? 0)")
         coastProprety.configure(proprety: "Coast :", Value: "\(recipe.pricePerServing ?? 0) $")
         timeProprety.configure(proprety: "Preparation time :", Value: "\(recipe.readyInMinutes-5) - \(recipe.readyInMinutes+5) min")
-        let urlToIngredientsImage = "https://api.spoonacular.com/recipes/\(recipe.id!)/ingredientWidget.png?\(APIInformations().apiKeyUrlBase)\(APIInformations().apiKey)"
+        let urlToIngredientsImage = "https://api.spoonacular.com/recipes/\(recipe.id!)/ingredientWidget.png?\(APIInformations().apiKeyUrlBase)\(APIInformations().apiKey)&view=list&defaultCss=false"
         let urlToEquipment = "https://api.spoonacular.com/recipes/\(recipe.id!)/equipmentWidget.png?\(APIInformations().apiKeyUrlBase)\(APIInformations().apiKey)"
         let urlToTaste = "https://api.spoonacular.com/recipes/\(recipe.id!)/tasteWidget.png?\(APIInformations().apiKeyUrlBase)\(APIInformations().apiKey)"
         let urlToPrice = "https://api.spoonacular.com/recipes/\(recipe.id!)/priceBreakdownWidget.png?\(APIInformations().apiKeyUrlBase)\(APIInformations().apiKey)"
         let urlToNutriments = "https://api.spoonacular.com/recipes/\(recipe.id!)/nutritionWidget.png?\(APIInformations().apiKeyUrlBase)\(APIInformations().apiKey)"
-        ingredientsImage.sd_setImage(with: URL(string: urlToIngredientsImage))
+        ingredientsImage.sd_setImage(with: URL(string: urlToIngredientsImage)) { image, _, _, _ in
+            self.ingredientsImage.heightAnchor.constraint(equalToConstant: image!.size.height).isActive = true
+        }
+        
+        ingredientsImage.backgroundColor = UIColor.BackgroundColors.background
         equipmentsImage.sd_setImage(with: URL(string: urlToEquipment))
         tasteImage.sd_setImage(with: URL(string: urlToTaste))
         coastImage.sd_setImage(with: URL(string: urlToPrice))
