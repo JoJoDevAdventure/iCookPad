@@ -17,6 +17,7 @@ class PreviewImageView: UIImageView {
         layer.masksToBounds = false
         clipsToBounds = true
         translatesAutoresizingMaskIntoConstraints = false
+        backgroundColor = .lightGray
     }
 
 }
