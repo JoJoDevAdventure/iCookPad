@@ -149,7 +149,7 @@ class DetailViewController: UIViewController {
         let image = PreviewImageView()
         image.configure()
         image.layer.cornerRadius = 20
-        image.contentMode = .scaleAspectFit
+        image.contentMode = .top
         return image
     }()
     
@@ -167,7 +167,7 @@ class DetailViewController: UIViewController {
         let image = PreviewImageView()
         image.configure()
         image.layer.cornerRadius = 20
-        image.contentMode = .scaleAspectFit
+        image.contentMode = .top
         return image
     }()
     
@@ -289,7 +289,7 @@ class DetailViewController: UIViewController {
             // image :
             ingredientsImage.widthAnchor.constraint(equalTo: scrollView.widthAnchor, multiplier: 0.9),
             ingredientsImage.topAnchor.constraint(equalTo: ingredientsLabel.bottomAnchor, constant: 30),
-            ingredientsImage.heightAnchor.constraint(equalTo: ingredientsImage.widthAnchor, multiplier: 0.4),
+//            ingredientsImage.heightAnchor.constraint(equalTo: ingredientsImage.widthAnchor, multiplier: 0.4),
             ingredientsImage.centerXAnchor.constraint(equalTo: titleLabel.centerXAnchor),
             
             // equipments :
@@ -299,7 +299,7 @@ class DetailViewController: UIViewController {
             
             // image :
             equipmentsImage.widthAnchor.constraint(equalTo: scrollView.widthAnchor, multiplier: 0.9),
-            equipmentsImage.heightAnchor.constraint(equalTo: ingredientsImage.widthAnchor, multiplier: 0.4),
+//            equipmentsImage.heightAnchor.constraint(equalTo: ingredientsImage.widthAnchor, multiplier: 0.4),
             equipmentsImage.topAnchor.constraint(equalTo: equipmentsLabel.bottomAnchor, constant: 30),
             equipmentsImage.centerXAnchor.constraint(equalTo: titleLabel.centerXAnchor),
             
@@ -321,7 +321,7 @@ class DetailViewController: UIViewController {
             
             //image :
             coastImage.widthAnchor.constraint(equalTo: scrollView.widthAnchor, multiplier: 0.9),
-            coastImage.heightAnchor.constraint(equalTo: coastImage.widthAnchor,multiplier: 0.5),
+//            coastImage.heightAnchor.constraint(equalTo: coastImage.widthAnchor,multiplier: 0.5),
             coastImage.topAnchor.constraint(equalTo: coastLabel.bottomAnchor, constant: 30),
             coastImage.centerXAnchor.constraint(equalTo: titleLabel.centerXAnchor),
             
@@ -331,8 +331,8 @@ class DetailViewController: UIViewController {
             nutrimentLabel.topAnchor.constraint(equalTo: coastImage.bottomAnchor, constant: 50),
             
             // image :
-            nutrimentImage.widthAnchor.constraint(equalTo: scrollView.widthAnchor, multiplier: 0.7),
-            nutrimentImage.heightAnchor.constraint(equalTo: nutrimentImage.widthAnchor,multiplier: 1.2),
+            nutrimentImage.widthAnchor.constraint(equalTo: scrollView.widthAnchor, multiplier: 0.9),
+//            nutrimentImage.heightAnchor.constraint(equalTo: nutrimentImage.widthAnchor,multiplier: 1.2),
             nutrimentImage.topAnchor.constraint(equalTo: nutrimentLabel.bottomAnchor, constant: 30),
             nutrimentImage.centerXAnchor.constraint(equalTo: titleLabel.centerXAnchor),
             nutrimentImage.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: -400),
@@ -353,20 +353,33 @@ class DetailViewController: UIViewController {
         stepsProprety.configure(proprety: "Steps :", Value: "\(recipe.extendedIngredients?.count ?? 0)")
         coastProprety.configure(proprety: "Coast :", Value: "\(recipe.pricePerServing ?? 0) $")
         timeProprety.configure(proprety: "Preparation time :", Value: "\(recipe.readyInMinutes-5) - \(recipe.readyInMinutes+5) min")
-//        let urlToIngredientsImage = "https://api.spoonacular.com/recipes/\(recipe.id!)/ingredientWidget.png?\(APIInformations().apiKeyUrlBase)\(APIInformations().apiKey)&view=list&defaultCss=false"
-//        let urlToEquipment = "https://api.spoonacular.com/recipes/\(recipe.id!)/equipmentWidget.png?\(APIInformations().apiKeyUrlBase)\(APIInformations().apiKey)"
-//        let urlToTaste = "https://api.spoonacular.com/recipes/\(recipe.id!)/tasteWidget.png?\(APIInformations().apiKeyUrlBase)\(APIInformations().apiKey)"
-//        let urlToPrice = "https://api.spoonacular.com/recipes/\(recipe.id!)/priceBreakdownWidget.png?\(APIInformations().apiKeyUrlBase)\(APIInformations().apiKey)"
-//        let urlToNutriments = "https://api.spoonacular.com/recipes/\(recipe.id!)/nutritionWidget.png?\(APIInformations().apiKeyUrlBase)\(APIInformations().apiKey)"
-//        ingredientsImage.sd_setImage(with: URL(string: urlToIngredientsImage)) { image, _, _, _ in
-//            self.ingredientsImage.heightAnchor.constraint(equalToConstant: image!.size.height).isActive = true
-//        }
-//
-//        ingredientsImage.backgroundColor = UIColor.BackgroundColors.background
-//        equipmentsImage.sd_setImage(with: URL(string: urlToEquipment))
-//        tasteImage.sd_setImage(with: URL(string: urlToTaste))
-//        coastImage.sd_setImage(with: URL(string: urlToPrice))
-//        nutrimentImage.sd_setImage(with: URL(string: urlToNutriments))
+        let urlToIngredientsImage = "https://api.spoonacular.com/recipes/\(recipe.id!)/ingredientWidget.png?\(APIInformations().apiKeyUrlBase)\(APIInformations().apiKey)&view=grid"
+        let urlToEquipment = "https://api.spoonacular.com/recipes/\(recipe.id!)/equipmentWidget.png?\(APIInformations().apiKeyUrlBase)\(APIInformations().apiKey)"
+        let urlToTaste = "https://api.spoonacular.com/recipes/\(recipe.id!)/tasteWidget.png?\(APIInformations().apiKeyUrlBase)\(APIInformations().apiKey)"
+        print(urlToTaste)
+        let urlToPrice = "https://api.spoonacular.com/recipes/\(recipe.id!)/priceBreakdownWidget.png?\(APIInformations().apiKeyUrlBase)\(APIInformations().apiKey)"
+        let urlToNutriments = "https://api.spoonacular.com/recipes/\(recipe.id!)/nutritionWidget.png?\(APIInformations().apiKeyUrlBase)\(APIInformations().apiKey)"
+        
+        ingredientsImage.sd_setImage(with: URL(string: urlToIngredientsImage)) { image, _, _, _ in
+            self.ingredientsImage.heightAnchor.constraint(equalToConstant: image!.size.height-80).isActive = true
+            self.ingredientsImage.backgroundColor = UIColor.BackgroundColors.background
+        }
+
+        // https://api.spoonacular.com/recipes/69095/tasteWidget.png?apiKey=e2d80063dbf248e39d56277650125685&normalize=false
+        equipmentsImage.sd_setImage(with: URL(string: urlToEquipment)) { image, _, _, _ in
+            self.equipmentsImage.heightAnchor.constraint(equalToConstant: image!.size.height-300).isActive = true
+            self.equipmentsImage.backgroundColor = UIColor.BackgroundColors.background
+        }
+        
+        tasteImage.sd_setImage(with: URL(string: urlToTaste))
+        coastImage.sd_setImage(with: URL(string: urlToPrice)) { image, _, _, _ in
+            self.coastImage.heightAnchor.constraint(equalToConstant: image!.size.height-60).isActive = true
+            self.coastImage.backgroundColor = UIColor.BackgroundColors.background
+        }
+        nutrimentImage.sd_setImage(with: URL(string: urlToNutriments)) { image, _, _, _ in
+            self.nutrimentImage.heightAnchor.constraint(equalToConstant: image!.size.height-100).isActive = true
+            self.nutrimentImage.backgroundColor = UIColor.BackgroundColors.background
+        }
    }
     
 }
