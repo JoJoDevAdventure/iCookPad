@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0DF8457D6514467E572267C5 /* Pods_iCookPad.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE538706518F362E57FBAE12 /* Pods_iCookPad.framework */; };
+		A306CF012853D9FE005F3BA8 /* ToDoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A306CF002853D9FE005F3BA8 /* ToDoTableViewCell.swift */; };
 		A323B527283D1FBD000A4E6B /* CustomSearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A323B526283D1FBD000A4E6B /* CustomSearchTableViewCell.swift */; };
 		A323B529283D200C000A4E6B /* DropDownMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = A323B528283D200C000A4E6B /* DropDownMenu.swift */; };
 		A332D9B728318F1B0020FC30 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A332D9B628318F1B0020FC30 /* AppDelegate.swift */; };
@@ -61,6 +62,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A306CF002853D9FE005F3BA8 /* ToDoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoTableViewCell.swift; sourceTree = "<group>"; };
 		A323B526283D1FBD000A4E6B /* CustomSearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSearchTableViewCell.swift; sourceTree = "<group>"; };
 		A323B528283D200C000A4E6B /* DropDownMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDownMenu.swift; sourceTree = "<group>"; };
 		A332D9B328318F1B0020FC30 /* iCookPad.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iCookPad.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -269,6 +271,7 @@
 				A3B9E7362848F2F300DE9F19 /* Componement  */,
 				A332D9D92831A8180020FC30 /* TheKitchen */,
 				A332D9DA2831A8240020FC30 /* To do list */,
+				A332D9E42831AC630020FC30 /* ToDoListViewController.swift */,
 				A332D9E12831AC0D0020FC30 /* Settings */,
 			);
 			path = Core;
@@ -326,7 +329,7 @@
 		A332D9E22831AC400020FC30 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				A332D9E42831AC630020FC30 /* ToDoListViewController.swift */,
+				A306CF002853D9FE005F3BA8 /* ToDoTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -626,6 +629,7 @@
 				A332D9EB2831AE890020FC30 /* SettingViewModel.swift in Sources */,
 				A332D9D72831A72B0020FC30 /* MainTabControllerViewModel.swift in Sources */,
 				A34724FE28355C70004EBEC1 /* RecipeModel.swift in Sources */,
+				A306CF012853D9FE005F3BA8 /* ToDoTableViewCell.swift in Sources */,
 				A332D9D42831A5660020FC30 /* MainTabController.swift in Sources */,
 				A332D9C128318F1B0020FC30 /* iCookPad.xcdatamodeld in Sources */,
 				A37B7FDB283840A100C0EFDE /* RandomSweetySaltySectionTableViewCell.swift in Sources */,

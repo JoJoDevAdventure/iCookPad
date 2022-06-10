@@ -11,6 +11,11 @@ class ToDoListViewController: UIViewController {
 
     // MARK: - Properties
     
+    private lazy var tableView: UITableView = {
+        let table = UITableView()
+        table
+        return table
+    }()
     
     // MARK: - View Model
     let viewModel: ToDoListViewModel
