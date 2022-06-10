@@ -44,6 +44,7 @@ class CheifChoiceView: UIView {
         label.isScrollEnabled = true
         label.isEditable = false
         label.textAlignment = .center
+        label.backgroundColor = .white
         return label
     }()
     
