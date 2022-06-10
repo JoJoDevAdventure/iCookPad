@@ -13,6 +13,7 @@ class ToDoListViewController: UIViewController {
     
     private lazy var tableView: UITableView = {
         let table = UITableView()
+        table
         return table
     }()
     
