@@ -21,6 +21,7 @@
 		A332D9E72831AC830020FC30 /* ToDoListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A332D9E62831AC820020FC30 /* ToDoListViewModel.swift */; };
 		A332D9EB2831AE890020FC30 /* SettingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A332D9EA2831AE890020FC30 /* SettingViewModel.swift */; };
 		A332D9EE2831AEA70020FC30 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A332D9ED2831AEA70020FC30 /* SettingsViewController.swift */; };
+		A33CE3EE285056B400D009C9 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A33CE3ED285056B400D009C9 /* Coordinator.swift */; };
 		A34724F92835540A004EBEC1 /* CheifChoiceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A34724F82835540A004EBEC1 /* CheifChoiceView.swift */; };
 		A34724FB28355B9D004EBEC1 /* APIsCaller.swift in Sources */ = {isa = PBXBuildFile; fileRef = A34724FA28355B9D004EBEC1 /* APIsCaller.swift */; };
 		A34724FE28355C70004EBEC1 /* RecipeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A34724FD28355C70004EBEC1 /* RecipeModel.swift */; };
@@ -75,6 +76,7 @@
 		A332D9E62831AC820020FC30 /* ToDoListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoListViewModel.swift; sourceTree = "<group>"; };
 		A332D9EA2831AE890020FC30 /* SettingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewModel.swift; sourceTree = "<group>"; };
 		A332D9ED2831AEA70020FC30 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		A33CE3ED285056B400D009C9 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		A34724F82835540A004EBEC1 /* CheifChoiceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheifChoiceView.swift; sourceTree = "<group>"; };
 		A34724FA28355B9D004EBEC1 /* APIsCaller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIsCaller.swift; sourceTree = "<group>"; };
 		A34724FD28355C70004EBEC1 /* RecipeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeModel.swift; sourceTree = "<group>"; };
@@ -213,6 +215,7 @@
 				A3B9E72F2848EFC100DE9F19 /* TableView+UI.swift */,
 				A3B9E7312848EFD100DE9F19 /* CollectionView+UI.swift */,
 				A3B9E73C2848F54200DE9F19 /* NSLayoutConstraints+Util.swift */,
+				A33CE3ED285056B400D009C9 /* Coordinator.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -627,6 +630,7 @@
 				A332D9C128318F1B0020FC30 /* iCookPad.xcdatamodeld in Sources */,
 				A37B7FDB283840A100C0EFDE /* RandomSweetySaltySectionTableViewCell.swift in Sources */,
 				A35D59F1283340A7007FFC49 /* SecondaryLabel.swift in Sources */,
+				A33CE3EE285056B400D009C9 /* Coordinator.swift in Sources */,
 				A3B9E7462849746F00DE9F19 /* DetailViewController.swift in Sources */,
 				A347250A2835E1D9004EBEC1 /* String + HTML.swift in Sources */,
 				A37BE969283AB25900D78D81 /* iconImageView.swift in Sources */,

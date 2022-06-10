@@ -113,6 +113,7 @@ extension TheKitchenViewController: UITableViewDelegate, UITableViewDataSource {
             
         case 1 :
             let cell = tableView.dequeueReusableCell(for: RandomSweetySaltySectionTableViewCell.self, for: indexPath)
+            cell.delegate = self
             cell.configure(salty: saltyRecipes, sweety: sweetRecipes)
             return cell
             
@@ -219,4 +220,12 @@ extension TheKitchenViewController: CustomSearchTableViewCellDelegate {
         tableView.setContentOffset(CGPoint(x: 0, y: self.tableView.contentSize.height), animated: true)
         viewModel.getCustomSearchRecipes(customSearch: customSearch)
     }
+}
+
+extension TheKitchenViewController: RandomSweetySaltySectionTableViewCellDelegate {
+    
+    func didSelectRecipe(recipe: Recipe) {
+        Coordinator().goToDetailedRecipe(from: self, with: recipe)
+    }
+
 }
