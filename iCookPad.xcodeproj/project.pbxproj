@@ -266,6 +266,7 @@
 				A3B9E7362848F2F300DE9F19 /* Componement  */,
 				A332D9D92831A8180020FC30 /* TheKitchen */,
 				A332D9DA2831A8240020FC30 /* To do list */,
+				A332D9E42831AC630020FC30 /* ToDoListViewController.swift */,
 				A332D9E12831AC0D0020FC30 /* Settings */,
 			);
 			path = Core;
@@ -323,7 +324,6 @@
 		A332D9E22831AC400020FC30 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				A332D9E42831AC630020FC30 /* ToDoListViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
