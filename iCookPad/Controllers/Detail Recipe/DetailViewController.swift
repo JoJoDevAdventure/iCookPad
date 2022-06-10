@@ -149,7 +149,8 @@ class DetailViewController: UIViewController {
         let image = PreviewImageView()
         image.configure()
         image.layer.cornerRadius = 20
-        image.contentMode = .top
+        image.contentMode = .scaleAspectFit
+        image.backgroundColor = .clear
         return image
     }()
     
@@ -210,6 +211,13 @@ class DetailViewController: UIViewController {
     }
     
     // MARK: - Set up
+    // setup NavBar
+    private func setupNavBar() {
+        navigationController?.largeTitle()
+        navigationController?.navigationBar.tintColor = UIColor.LabelColors.mainTitleColor
+        view.backgroundColor = UIColor.BackgroundColors.background
+    }
+    
     private func setupSubviews() {
         view.addSubview(scrollView)
         scrollView.addSubview(titleLabel)
@@ -347,6 +355,7 @@ class DetailViewController: UIViewController {
     // MARK: - Extensions
     
     private func configure() {
+        titleLabel.text = recipe.title
         previewImage.sd_setImage(with: URL(string: recipe.image ?? ""))
         recipdeDesc.text = recipe.summary?.html2String
         caloriesProprety.configure(proprety: "Calories :", Value: "\(recipe.weightWatcherSmartPoints ?? 0*30) KCal")
@@ -363,22 +372,30 @@ class DetailViewController: UIViewController {
         ingredientsImage.sd_setImage(with: URL(string: urlToIngredientsImage)) { image, _, _, _ in
             self.ingredientsImage.heightAnchor.constraint(equalToConstant: image!.size.height-80).isActive = true
             self.ingredientsImage.backgroundColor = UIColor.BackgroundColors.background
+            self.ingredientsImage.layer.cornerRadius = 30
+            self.ingredientsImage.clipsToBounds = true
         }
-
-        // https://api.spoonacular.com/recipes/69095/tasteWidget.png?apiKey=e2d80063dbf248e39d56277650125685&normalize=false
         equipmentsImage.sd_setImage(with: URL(string: urlToEquipment)) { image, _, _, _ in
             self.equipmentsImage.heightAnchor.constraint(equalToConstant: image!.size.height-300).isActive = true
             self.equipmentsImage.backgroundColor = UIColor.BackgroundColors.background
+            self.equipmentsImage.layer.cornerRadius = 30
+            self.equipmentsImage.clipsToBounds = true
         }
         
-        tasteImage.sd_setImage(with: URL(string: urlToTaste))
+        tasteImage.image = UIImage(named: "taste")
+        tasteImage.layer.cornerRadius = 30
+        tasteImage.clipsToBounds = true
+        
         coastImage.sd_setImage(with: URL(string: urlToPrice)) { image, _, _, _ in
             self.coastImage.heightAnchor.constraint(equalToConstant: image!.size.height-60).isActive = true
             self.coastImage.backgroundColor = UIColor.BackgroundColors.background
+            self.coastImage.layer.cornerRadius = 30
+            self.coastImage.clipsToBounds = true
         }
         nutrimentImage.sd_setImage(with: URL(string: urlToNutriments)) { image, _, _, _ in
-            self.nutrimentImage.heightAnchor.constraint(equalToConstant: image!.size.height-100).isActive = true
+            self.nutrimentImage.heightAnchor.constraint(equalToConstant: image!.size.height-(image!.size.height/5)).isActive = true
             self.nutrimentImage.backgroundColor = UIColor.BackgroundColors.background
+            self.nutrimentImage.layer.masksToBounds = true
         }
    }
     

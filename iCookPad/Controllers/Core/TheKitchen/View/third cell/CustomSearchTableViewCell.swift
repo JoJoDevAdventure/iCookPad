@@ -210,7 +210,8 @@ class CustomSearchTableViewCell: UITableViewCell {
             findButton.leftAnchor.constraint(equalTo: veganSwitch.rightAnchor, constant: 40),
             findButton.heightAnchor.constraint(equalToConstant: 50),
             findButton.centerYAnchor.constraint(equalTo: veganSwitch.centerYAnchor),
-            findButton.widthAnchor.constraint(equalToConstant: 150),
+            findButton.widthAnchor.constraint(lessThanOrEqualToConstant: 150),
+            findButton.rightAnchor.constraint(equalTo: rightAnchor, constant: -30),
             
         ]
         if findResultsCollectionView.isHidden {
