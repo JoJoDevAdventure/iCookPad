@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		0DF8457D6514467E572267C5 /* Pods_iCookPad.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE538706518F362E57FBAE12 /* Pods_iCookPad.framework */; };
 		A306CF012853D9FE005F3BA8 /* ToDoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A306CF002853D9FE005F3BA8 /* ToDoTableViewCell.swift */; };
+		A306CF032853DD12005F3BA8 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A306CF022853DD12005F3BA8 /* CoreDataManager.swift */; };
 		A323B527283D1FBD000A4E6B /* CustomSearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A323B526283D1FBD000A4E6B /* CustomSearchTableViewCell.swift */; };
 		A323B529283D200C000A4E6B /* DropDownMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = A323B528283D200C000A4E6B /* DropDownMenu.swift */; };
 		A332D9B728318F1B0020FC30 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A332D9B628318F1B0020FC30 /* AppDelegate.swift */; };
@@ -63,6 +64,7 @@
 
 /* Begin PBXFileReference section */
 		A306CF002853D9FE005F3BA8 /* ToDoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoTableViewCell.swift; sourceTree = "<group>"; };
+		A306CF022853DD12005F3BA8 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CoreDataManager.swift; path = "iCookPad/Controllers/Core/To do list/View/CoreDataManager.swift"; sourceTree = SOURCE_ROOT; };
 		A323B526283D1FBD000A4E6B /* CustomSearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSearchTableViewCell.swift; sourceTree = "<group>"; };
 		A323B528283D200C000A4E6B /* DropDownMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDownMenu.swift; sourceTree = "<group>"; };
 		A332D9B328318F1B0020FC30 /* iCookPad.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iCookPad.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -408,6 +410,7 @@
 		A37B7FD72838400B00C0EFDE /* CoreData Manager */ = {
 			isa = PBXGroup;
 			children = (
+				A306CF022853DD12005F3BA8 /* CoreDataManager.swift */,
 			);
 			path = "CoreData Manager";
 			sourceTree = "<group>";
@@ -613,6 +616,7 @@
 				A3B9E7382848F34D00DE9F19 /* SpinnerLoading.swift in Sources */,
 				A323B529283D200C000A4E6B /* DropDownMenu.swift in Sources */,
 				A35D59E62832FACC007FFC49 /* MasterPieceTableViewCell.swift in Sources */,
+				A306CF032853DD12005F3BA8 /* CoreDataManager.swift in Sources */,
 				A34724FB28355B9D004EBEC1 /* APIsCaller.swift in Sources */,
 				A35D59ED2833099D007FFC49 /* TitleLabel.swift in Sources */,
 				A35AF27528416B5C00FA4477 /* API Private informations.swift in Sources */,
