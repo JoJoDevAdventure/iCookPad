@@ -26,7 +26,18 @@ class ToDoTableViewCell: UITableViewCell {
     
     // MARK: - Set up
     
+    private func setupSubviews() {
+        
+    }
+    
+    private func setupConstraints() {
+        
+    }
     
     // MARK: - Functions
+    
+    private func configureCell(recipe: RecipeCD) {
+        
+    }
     
 }
