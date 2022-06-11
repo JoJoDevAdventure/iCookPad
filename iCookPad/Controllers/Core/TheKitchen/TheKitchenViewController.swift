@@ -61,7 +61,7 @@ class TheKitchenViewController: UIViewController {
     // MARK: - Set up
     // NavBar
     private func setupNavBar() {
-        title = "iCookPad"
+        title = "iCookPad 🧑‍🍳"
         navigationController?.largeTitle()
     }
     
