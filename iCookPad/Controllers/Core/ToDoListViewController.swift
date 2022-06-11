@@ -36,6 +36,7 @@ class ToDoListViewController: UIViewController {
         setupSubviews()
         setupConstraints()
         setupNavBar()
+        setupTableView()
     }
 
     // MARK: - Set up
@@ -57,6 +58,11 @@ class ToDoListViewController: UIViewController {
         tableView.frame = view.frame
     }
     
+    private func setupTableView() {
+        tableView.delegate = self
+        tableView.dataSource = self
+    }
+    
     // MARK: - Functions
     
     
@@ -64,4 +70,20 @@ class ToDoListViewController: UIViewController {
     
     
 }
-// MARK: - Extensions
+// MARK: - Extension: TableView
+extension ToDoListViewController: UITableViewDelegate, UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 5
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(for: ToDoTableViewCell.self, for: indexPath)
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 200
+    }
+
+}
