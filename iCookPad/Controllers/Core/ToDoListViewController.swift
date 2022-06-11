@@ -13,7 +13,8 @@ class ToDoListViewController: UIViewController {
     
     private lazy var tableView: UITableView = {
         let table = UITableView()
-        table
+        table.registerCell(ToDoTableViewCell.self)
+        table.backgroundColor = UIColor.BackgroundColors.background
         return table
     }()
     
@@ -36,6 +37,17 @@ class ToDoListViewController: UIViewController {
 
     // MARK: - Set up
     
+    private func setupSubviews() {
+        view.addSubview(tableView)
+    }
+    
+    private func setupConstraints() {
+        
+    }
+    
+    override func viewDidLayoutSubviews() {
+        tableView.frame = view.frame
+    }
     
     // MARK: - Functions
     
