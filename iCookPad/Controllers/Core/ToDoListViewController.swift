@@ -33,9 +33,17 @@ class ToDoListViewController: UIViewController {
     // MARK: - Life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupSubviews()
+        setupConstraints()
+        setupNavBar()
     }
 
     // MARK: - Set up
+    
+    private func setupNavBar() {
+        title = "ToDo List 📝"
+        navigationController?.largeTitle()
+    }
     
     private func setupSubviews() {
         view.addSubview(tableView)
