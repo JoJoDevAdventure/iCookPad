@@ -34,4 +34,11 @@ extension UIColor {
     struct SelectionColor {
         static let selectionDropDown = UIColor.init(red: 229/255, green: 255/255, blue: 235, alpha: 1)
     }
+    
+    // Button
+    struct Buttons {
+        static let greenButton = UIColor.init(red: 150/255, green: 216/255, blue: 144/255, alpha: 1)
+        static let redButton = UIColor.init(red: 219/255, green: 121/255, blue: 121/255, alpha: 1)
+    }
+    
 }

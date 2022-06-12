@@ -15,6 +15,7 @@ class ToDoListViewController: UIViewController {
         let table = UITableView()
         table.registerCell(ToDoTableViewCell.self)
         table.backgroundColor = UIColor.BackgroundColors.background
+        table.separatorColor = .clear
         return table
     }()
     
