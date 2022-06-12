@@ -45,9 +45,31 @@ class ToDoTableViewCell: UITableViewCell {
         return image
     }()
     
-    private lazy var title
+    private lazy var titleRecipe: TitleLabel = {
+        let label = TitleLabel()
+        label.configure(fontSize: 28)
+        label.text = "Test Title"
+        label.textAlignment = .center
+        return label
+    }()
     
-    // MARK: - View Model
+    private lazy var timeProprety: PropretyContainerView = {
+        let prop = PropretyContainerView()
+        prop.configure(proprety: "Prep Time :" , Value: "15 - 25 min")
+        return prop
+    }()
+    
+    private lazy var coastProprety: PropretyContainerView = {
+        let prop = PropretyContainerView()
+        prop.configure(proprety: "Coast :", Value: "200 $")
+        return prop
+    }()
+    
+    private lazy var caloriesProprety: PropretyContainerView = {
+        let prop = PropretyContainerView()
+        prop.configure(proprety: "Calories :", Value: "1200 KCal")
+        return prop
+    }()
     
     
     // MARK: - Life cycle
@@ -63,12 +85,15 @@ class ToDoTableViewCell: UITableViewCell {
     }
     
     // MARK: - Set up
-    
     private func setupSubviews() {
         addSubview(container)
         container.addSubview(previewImage)
         container.addSubview(cancelRecipe)
         container.addSubview(validateRecipe)
+        container.addSubview(titleRecipe)
+        container.addSubview(timeProprety)
+        container.addSubview(coastProprety)
+        container.addSubview(caloriesProprety)
     }
     
     private func setupConstraints() {
@@ -93,7 +118,24 @@ class ToDoTableViewCell: UITableViewCell {
             validateRecipe.rightAnchor.constraint(equalTo: container.rightAnchor, constant: -15),
             validateRecipe.centerYAnchor.constraint(equalTo: container.centerYAnchor, constant: -35),
             
+            titleRecipe.leftAnchor.constraint(equalTo: previewImage.rightAnchor, constant: 10),
+            titleRecipe.topAnchor.constraint(equalTo: container.topAnchor, constant: 15),
+            titleRecipe.rightAnchor.constraint(equalTo: validateRecipe.leftAnchor, constant: -10),
             
+            timeProprety.centerXAnchor.constraint(equalTo: titleRecipe.centerXAnchor),
+            timeProprety.bottomAnchor.constraint(equalTo: container.bottomAnchor, constant: -15),
+            timeProprety.heightAnchor.constraint(equalTo: container.heightAnchor, multiplier: 0.4),
+            timeProprety.widthAnchor.constraint(equalTo: container.widthAnchor, multiplier: 0.22),
+            
+            coastProprety.heightAnchor.constraint(equalTo: timeProprety.heightAnchor),
+            coastProprety.leftAnchor.constraint(equalTo: previewImage.rightAnchor, constant: 15),
+            coastProprety.centerYAnchor.constraint(equalTo: timeProprety.centerYAnchor),
+            coastProprety.rightAnchor.constraint(equalTo: timeProprety.leftAnchor, constant: -15),
+            
+            caloriesProprety.heightAnchor.constraint(equalTo: timeProprety.heightAnchor),
+            caloriesProprety.leftAnchor.constraint(equalTo: timeProprety.rightAnchor, constant: 15),
+            caloriesProprety.centerYAnchor.constraint(equalTo: timeProprety.centerYAnchor),
+            caloriesProprety.rightAnchor.constraint(equalTo: cancelRecipe.leftAnchor, constant: -15),
         ]
         NSLayoutConstraint.activate(constraints)
     }
