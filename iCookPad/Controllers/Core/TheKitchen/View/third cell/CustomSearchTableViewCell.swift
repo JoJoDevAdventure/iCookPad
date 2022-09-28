@@ -207,10 +207,10 @@ class CustomSearchTableViewCell: UITableViewCell {
             veganSwitch.leftAnchor.constraint(equalTo: veganFreeLabel.rightAnchor, constant: 10),
             veganSwitch.centerYAnchor.constraint(equalTo: veganFreeLabel.centerYAnchor),
             // Find Button
-            findButton.leftAnchor.constraint(equalTo: veganSwitch.rightAnchor, constant: 40),
+            findButton.leftAnchor.constraint(greaterThanOrEqualTo: veganSwitch.rightAnchor, constant: 40),
             findButton.heightAnchor.constraint(equalToConstant: 50),
             findButton.centerYAnchor.constraint(equalTo: veganSwitch.centerYAnchor),
-            findButton.widthAnchor.constraint(lessThanOrEqualToConstant: 150),
+            findButton.widthAnchor.constraint(equalToConstant: 50),
             findButton.rightAnchor.constraint(equalTo: rightAnchor, constant: -30),
             
         ]

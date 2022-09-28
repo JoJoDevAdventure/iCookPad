@@ -242,6 +242,7 @@ class DetailViewController: UIViewController {
     override func viewDidLayoutSubviews() {
         scrollView.frame = view.frame
         scrollView.delegate = self
+        scrollView.backgroundColor = UIColor.BackgroundColors.background
     }
     
     private func setupConstraints() {
@@ -249,8 +250,7 @@ class DetailViewController: UIViewController {
             // Title constraints
             titleLabel.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
             titleLabel.widthAnchor.constraint(equalTo: scrollView.widthAnchor, constant: -300),
-            titleLabel.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 60),
-            titleLabel.heightAnchor.constraint(greaterThanOrEqualToConstant: 60),
+            titleLabel.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 0),
             
             // PreviewImage
             previewImage.widthAnchor.constraint(equalTo: scrollView.widthAnchor, multiplier: 0.45),
@@ -343,7 +343,7 @@ class DetailViewController: UIViewController {
 //            nutrimentImage.heightAnchor.constraint(equalTo: nutrimentImage.widthAnchor,multiplier: 1.2),
             nutrimentImage.topAnchor.constraint(equalTo: nutrimentLabel.bottomAnchor, constant: 30),
             nutrimentImage.centerXAnchor.constraint(equalTo: titleLabel.centerXAnchor),
-            nutrimentImage.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: -400),
+            nutrimentImage.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: -10),
             
         ]
         NSLayoutConstraint.activate(constraints)

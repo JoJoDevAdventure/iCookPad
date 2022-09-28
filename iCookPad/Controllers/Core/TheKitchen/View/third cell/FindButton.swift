@@ -21,10 +21,9 @@ class FindButton: UIButton {
     private func setup() {
         backgroundColor = .systemGreen
         translatesAutoresizingMaskIntoConstraints = false
-        setTitle("Find !", for: .normal)
         setImage(UIImage(systemName: "magnifyingglass"), for: .normal)
         tintColor = .white
-        layer.cornerRadius = 8
+        layer.cornerRadius = 25
         layer.shadowColor = UIColor.black.cgColor
         layer.shadowOffset = .zero
         layer.shadowRadius = 4
