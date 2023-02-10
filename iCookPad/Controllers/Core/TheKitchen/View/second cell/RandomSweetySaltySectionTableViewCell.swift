@@ -9,6 +9,8 @@ import UIKit
 
 protocol RandomSweetySaltySectionTableViewCellDelegate : AnyObject {
     func didSelectRecipe(recipe: Recipe)
+    func didDownloadRecipe(recipe: Recipe)
+    func CollectionViewTableViewCellFinishedDownload()
 }
 
 
@@ -194,7 +196,15 @@ class RandomSweetySaltySectionTableViewCell: UITableViewCell {
     }
     
     // MARK: - Functions
+    private func saveSweetRecipeAt(_ indexPath : IndexPath) {
+        let recipe = sweetRecipes[indexPath.row]
+        delegate?.didDownloadRecipe(recipe: recipe)
+    }
     
+    private func saveSaltyRecipeAt(_ indexPath : IndexPath) {
+        let recipe = saltyRecipes[indexPath.row]
+        delegate?.didDownloadRecipe(recipe: recipe)
+    }
 
 }
 // MARK: - Extension : TableView
@@ -245,6 +255,7 @@ extension RandomSweetySaltySectionTableViewCell: UITableViewDelegate, UITableVie
         }
     }
     
+    //Press cell
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if tableView == sweetyRecipesTableView {
             let recipe = sweetRecipes[indexPath.row]
@@ -255,4 +266,33 @@ extension RandomSweetySaltySectionTableViewCell: UITableViewDelegate, UITableVie
         }
     }
     
+    //Hold pressing cell :
+    func tableView(_ tableView: UITableView, contextMenuConfigurationForRowAt indexPath: IndexPath, point: CGPoint) -> UIContextMenuConfiguration? {
+        
+        if tableView == sweetyRecipesTableView {
+            let config = UIContextMenuConfiguration(
+                identifier: nil,
+                previewProvider: nil) {[weak self] _ in
+                    let save = UIAction(title: "download", image: UIImage(systemName: "arrow.down.to.line"), identifier: nil, discoverabilityTitle: nil, state: .off) { _ in
+                        self?.saveSweetRecipeAt(indexPath)
+                    }
+                    
+                    return UIMenu(title: "", image: nil, identifier: nil, options: .displayInline, children: [save])
+            }
+            return config
+        } else {
+            let config = UIContextMenuConfiguration(
+                identifier: nil,
+                previewProvider: nil) {[weak self] _ in
+                    let save = UIAction(title: "download", image: UIImage(systemName: "arrow.down.to.line"), identifier: nil, discoverabilityTitle: nil, state: .off) { _ in
+                        self?.saveSaltyRecipeAt(indexPath)
+                    }
+                    return UIMenu(title: "", image: nil, identifier: nil, options: .displayInline, children: [save])
+            }
+            return config
+        }
+
+    }
+        
+        
 }
