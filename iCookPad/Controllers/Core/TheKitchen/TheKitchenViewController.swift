@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Lottie
 
 class TheKitchenViewController: UIViewController {
     
@@ -17,6 +18,7 @@ class TheKitchenViewController: UIViewController {
     private var customSearchResult: [Recipe] = []
     
     // MARK: - UI
+    let doneDownloadAnimation = DoneAnimation()
     
     // TableView
     private let tableView: UITableView = {
@@ -151,6 +153,15 @@ extension TheKitchenViewController: UITableViewDelegate, UITableViewDataSource {
 // MARK: - Extension : ViewModel OutPut
 extension TheKitchenViewController: TheKitchedViewModelOutPut {
     
+    func downloadedWithSuccess() {
+        print("Success download")
+    }
+    
+    func downloadError(error: Error) {
+        print("failed download")
+    }
+    
+    
     // got custom recipes
     func gotCustomSearchRecipes(recipes: [Recipe]) {
         self.customSearchResult = recipes
@@ -223,6 +234,14 @@ extension TheKitchenViewController: CustomSearchTableViewCellDelegate {
 }
 
 extension TheKitchenViewController: RandomSweetySaltySectionTableViewCellDelegate {
+    
+    func didDownloadRecipe(recipe: Recipe) {
+        viewModel.downloadRecipe(recipe: recipe)
+    }
+    
+    func CollectionViewTableViewCellFinishedDownload() {
+        doneDownloadAnimation.show()
+    }
     
     func didSelectRecipe(recipe: Recipe) {
         Coordinator().goToDetailedRecipe(from: self, with: recipe)
