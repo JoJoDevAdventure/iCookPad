@@ -6,14 +6,23 @@
 //
 
 import UIKit
+protocol ToDoTableViewCellDelegate {
+    func didPressDeleteRecipe(recipe: RecipeItem)
+    func didPressArchieveRecipe(recipe: RecipeItem)
+}
 
 class ToDoTableViewCell: UITableViewCell {
+    
+    public var delegate: ToDoTableViewCellDelegate?
+    
+    private var recipe: RecipeItem? = nil
     
     // MARK: - Properties
     private lazy var container: ItemsContainerView = {
         let container = ItemsContainerView()
         container.configure()
         container.layer.cornerRadius = 30
+        container.isUserInteractionEnabled = true
         return container
     }()
     
@@ -25,24 +34,26 @@ class ToDoTableViewCell: UITableViewCell {
         return image
     }()
     
-    private lazy var cancelRecipe: UIImageView = {
-        let image = UIImageView()
-        image.translatesAutoresizingMaskIntoConstraints = false
-        image.image = UIImage(systemName: "x.circle")
-        image.backgroundColor = .clear
-        image.contentMode = .scaleAspectFit
-        image.tintColor = UIColor.Buttons.redButton
-        return image
+    private lazy var cancelRecipe: UIButton = {
+        let button = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setImage(UIImage(systemName: "x.circle", withConfiguration: UIImage.SymbolConfiguration(pointSize: 45)), for: .normal)
+        button.backgroundColor = .clear
+        button.contentMode = .scaleAspectFit
+        button.tintColor = UIColor.Buttons.redButton
+        button.isUserInteractionEnabled = true
+        return button
     }()
     
-    private lazy var validateRecipe: UIImageView = {
-        let image = UIImageView()
-        image.translatesAutoresizingMaskIntoConstraints = false
-        image.image = UIImage(systemName: "checkmark.circle")
-        image.backgroundColor = .clear
-        image.contentMode = .scaleAspectFit
-        image.tintColor = UIColor.Buttons.greenButton
-        return image
+    private lazy var validateRecipe: UIButton = {
+        let button = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setImage(UIImage(systemName: "checkmark.circle", withConfiguration: UIImage.SymbolConfiguration(pointSize: 45)), for: .normal)
+        button.backgroundColor = .clear
+        button.contentMode = .scaleAspectFit
+        button.isUserInteractionEnabled = true
+        button.tintColor = UIColor.Buttons.greenButton
+        return button
     }()
     
     private lazy var titleRecipe: TitleLabel = {
@@ -55,19 +66,16 @@ class ToDoTableViewCell: UITableViewCell {
     
     private lazy var timeProprety: PropretyContainerView = {
         let prop = PropretyContainerView()
-        prop.configure(proprety: "Prep Time :" , Value: "15 - 25 min")
         return prop
     }()
     
     private lazy var coastProprety: PropretyContainerView = {
         let prop = PropretyContainerView()
-        prop.configure(proprety: "Coast :", Value: "200 $")
         return prop
     }()
     
     private lazy var caloriesProprety: PropretyContainerView = {
         let prop = PropretyContainerView()
-        prop.configure(proprety: "Calories :", Value: "1200 KCal")
         return prop
     }()
     
@@ -78,6 +86,9 @@ class ToDoTableViewCell: UITableViewCell {
         backgroundColor = .clear
         setupSubviews()
         setupConstraints()
+        selectionStyle = .none
+        contentView.isUserInteractionEnabled = false
+        setupButtonAction()
     }
     
     required init?(coder: NSCoder) {
@@ -137,13 +148,45 @@ class ToDoTableViewCell: UITableViewCell {
             caloriesProprety.centerYAnchor.constraint(equalTo: timeProprety.centerYAnchor),
             caloriesProprety.rightAnchor.constraint(equalTo: cancelRecipe.leftAnchor, constant: -15),
         ]
-        NSLayoutConstraint.activate(constraints)
+        NSLayoutConstraint.activate(constraints)    }
+    
+    private func setupButtonAction() {
+        cancelRecipe.addTarget(self, action: #selector(deleteRecipe(_:)), for: .touchUpInside)
+        validateRecipe.addTarget(self, action: #selector(archiveRecipe(_:)), for: .touchUpInside)
     }
     
     // MARK: - Functions
     
-    private func configureCell(recipe: RecipeCD) {
+    @objc private func deleteRecipe(_ sender: UIButton) {
+        guard let recipe = self.recipe else {
+            return
+        }
+        delegate?.didPressDeleteRecipe(recipe: recipe)
+    }
+    
+    @objc private func archiveRecipe(_ sender: UIButton) {
+        guard let recipe = self.recipe else {
+            return
+        }
+        delegate?.didPressArchieveRecipe(recipe: recipe)
+    }
+    
+    public func configure(recipe: RecipeItem) {
+        self.recipe = recipe
+        if let localImageURLString = recipe.localImageUrl,
+                let localImageURL = URL(string: localImageURLString),
+                let imageData = try? Data(contentsOf: localImageURL),
+                let image = UIImage(data: imageData) {
+            
+                self.previewImage.image = image
+            } else {
+                print("Error fetching image")
+            }
         
+        titleRecipe.text = recipe.title
+        timeProprety.configure(proprety: "Prep Time :" , Value: "\(recipe.readyInMinutes - 5) - \(recipe.readyInMinutes + 5)")
+        coastProprety.configure(proprety: "Coast :", Value: "\(recipe.pricePerServing) $")
+        caloriesProprety.configure(proprety: "Calories :", Value: "\(recipe.weightWatcherSmartPoints*35) KCal")
     }
     
 }
