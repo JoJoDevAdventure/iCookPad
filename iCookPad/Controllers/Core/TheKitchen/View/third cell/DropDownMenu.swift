@@ -9,7 +9,7 @@ import UIKit
 import DropDown
 import Foundation
 
-class DropDownMenu: UIView {
+final class DropDownMenu: UIView {
     
     private let menuSelectedLabel: UILabel = {
         let label = UILabel()

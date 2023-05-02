@@ -242,6 +242,7 @@ class DetailViewController: UIViewController {
     override func viewDidLayoutSubviews() {
         scrollView.frame = view.frame
         scrollView.delegate = self
+        scrollView.backgroundColor = UIColor.BackgroundColors.background
     }
     
     private func setupConstraints() {
@@ -249,8 +250,7 @@ class DetailViewController: UIViewController {
             // Title constraints
             titleLabel.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
             titleLabel.widthAnchor.constraint(equalTo: scrollView.widthAnchor, constant: -300),
-            titleLabel.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 60),
-            titleLabel.heightAnchor.constraint(greaterThanOrEqualToConstant: 60),
+            titleLabel.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 0),
             
             // PreviewImage
             previewImage.widthAnchor.constraint(equalTo: scrollView.widthAnchor, multiplier: 0.45),
@@ -343,7 +343,7 @@ class DetailViewController: UIViewController {
 //            nutrimentImage.heightAnchor.constraint(equalTo: nutrimentImage.widthAnchor,multiplier: 1.2),
             nutrimentImage.topAnchor.constraint(equalTo: nutrimentLabel.bottomAnchor, constant: 30),
             nutrimentImage.centerXAnchor.constraint(equalTo: titleLabel.centerXAnchor),
-            nutrimentImage.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: -400),
+            nutrimentImage.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: -10),
             
         ]
         NSLayoutConstraint.activate(constraints)
@@ -362,12 +362,12 @@ class DetailViewController: UIViewController {
         stepsProprety.configure(proprety: "Steps :", Value: "\(recipe.extendedIngredients?.count ?? 0)")
         coastProprety.configure(proprety: "Coast :", Value: "\(recipe.pricePerServing ?? 0) $")
         timeProprety.configure(proprety: "Preparation time :", Value: "\(recipe.readyInMinutes-5) - \(recipe.readyInMinutes+5) min")
-        let urlToIngredientsImage = "https://api.spoonacular.com/recipes/\(recipe.id!)/ingredientWidget.png?\(APIInformations().apiKeyUrlBase)\(APIInformations().apiKey)&view=grid"
-        let urlToEquipment = "https://api.spoonacular.com/recipes/\(recipe.id!)/equipmentWidget.png?\(APIInformations().apiKeyUrlBase)\(APIInformations().apiKey)"
-        let urlToTaste = "https://api.spoonacular.com/recipes/\(recipe.id!)/tasteWidget.png?\(APIInformations().apiKeyUrlBase)\(APIInformations().apiKey)"
+        let urlToIngredientsImage = "https://api.spoonacular.com/recipes/\(recipe.id)/ingredientWidget.png?\(APIInformations().apiKeyUrlBase)\(APIInformations().apiKey)&view=grid"
+        let urlToEquipment = "https://api.spoonacular.com/recipes/\(recipe.id)/equipmentWidget.png?\(APIInformations().apiKeyUrlBase)\(APIInformations().apiKey)"
+        let urlToTaste = "https://api.spoonacular.com/recipes/\(recipe.id)/tasteWidget.png?\(APIInformations().apiKeyUrlBase)\(APIInformations().apiKey)"
         print(urlToTaste)
-        let urlToPrice = "https://api.spoonacular.com/recipes/\(recipe.id!)/priceBreakdownWidget.png?\(APIInformations().apiKeyUrlBase)\(APIInformations().apiKey)"
-        let urlToNutriments = "https://api.spoonacular.com/recipes/\(recipe.id!)/nutritionWidget.png?\(APIInformations().apiKeyUrlBase)\(APIInformations().apiKey)"
+        let urlToPrice = "https://api.spoonacular.com/recipes/\(recipe.id)/priceBreakdownWidget.png?\(APIInformations().apiKeyUrlBase)\(APIInformations().apiKey)"
+        let urlToNutriments = "https://api.spoonacular.com/recipes/\(recipe.id)/nutritionWidget.png?\(APIInformations().apiKeyUrlBase)\(APIInformations().apiKey)"
         
         ingredientsImage.sd_setImage(with: URL(string: urlToIngredientsImage)) { image, _, _, _ in
             self.ingredientsImage.heightAnchor.constraint(equalToConstant: image!.size.height-80).isActive = true
@@ -406,7 +406,6 @@ extension DetailViewController: UIScrollViewDelegate {
         if scrollView.contentOffset.y < 24 {
             offset = 0
         }
-        print(offset)
         previewImage.transform = CGAffineTransform(translationX: -offset, y: 0)
         previewImage.alpha = 1-(offset/450)
         recipdeDesc.transform = CGAffineTransform(translationX: offset, y: 0)
