@@ -9,26 +9,60 @@ import Foundation
 import UIKit
 import CoreData
 
-class DataPersistantManager {
+protocol DPInsertionService {
+    func downloadRecipeWith(model: Recipe, completion: @escaping (Result<Void, Error>) -> Void)
+}
+
+
+class DataPersistantManager: DPInsertionService {
     
     static let shared = DataPersistantManager()
     
     //CoreData : Insert into Local
     func downloadRecipeWith(model: Recipe, completion: @escaping (Result<Void, Error>) -> Void) {
-        
-        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+            completion(.failure(DBError.invalidAppDelegate))
+            return
+        }
         
         let context = appDelegate.persistentContainer.viewContext
         
         let item = model.toItem(context: context)
         
-        do {
-            try context.save()
-            completion(.success(()))
-        } catch {
-            completion(.failure(DataBaseError.failedToSaveData))
+        guard let imageURLString = model.image, let imageURL = URL(string: imageURLString) else {
+            completion(.failure(DBError.invalidImageURL))
+            return
         }
         
+        let task = URLSession.shared.dataTask(with: imageURL) { (data, response, error) in
+            if let error = error {
+                completion(.failure(error))
+                return
+            }
+            
+            if let data = data, let image = UIImage(data: data) {
+                // Save the image to local storage
+                let imagePath = self.getDocumentsDirectory().appendingPathComponent("\(model.id).jpg")
+                
+                do {
+                    try image.jpegData(compressionQuality: 1.0)?.write(to: imagePath)
+                    item.localImageUrl = imagePath.absoluteString // Update the RecipeItem with local image URL
+                    try context.save()
+                    completion(.success(()))
+                } catch {
+                    completion(.failure(DBError.failedToSaveImage))
+                }
+            } else {
+                completion(.failure(DBError.invalidImageData))
+            }
+        }
+        
+        task.resume()
+    }
+    
+    private func getDocumentsDirectory() -> URL {
+        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        return paths[0]
     }
     
     //CoreData : Fetch all
@@ -51,7 +85,7 @@ class DataPersistantManager {
     }
     
     //CoreData : Delete
-    func deleteTitileWith(model : RecipeItem, completion: @escaping (Result<Void, Error>) -> Void) {
+    func deleteRecipeWith(model : RecipeItem, completion: @escaping (Result<Void, Error>) -> Void) {
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
         
         let context = appDelegate.persistentContainer.viewContext
@@ -68,7 +102,7 @@ class DataPersistantManager {
         }
     }
     
-    func deleteAllTitles(items: [RecipeItem],completion: @escaping (Result<Void, Error>) -> Void) {
+    func deleteAllRecipes(items: [RecipeItem],completion: @escaping (Result<Void, Error>) -> Void) {
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
         
         let context = appDelegate.persistentContainer.viewContext

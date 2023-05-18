@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import CoreData
 
 //api response model
 struct ApiResponse : Decodable {
@@ -14,7 +15,7 @@ struct ApiResponse : Decodable {
 
 // recipe model
 struct Recipe: Decodable {
-    var id: Int?
+    var id: Int
     var title: String?
     var image: String?
     var readyInMinutes: Int
@@ -26,6 +27,24 @@ struct Recipe: Decodable {
     var weightWatcherSmartPoints: Int?
     var summary: String?
     var difficulty: Int?
+    
+    public func toItem(context:NSManagedObjectContext) -> RecipeItem {
+        let item = RecipeItem(context: context)
+        
+        item.title = self.title
+        item.id = Int64(self.id)
+        item.imageUrl = self.image
+        item.readyInMinutes = Int64(self.readyInMinutes)
+        item.healthScore = self.healthScore ?? 0
+        item.spoonacularScore = self.spoonacularScore ?? 0
+        item.pricePerServing = self.pricePerServing ?? 0
+        item.vegan = self.vegan ?? false
+        item.weightWatcherSmartPoints = Int64(self.weightWatcherSmartPoints ?? 0)
+        item.summary = self.summary
+        item.difficulty = Int64(self.difficulty ?? 0)
+        return item
+    }
+    
 }
 
 //steps model
@@ -63,3 +82,5 @@ struct ComplexRecipe: Decodable {
     var image : String
     var imageType: String
 }
+
+

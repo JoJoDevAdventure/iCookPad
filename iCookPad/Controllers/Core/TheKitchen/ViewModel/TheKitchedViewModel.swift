@@ -15,6 +15,8 @@ protocol TheKitchedViewModelOutPut: AnyObject {
     func showErrorMessageFetchingRandom(error: Error)
     func showErrorMessageFetchingSalty(error: Error)
     func showErrorMessageFetchingSweet(error: Error)
+    func downloadedWithSuccess()
+    func downloadError(error: Error)
 }
 
 class TheKitchedViewModel {
@@ -22,9 +24,11 @@ class TheKitchedViewModel {
     
     weak var output: TheKitchedViewModelOutPut?
     let TheKitchenService: TheKitchenAPICaller
+    let InsertionService: DPInsertionService
     
-    init(TheKitchenService: TheKitchenAPICaller) {
+    init(TheKitchenService: TheKitchenAPICaller, DPInsertionService: DPInsertionService) {
         self.TheKitchenService = TheKitchenService
+        self.InsertionService = DPInsertionService
     }
     
     // get chief choice recipe and set it to TheChiken controller
@@ -79,6 +83,17 @@ class TheKitchedViewModel {
                 self?.output?.gotCustomSearchRecipes(recipes: recipes)
             case .failure(_) : break
 
+            }
+        }
+    }
+    
+    public func downloadRecipe(recipe: Recipe) {
+        InsertionService.downloadRecipeWith(model: recipe) {[weak self] results in
+            switch results {
+            case .success():
+                self?.output?.downloadedWithSuccess()
+            case .failure(let error):
+                self?.output?.downloadError(error: error)
             }
         }
     }

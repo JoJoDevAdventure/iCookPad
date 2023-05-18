@@ -17,7 +17,8 @@ enum TabBarModel: CaseIterable {
         switch self {
         case .mainView:
             let service : TheKitchenAPICaller = APIsCaller()
-            let viewModel = TheKitchedViewModel(TheKitchenService: service)
+            let dpService: DPInsertionService = DataPersistantManager()
+            let viewModel = TheKitchedViewModel(TheKitchenService: service, DPInsertionService: dpService)
             let vc = TheKitchenViewController(viewModel: viewModel)
             return vc
         case .todoList:
